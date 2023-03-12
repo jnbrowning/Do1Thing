@@ -1,19 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react'
 import { StyleSheet, Text, View, Button} from 'react-native';
-import { app } from './data/DB';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from '@rneui/themed';
+import { LogBox } from 'react-native';
+
+//Redux imports
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import { rootReducer } from './data/Reducer';
 
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 
+LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
 
 export default function App() {
 
     const Stack = createNativeStackNavigator();
+
+    const store = configureStore({
+      reducer: rootReducer
+    });
 
     const MainTabNavigator = () => {
       const Tabs = createBottomTabNavigator();
@@ -93,12 +103,14 @@ export default function App() {
       }
       
         return(
-          <NavigationContainer>
-            <Stack.Navigator initialRouteName = 'Login' screenOptions={{ headerShown: false}}>
-              <Stack.Screen name = 'Login' component = {LoginScreen} />
-              <Stack.Screen name = 'Home' component = {MainTabNavigator} />
-            </Stack.Navigator>
-          </NavigationContainer>
+          <Provider store={store}>
+            <NavigationContainer>
+              <Stack.Navigator initialRouteName = 'Login' screenOptions={{ headerShown: false}}>
+                <Stack.Screen name = 'Login' component = {LoginScreen} />
+                <Stack.Screen name = 'Home' component = {MainTabNavigator} />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </Provider>
         )
     }
 

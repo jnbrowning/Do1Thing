@@ -1,10 +1,10 @@
 const actionTypes = {
     LOAD_USER: 'LOAD_USERS',
     CREATE_USER: 'CREATE_USER',
+    SET_LOGIN: 'SET_LOGIN',
   }
 
   const loadUser = (user) => {
-    console.log('loadUser action activated')
     return {
       type: actionTypes.LOAD_USER,
       payload: {
@@ -22,4 +22,13 @@ const actionTypes = {
     }
   }
 
-  export { actionTypes, loadUser, createUser };
+  const setLogin = (value) => {
+    return {
+        type: actionTypes.SET_LOGIN,
+        payload: {
+            value: value
+        }
+    }
+  }
+
+  export { actionTypes, loadUser, createUser, setLogin };
