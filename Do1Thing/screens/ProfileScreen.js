@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
-import { withOrientation } from "react-navigation";
 import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch } from "../data/DB";
@@ -33,11 +32,7 @@ export default function ProfileScreen({navigation}) {
         {/* <Header navigation={navigation} headingText={""} /> */}
 
         <View style={styles.profile}>
-          {/* {user.profilePicture !== "" ? (
-            <Image source={determineProfilePicture()} style={styles.image} />
-          ) : (
-            <View style={styles.profile_pic}></View>
-          )} */}
+          <View style={styles.profile_pic}></View>
           <Text style={styles.usernameText}>username</Text>
           <Text style={styles.startDateText}>
             Player since 1/1/2001
@@ -69,8 +64,8 @@ const styles = StyleSheet.create({
   },
   profile_pic: {
     backgroundColor: "darkblue",
-    width: "40%",
-    height: "65%",
+    width: "30%",
+    height: "60%",
     borderRadius: "100%",
   },
   profile: {
@@ -88,7 +83,7 @@ const styles = StyleSheet.create({
   },
   startDateText: {
     fontSize: "14pt",
-    fontFamily: "RobotoMono",
+    // fontFamily: "RobotoMono",
   },
   statisticsList: {
     flex: 0.3,
@@ -104,7 +99,7 @@ const styles = StyleSheet.create({
   },
   numberText: {
     fontWeight: "bold",
-    fontFamily: "RobotoMono",
+    // fontFamily: "RobotoMono",
   },
   image: {
     width: 100,
@@ -128,9 +123,9 @@ const styles = StyleSheet.create({
     padding: "2%",
     fontSize: "18pt",
     fontWeight: "bold",
-    fontFamily: "ZenDots",
+    // fontFamily: "ZenDots",
   },
   statisticText: {
-    fontFamily: "RobotoMono",
+    // fontFamily: "RobotoMono",
   },
 });

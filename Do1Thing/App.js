@@ -9,6 +9,7 @@ import { Icon } from '@rneui/themed';
 
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 export default function App() {
@@ -89,7 +90,13 @@ export default function App() {
 
       const UserTabStack =  () => {
         const stack = createNativeStackNavigator();
-        // Add code
+       
+        return (
+          <Stack.Navigator initialRouteName = 'Profile' screenOptions={{ headerShown: false}}>
+            <Stack.Screen name = 'Profile' component={ProfileScreen}/>
+          </Stack.Navigator>
+        )
+        
       }
       
         return(
@@ -97,6 +104,7 @@ export default function App() {
             <Stack.Navigator initialRouteName = 'Login' screenOptions={{ headerShown: false}}>
               <Stack.Screen name = 'Login' component = {LoginScreen} />
               <Stack.Screen name = 'Home' component = {MainTabNavigator} />
+              <Stack.Screen name="Profile" component={ProfileScreen} />
             </Stack.Navigator>
           </NavigationContainer>
         )
