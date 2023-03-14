@@ -14,6 +14,7 @@ import { rootReducer } from './data/Reducer';
 
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
 
@@ -99,7 +100,13 @@ export default function App() {
 
       const UserTabStack =  () => {
         const stack = createNativeStackNavigator();
-        // Add code
+       
+        return (
+          <Stack.Navigator initialRouteName = 'Profile' screenOptions={{ headerShown: false}}>
+            <Stack.Screen name = 'Profile' component={ProfileScreen}/>
+          </Stack.Navigator>
+        )
+        
       }
       
         return(
@@ -108,9 +115,11 @@ export default function App() {
               <Stack.Navigator initialRouteName = 'Login' screenOptions={{ headerShown: false}}>
                 <Stack.Screen name = 'Login' component = {LoginScreen} />
                 <Stack.Screen name = 'Home' component = {MainTabNavigator} />
+                 <Stack.Screen name="Profile" component={ProfileScreen} />
               </Stack.Navigator>
             </NavigationContainer>
           </Provider>
+
         )
     }
 
