@@ -42,18 +42,22 @@ export default function ProfileScreen({navigation}) {
         <View style={styles.statisticsList}>
           <View style={styles.statisticGroup}>
             <Text style={styles.statisticText}>Modules completed:</Text>
-            <Text style={styles.numberText}>
-              0
-            </Text>
+            <Text style={styles.numberText}>0</Text>
           </View>
-
           <View style={styles.statisticGroup}>
             <Text style={styles.statisticText}>Percent finished:</Text>
             <Text style={styles.numberText}>0%</Text>
           </View>
+          </View>
 
-        
-        </View>
+          <Text style={styles.badgeSectionText}>Badges:</Text>
+          <View style={styles.badgesSection}>
+            <View style={styles.badge}></View>
+            <View style={styles.badge}></View>
+            <View style={styles.badge}></View>
+          </View>
+
+    
       </View>
     );
         }
@@ -79,11 +83,9 @@ const styles = StyleSheet.create({
     fontSize: "16pt",
     fontWeight: "bold",
     padding: "1%",
-    fontFamily: "ZenDots",
   },
   startDateText: {
     fontSize: "14pt",
-    // fontFamily: "RobotoMono",
   },
   statisticsList: {
     flex: 0.3,
@@ -99,33 +101,25 @@ const styles = StyleSheet.create({
   },
   numberText: {
     fontWeight: "bold",
-    // fontFamily: "RobotoMono",
   },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: "100%",
-  },
-  selectedAvatar: {
-    width: 100,
-    height: 100,
-    borderWidth: "3px",
-    borderRadius: "100%",
-  },
-  gallery: {
+  badgesSection: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     flex: 0.1,
   },
-  avatarText: {
-    padding: "2%",
-    fontSize: "18pt",
-    fontWeight: "bold",
-    // fontFamily: "ZenDots",
+  badge: {
+    backgroundColor: "pink",
+    width: "18%",
+    height: "100%",
+    borderRadius: "100%",
+    margin: '2%',
   },
-  statisticText: {
-    // fontFamily: "RobotoMono",
-  },
+  badgeSectionText: {
+    fontWeight: 'bold',
+    paddingLeft: '3%',
+    paddingBottom: '3%',
+    fontSize: '18pt'
+  }
 });
