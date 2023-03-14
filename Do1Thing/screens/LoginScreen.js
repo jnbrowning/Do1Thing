@@ -9,12 +9,16 @@ import {
 
 import { Button } from '@rneui/themed';
 import { getFBAuth, saveAndDispatch } from '../data/DB';
-import { createUser } from '../data/Actions';
+import { createUser, setLogin, loadUser } from '../data/Actions';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 function SigninBox({navigation}) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.loginContainer}>
@@ -56,12 +60,23 @@ function SigninBox({navigation}) {
           onPress={async () => {
             try {
               await signInWithEmailAndPassword(getFBAuth(), email, password);
+              dispatch(setLogin(true));
             } catch(error) {
               Alert.alert("Sign In Error", error.message,[{ text: "OK" }])
             }
           }}
         >
           Sign In
+        </Button>  
+      </View>
+      <View style={styles.loginRow}>
+        <Button
+          onPress={() => {
+            navigation.navigate('Home',{screen: 'HomeScreen'})
+            // dispatch(loadUser({}));
+          }}
+        >
+          Enter as guest
         </Button>  
       </View>
     </View>
@@ -71,6 +86,8 @@ function SigninBox({navigation}) {
 function SignupBox({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.loginContainer}>
@@ -121,7 +138,10 @@ function SignupBox({navigation}) {
                 saveAndDispatch(createUser({
                   uid: userCred.user.uid,
                   email: userCred.user.email
-                }))
+                }));
+
+                dispatch(setLogin(true));
+
             } catch(error) {
               Alert.alert("Sign Up Error", error.message,[{ text: "OK" }])
             }
@@ -145,6 +165,7 @@ function LoginScreen({navigation}) {
         } else {
           // console.log('user is signed out!');
           navigation.navigate('Login');
+          setLoginMode(true);
         }
       })
     }, []);
