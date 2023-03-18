@@ -1,6 +1,6 @@
 import { getApps, initializeApp } from "firebase/app";
 import { firebaseConfig } from './Secret';
-import { actionTypes, loadUser } from './Actions';
+import { actionTypes, loadUser, editUser } from './Actions';
 import { getAuth, signOut } from 'firebase/auth';
 import { 
     getFirestore, 
@@ -32,7 +32,7 @@ const getFBApp = () => {
 
   const getDB = () => {
     return getFirestore(getFBApp());
-  }
+  } 
 
   const getFBAuth = () => {
     return getAuth(getFBApp());
@@ -51,6 +51,11 @@ const getFBApp = () => {
     let unsubFunction = onSnapshot(collection(getDB(), userCollection), qSnap => {
         let newUser = findActiveUser(qSnap);
         console.log('\n\nusers coll updated:\n\n', newUser);
+        if (newUser.badges == undefined){
+          console.log('This user has no badges field defined! Fixing... ')
+          saveAndDispatch(editUser({...newUser, badges: []}));
+          console.log('Should be fixed now')
+        } // For legacy account without badge array, initialize badge array
         dispatch(loadUser(newUser));
     })
     unsub = unsubFunction;
@@ -82,14 +87,25 @@ const getFBApp = () => {
   const saveAndDispatch = (action, dispatch) => {
     switch (action.type) {
         case actionTypes.CREATE_USER:
-            return createUser(action, dispatch);
+            return _createUser(action, dispatch);
+        case actionTypes.EDIT_USER:
+            return _editUser(action, dispatch);
     }
   }
 
-  const createUser = async (action, dispatch) => {
+  const _createUser = async (action, dispatch) => {
     const { user } = action.payload;
     await setDoc(doc(collection(getDB(), userCollection), user.uid), {
-        email: user.email
+        email: user.email,
+        badges: []
+    })
+  }
+
+  const _editUser = async (action, dispatch) => {
+    const { user } = action.payload;
+    await setDoc(doc(collection(getDB(), userCollection), user.uid), {
+        email: user.email,
+        badges: user.badges
     })
   }
 
