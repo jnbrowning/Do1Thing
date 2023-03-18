@@ -49,9 +49,11 @@ const getFBApp = () => {
         unsub();
     }
     let unsubFunction = onSnapshot(collection(getDB(), userCollection), qSnap => {
-        let newUser = findActiveUser(qSnap);
+        const auth = getFBAuth();
+      
+        let newUser = findActiveUser(qSnap, auth);
         console.log('\n\nusers coll updated:\n\n', newUser);
-        if (newUser.badges == undefined){
+        if ((newUser.badges === undefined) && (auth.currentUser)){
           console.log('This user has no badges field defined! Fixing... ')
           saveAndDispatch(editUser({...newUser, badges: []}));
           console.log('Should be fixed now')
@@ -63,12 +65,11 @@ const getFBApp = () => {
 
   // Process users collection snapshot to identify current active user
 
-  const findActiveUser = (userQuerySnapshot) => {
+  const findActiveUser = (userQuerySnapshot, authObj) => {
     let newUser = {};
-    const auth = getFBAuth();
     try{
         userQuerySnapshot.forEach(docSnap => {
-            if (auth.currentUser.uid === docSnap.id){
+            if (authObj.currentUser.uid === docSnap.id){
                 newUser = docSnap.data();
                 newUser.uid = docSnap.id;
                 // console.log(newUser);
