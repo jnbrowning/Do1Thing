@@ -77,7 +77,7 @@ function SigninBox({navigation}) {
           }}
         >
           Enter as guest
-        </Button>  
+        </Button>
       </View>
     </View>
   );

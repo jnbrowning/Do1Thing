@@ -1,6 +1,7 @@
 const actionTypes = {
-    LOAD_USER: 'LOAD_USERS',
+    LOAD_USER: 'LOAD_USER',
     CREATE_USER: 'CREATE_USER',
+    EDIT_USER: 'EDIT_USER',
     SET_LOGIN: 'SET_LOGIN',
   }
 
@@ -31,4 +32,13 @@ const actionTypes = {
     }
   }
 
-  export { actionTypes, loadUser, createUser, setLogin };
+  const editUser = (user) => {
+    return {
+      type: actionTypes.EDIT_USER,
+      payload: {
+        user: user
+      }
+    }
+  }
+
+  export { actionTypes, loadUser, createUser, setLogin, editUser };

@@ -1,6 +1,6 @@
 import { getApps, initializeApp } from "firebase/app";
 import { firebaseConfig } from './Secret';
-import { actionTypes, loadUser } from './Actions';
+import { actionTypes, loadUser, editUser } from './Actions';
 import { getAuth, signOut } from 'firebase/auth';
 import { 
     getFirestore, 
@@ -32,7 +32,7 @@ const getFBApp = () => {
 
   const getDB = () => {
     return getFirestore(getFBApp());
-  }
+  } 
 
   const getFBAuth = () => {
     return getAuth(getFBApp());
@@ -49,8 +49,15 @@ const getFBApp = () => {
         unsub();
     }
     let unsubFunction = onSnapshot(collection(getDB(), userCollection), qSnap => {
-        let newUser = findActiveUser(qSnap);
+        const auth = getFBAuth();
+      
+        let newUser = findActiveUser(qSnap, auth);
         console.log('\n\nusers coll updated:\n\n', newUser);
+        if ((newUser.badges === undefined) && (auth.currentUser)){
+          console.log('This user has no badges field defined! Fixing... ')
+          saveAndDispatch(editUser({...newUser, badges: []}));
+          console.log('Should be fixed now')
+        } // For legacy account without badge array, initialize badge array
         dispatch(loadUser(newUser));
     })
     unsub = unsubFunction;
@@ -58,12 +65,11 @@ const getFBApp = () => {
 
   // Process users collection snapshot to identify current active user
 
-  const findActiveUser = (userQuerySnapshot) => {
+  const findActiveUser = (userQuerySnapshot, authObj) => {
     let newUser = {};
-    const auth = getFBAuth();
     try{
         userQuerySnapshot.forEach(docSnap => {
-            if (auth.currentUser.uid === docSnap.id){
+            if (authObj.currentUser.uid === docSnap.id){
                 newUser = docSnap.data();
                 newUser.uid = docSnap.id;
                 // console.log(newUser);
@@ -82,14 +88,25 @@ const getFBApp = () => {
   const saveAndDispatch = (action, dispatch) => {
     switch (action.type) {
         case actionTypes.CREATE_USER:
-            return createUser(action, dispatch);
+            return _createUser(action, dispatch);
+        case actionTypes.EDIT_USER:
+            return _editUser(action, dispatch);
     }
   }
 
-  const createUser = async (action, dispatch) => {
+  const _createUser = async (action, dispatch) => {
     const { user } = action.payload;
     await setDoc(doc(collection(getDB(), userCollection), user.uid), {
-        email: user.email
+        email: user.email,
+        badges: []
+    })
+  }
+
+  const _editUser = async (action, dispatch) => {
+    const { user } = action.payload;
+    await setDoc(doc(collection(getDB(), userCollection), user.uid), {
+        email: user.email,
+        badges: user.badges
     })
   }
 
