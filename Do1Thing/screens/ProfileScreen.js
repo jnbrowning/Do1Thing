@@ -27,6 +27,21 @@ export default function ProfileScreen({navigation}) {
 //   if (!fontsLoaded) {
 //     return <View></View>;
 //   } else {
+
+  const loggedIn = useSelector((state) => {
+      if (state !== undefined){
+          return state.loggedIn;
+      }
+  })
+
+  const currentUser = useSelector(state => {
+    if (state !== undefined){
+        return state.user;
+    }
+    else {console.log('Cannot find state users yet');}
+  })
+
+  if (loggedIn) {
     return (
       <View style={styles.container}>
         {/* <Header navigation={navigation} headingText={""} /> */}
@@ -50,16 +65,27 @@ export default function ProfileScreen({navigation}) {
           </View>
           </View>
 
-          <Text style={styles.badgeSectionText}>Badges:</Text>
+          <Text style={styles.badgeSectionText}>Badges: {currentUser.badges.length.toString()}</Text>
           <View style={styles.badgesSection}>
             <View style={styles.badge}></View>
             <View style={styles.badge}></View>
             <View style={styles.badge}></View>
           </View>
-
-    
       </View>
     );
+  }
+  
+  else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.profile}>
+          <Text> Guest mode </Text>
+        </View>
+      </View>
+    );
+  }
+
+    
         }
 
 const styles = StyleSheet.create({
