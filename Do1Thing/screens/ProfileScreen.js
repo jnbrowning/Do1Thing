@@ -68,7 +68,17 @@ export default function ProfileScreen({navigation}) {
 
           <Text style={styles.badgeSectionText}>Badges: {currentUser.badges.length.toString()}</Text>
           <View style={styles.badgesSection}>
-          <Badge></Badge>
+
+          <FlatList
+            data={currentUser.badges}
+            renderItem={({badge})=>{
+              return (
+                   <Badge badge={badge}/>
+              );
+             }}>
+          
+        </FlatList>
+            
           </View>
       </View>
     );
