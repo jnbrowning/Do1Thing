@@ -13,7 +13,7 @@ import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch } from "../data/DB";
 
-export default function Badge() {
+export default function Badge(badgeID) {
 
     return (
         <View style={styles.badge}></View>
