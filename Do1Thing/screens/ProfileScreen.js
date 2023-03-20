@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch } from "../data/DB";
+import Badge from "../components/Badge";
 
 const auth = getFBAuth();
 
@@ -67,9 +68,7 @@ export default function ProfileScreen({navigation}) {
 
           <Text style={styles.badgeSectionText}>Badges: {currentUser.badges.length.toString()}</Text>
           <View style={styles.badgesSection}>
-            <View style={styles.badge}></View>
-            <View style={styles.badge}></View>
-            <View style={styles.badge}></View>
+          <Badge></Badge>
           </View>
       </View>
     );
