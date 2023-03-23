@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function HomeScreen({navigation}) {
 
     const dispatch = useDispatch();
+    const [overlayVisible, setOverlayVisible] = useState(false);
 
     const loggedIn = useSelector((state) => {
         if (state !== undefined){
@@ -43,6 +44,50 @@ export default function HomeScreen({navigation}) {
                     navigation.navigate('Login');
                 }}></Button>
             }
+
+<Overlay
+          isVisible={overlayVisible}
+          onBackdropPress={() => setOverlayVisible(false)}
+          overlayStyle={styles.overlayView}
+        >
+          <Text style={styles.overlayText}>
+            You earned a badge!
+          </Text>
+          <TouchableOpacity
+            style={styles.okayButton}
+            onPress={() => {
+              setOverlayVisible(false);
+            }}
+          >
+            <Text style={styles.buttonText}>Okay</Text>
+          </TouchableOpacity>
+        </Overlay>
+
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    buttonText: {
+        textAlign: "center",
+        top: "25%",
+        color: "white",
+        fontWeight: "bold",
+        fontSize: "18pt",
+      },
+      overlayView: {
+        height: "20%",
+        width: "60%",
+      },
+      overlayText: {
+        margin: "10%",
+      },
+      okayButton: {
+        width: "50%",
+        height: "30%",
+        backgroundColor: "black",
+        margin: "auto",
+        borderRadius: "70%",
+        left: "25%",
+      },
+})
