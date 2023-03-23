@@ -71,7 +71,7 @@ export default function ProfileScreen({navigation}) {
 
           <FlatList
             data={currentUser.badges}
-            renderItem={({badge})=>{
+            renderBadge={({badge})=>{
               return (
                    <Badge badge={badge}/>
               );

@@ -9,7 +9,7 @@ import {
 
 import { Button } from '@rneui/themed';
 import { getFBAuth, saveAndDispatch } from '../data/DB';
-import { createUser, setLogin, loadUser } from '../data/Actions';
+import { createUser, editUser, setLogin, loadUser } from '../data/Actions';
 
 import { useDispatch, useSelector } from 'react-redux';
 
