@@ -6,9 +6,10 @@ import { setLogin } from '../data/Actions';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen(props) {
 
     const dispatch = useDispatch();
+    const {navigation, loginMode} = props;
     const [overlayVisible, setOverlayVisible] = useState(false);
 
     const loggedIn = useSelector((state) => {
@@ -16,6 +17,13 @@ export default function HomeScreen({navigation}) {
             return state.loggedIn;
         }
     })
+
+    if (loginMode == false) {
+      setOverlayVisible(true)
+    }
+    else { 
+      setOverlayVisible(false)
+    }
 
     useEffect(() => {
         subscribeToUsersCollection(dispatch);
@@ -27,6 +35,8 @@ export default function HomeScreen({navigation}) {
         }
         else {console.log('Cannot find state users yet');}
     })
+
+  
 
 
     return(

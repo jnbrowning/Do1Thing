@@ -98,7 +98,7 @@ const getFBApp = () => {
     const { user } = action.payload;
     await setDoc(doc(collection(getDB(), userCollection), user.uid), {
         email: user.email,
-        badges: []
+        badges: [1]
     })
   }
 
