@@ -15,6 +15,8 @@ import { rootReducer } from './data/Reducer';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import PasswordResetScreen from './screens/PasswordResetScreen';
+
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
 
@@ -114,8 +116,9 @@ export default function App() {
             <NavigationContainer>
               <Stack.Navigator initialRouteName = 'Login' screenOptions={{ headerShown: false}}>
                 <Stack.Screen name = 'Login' component = {LoginScreen} />
+                <Stack.Screen name = 'PasswordReset' component = {PasswordResetScreen} />
                 <Stack.Screen name = 'Home' component = {MainTabNavigator} />
-                 <Stack.Screen name="Profile" component={ProfileScreen} />
+                <Stack.Screen name="Profile" component={ProfileScreen} />
               </Stack.Navigator>
             </NavigationContainer>
           </Provider>
