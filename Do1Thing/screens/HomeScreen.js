@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
@@ -18,12 +18,19 @@ export default function HomeScreen(props) {
         }
     })
 
-    if (loginMode == false) {
-      setOverlayVisible(true)
+    if (loginMode === true) {
+      console.log("login mode false")
     }
-    else { 
-      setOverlayVisible(false)
+    else {
+      console.log("login mode true")
     }
+
+    // if (!loginMode) {
+    //   setOverlayVisible(true)
+    // }
+    // else { 
+    //   setOverlayVisible(false)
+    // }
 
     useEffect(() => {
         subscribeToUsersCollection(dispatch);

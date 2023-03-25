@@ -76,7 +76,6 @@ export default function ProfileScreen({navigation}) {
                    <Badge badge={badge}/>
               );
              }}>
-          
         </FlatList>
             
           </View>
