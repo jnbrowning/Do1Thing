@@ -72,7 +72,7 @@ function SigninBox({navigation}) {
       <View style={styles.loginRow}>
         <Button
           onPress={() => {
-            navigation.navigate('Home',{screen: 'HomeScreen', loginMode: signedUp})
+            navigation.navigate('Home',{screen: 'HomeScreen', signedUp: false})
             // dispatch(loadUser({}));
           }}
         >
@@ -86,7 +86,6 @@ function SigninBox({navigation}) {
 function SignupBox({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [signedUp, setSignedUp] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -146,7 +145,6 @@ function SignupBox({navigation}) {
             } catch(error) {
               Alert.alert("Sign Up Error", error.message,[{ text: "OK" }])
             }
-            setSignedUp(true);
           }}
         >
           Sign Up
@@ -163,7 +161,7 @@ function LoginScreen({navigation}) {
     useEffect(() => {
       onAuthStateChanged(getFBAuth(), user => {
         if (user) {
-          navigation.navigate('Home',{screen: 'HomeScreen', loginMode: signedUp});
+          navigation.navigate('Home',{screen: 'HomeScreen', signedUp: true});
         } else {
           // console.log('user is signed out!');
           navigation.navigate('Login');
