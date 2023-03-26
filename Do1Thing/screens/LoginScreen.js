@@ -4,7 +4,7 @@ import { View, Text, TextInput, StyleSheet, Alert, Image } from 'react-native';
 import { 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
-  onAuthStateChanged, 
+  onAuthStateChanged
 } from 'firebase/auth';
 
 import { Button } from '@rneui/themed';
@@ -67,7 +67,12 @@ function SigninBox({navigation}) {
           }}
         >
           Sign In
-        </Button>  
+        </Button>
+        <Button
+          type='clear'
+          title='Forgot password?'
+          onPress={() => {navigation.navigate('PasswordReset')}}
+        />
       </View>
       <View style={styles.loginRow}>
         <Button
