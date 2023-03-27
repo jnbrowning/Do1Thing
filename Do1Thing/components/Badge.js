@@ -4,6 +4,7 @@ import {
   Image,
   Text,
   StyleSheet,
+  ImageBackground,
   FlatList,
   TouchableOpacity,
 } from "react-native";
@@ -16,15 +17,15 @@ import { getFBAuth, saveAndDispatch } from "../data/DB";
 export default function Badge(badgeID) {
 
     return (
-        <View style={styles.badge}>
-
-        </View>
+          <Image
+          source={require("../assets/badge_icons/Sign_Up_Icon.png")}
+          style={styles.badge}>
+          </Image>
     )
 }
 
 const styles = StyleSheet.create({
     badge: {
-        backgroundColor: "pink",
         width: "18%",
         height: "100%",
         borderRadius: "100%",
