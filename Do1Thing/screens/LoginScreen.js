@@ -163,7 +163,7 @@ function LoginScreen({navigation}) {
         if (user) {
           navigation.navigate('Home',
           {screen: 'HomeScreen', 
-          newUser: false,
+          returningUser: true,
         });
         } else {
           // console.log('user is signed out!');
