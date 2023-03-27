@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { Button } from '@rneui/themed';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { getFBAuth } from '../data/DB';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { Snackbar } from 'react-native-paper';
+import { Snackbar, Button, TextInput } from 'react-native-paper';
 
 const PasswordResetScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -36,24 +35,36 @@ const PasswordResetScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Email Address</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your email address"
+      <View style={styles.bodyContainer}>
+      <Image 
+        style={styles.logoExtended} 
+        source={require('../assets/logoExtend.jpg')}
+        accessibilityRole="image"
+        accessibilityLabel="Logo"
+        />
+      <Text accessibilityRole="header" style={styles.heading}>Forgot Password</Text>
+      <Text style={styles.label}>Email:</Text>
+      <TextInput 
+        mode="outlined"
+        style={styles.loginInputBox}
+        outlineColor='#DDDDDD'
+        activeOutlineColor='#0E5681'
+        accessibilityLabel="Enter Email, required"
+        autoCapitalize='none'
+        spellCheck={false}
+        onChangeText={text=>setEmail(text)}
         value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
       />
       <Button
-        title='Submit'
-        onPress={()=>{handleSubmit()}}
-      />
+        style={styles.navyButton}
+        mode='contained'
+        onPress={()=>{handleSubmit()}}>
+          Submit
+        </Button>
       <Button
-        title='Back'
+        textColor='#0E5681'
         onPress={()=>{navigation.goBack()}}
-      />
+      >Back</Button>
       <Snackbar
         visible={openSnackBar}
         onDismiss={onDismissSnackBar}
@@ -69,6 +80,7 @@ const PasswordResetScreen = ({navigation}) => {
         >
         Error when sending email. Please check your email address or try again later.
       </Snackbar>
+      </View>
     </View>
   );
 
@@ -81,9 +93,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  bodyContainer: {
+    flex: 0.8,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    // backgroundColor: 'tan',
+    width: '100%',
+  },
   label: {
     fontSize: 18,
     marginBottom: 10,
+    width: '80%',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start'
   },
   input: {
     backgroundColor: '#fff',
@@ -105,7 +127,29 @@ const styles = StyleSheet.create({
   },
   snackBarWrapper: {
     backgroundColor: 'crimson',
-  }
+  },
+  loginInputBox: {
+    width: '80%',
+    backgroundColor: '#FAFAFA',
+  },
+  logoExtended: {
+    width: '85%',
+    height: 70,
+    marginBottom: '7%'
+  },
+  heading: {
+    fontSize: 24,
+    color: 'black',
+    paddingBottom: '5%',
+    paddingTop: '5%',
+    fontWeight: 'bold'
+  },
+  navyButton: {
+    backgroundColor: '#0E5681',
+    width: '80%',
+    padding: '2%',
+    margin: '7%'
+  },
 });
 
 export default PasswordResetScreen;

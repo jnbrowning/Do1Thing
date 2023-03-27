@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
     },
     bodyContainer: {
       flex: 0.8,
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       alignItems: 'center',
       // backgroundColor: 'tan',
       width: '100%',
@@ -375,8 +375,8 @@ const styles = StyleSheet.create({
     },
     tealButton: {
       backgroundColor: '#1D7DAB',
-      width: '70%'
-
+      width: '70%',
+      marginTop: '5%',
     },
     navyButton: {
       backgroundColor: '#0E5681',
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     logoExtended: {
       width: '85%',
       height: 70,
-      marginBottom: '7%'
+      marginBottom: '7%',
     }
   });
   
