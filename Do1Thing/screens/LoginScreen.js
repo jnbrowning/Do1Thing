@@ -1,5 +1,5 @@
 import { useEffect, useState, createRef } from 'react';
-import { View, Text, StyleSheet, Alert, Image } from 'react-native';
+import { View, StyleSheet, Alert, Image } from 'react-native';
 
 import { 
   signInWithEmailAndPassword, 
@@ -7,7 +7,8 @@ import {
   onAuthStateChanged
 } from 'firebase/auth';
 
-import { TextInput, Button } from 'react-native-paper';
+import { Text, TextInput, Button } from "@react-native-material/core";
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 import { getFBAuth, saveAndDispatch } from '../data/DB';
 import { createUser, setLogin, loadUser } from '../data/Actions';
@@ -28,44 +29,41 @@ function SigninBox({navigation}) {
   return (
     <View style={styles.loginContainer}>
       <Image 
+        alt="logo"
         style={styles.logoExtended} 
         source={require('../assets/logoExtend.jpg')}
-        accessibilityRole="image"
-        accessibilityLabel="Logo"
-        />
+      />
       <Text accessibilityRole="header" style={styles.heading}>Sign In</Text>
       <View style={styles.loginRow}>
-        <View style={styles.loginLabelContainer}>
-          <Text style={styles.loginLabelText}>Email: </Text>
-        </View>
         <View style={styles.loginInputContainer}>
           <TextInput 
+            color='#0E5681'
+            label={<Text accessible={false}>Email</Text>}
             ref={emailRef}
-            mode="outlined"
+            variant="outlined"
+            leading={props => <Icon name="email" {...props} accessible={false}/>}
             style={styles.loginInputBox}
-            outlineColor='#DDDDDD'
-            activeOutlineColor='#0E5681'
             accessibilityLabel="Enter Email, required"
             autoCapitalize='none'
             spellCheck={false}
             onChangeText={text=>setEmail(text)}
             value={email}
+            returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
+            blurOnSubmit={false}
           />
         </View>
       </View>
       <View style={styles.loginRow}>
-        <View style={styles.loginLabelContainer}>
-          <Text style={styles.loginLabelText}>Password: </Text>
-        </View>
         <View style={styles.loginInputContainer}>
           <TextInput 
             ref={passwordRef}
+            label="Password"
             accessibilityLabel="Enter Password, required"
-            mode="outlined"
+            variant="outlined"
+            leading={props => <Icon accessible={false} name="form-textbox-password" {...props} />}
             style={styles.loginInputBox}
-            outlineColor='#DDDDDD'
-            activeOutlineColor='#0E5681'
+            color='#0E5681'
             autoCapitalize='none'
             spellCheck={false}
             secureTextEntry={true}
@@ -77,7 +75,8 @@ function SigninBox({navigation}) {
       <View style={styles.loginRow}>
         <Button
           style={styles.navyButton}
-          mode="contained"
+          variant="contained"
+          title={<Text accessibilityLabel = "sign in, button" variant="button" style={{color: 'white'}}>Sign In</Text>}
           onPress={async () => {
             try {
               await signInWithEmailAndPassword(getFBAuth(), email, password);
@@ -105,26 +104,27 @@ function SigninBox({navigation}) {
               }
             }
           }}
-        >
-          SIGN IN
-        </Button>
+        />
         <Button
-          mode="text"
-          textColor='#0E5681'
+          variant="text"
+          title={<Text accessibilityLabel="forgot password, button"
+          variant='button' style={{color: '#0E5681'}}
+          >Forgot password?</Text>}
           onPress={() => {navigation.navigate('PasswordReset')}}
-        >Forgot password?</Button>
+        />
       </View>
       <View style={styles.loginRow}>
         <Button
         style={styles.tealButton}
-          mode="contained"
+          variant="contained"
+          title={<Text accessibilityLabel="enter as guest, button"
+          variant='button' style={{color: 'white'}}
+          >Enter as guest</Text>}
           onPress={() => {
             navigation.navigate('Home',{screen: 'HomeScreen'})
             // dispatch(loadUser({}));
           }}
-        >
-          Enter as guest
-        </Button>
+        />
       </View>
     </View>
   );
@@ -142,48 +142,42 @@ function SignupBox({navigation}) {
   return (
     <View style={styles.loginContainer}>
       <Image 
+        alt="logo"
         style={styles.logoExtended} 
         source={require('../assets/logoExtend.jpg')}
-        accessibilityRole="image"
-        accessibilityLabel="Logo"
         />
       <Text accessibilityRole="header" style={styles.heading}>Sign Up</Text>
-      
       <View style={styles.loginRow}>
-      </View>
-      <View style={styles.loginRow}>
-        <View style={styles.loginLabelContainer}>
-          <Text style={styles.loginLabelText}>Email: </Text>
-        </View>
         <View style={styles.loginInputContainer}>
           <TextInput 
+            color='#0E5681'
+            label={<Text accessible={false}>Email</Text>}
             ref={emailRef}
-            accessibilityLabel="Enter Email, required"
-            mode="outlined"
+            variant="outlined"
+            leading={props => <Icon name="email" {...props} accessible={false}/>}
             style={styles.loginInputBox}
-            outlineColor='#DDDDDD'
-            activeOutlineColor='#0E5681'
+            accessibilityLabel="Enter Email, required"
             autoCapitalize='none'
             spellCheck={false}
             onChangeText={text=>setEmail(text)}
             value={email}
+            returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
+            blurOnSubmit={false}
           />
         </View>
       </View>
 
       <View style={styles.loginRow}>
-        <View style={styles.loginLabelContainer}>
-          <Text style={styles.loginLabelText}>Password: </Text>
-        </View>
         <View style={styles.loginInputContainer}>
           <TextInput 
             ref={passwordRef}
-            mode="outlined"
-            style={styles.loginInputBox}
-            outlineColor='#DDDDDD'
-            activeOutlineColor='#0E5681'
+            label="Password"
             accessibilityLabel="Enter Password, required"
+            variant="outlined"
+            leading={props => <Icon accessible={false} name="form-textbox-password" {...props} />}
+            style={styles.loginInputBox}
+            color='#0E5681'
             autoCapitalize='none'
             spellCheck={false}
             secureTextEntry={true}
@@ -194,7 +188,8 @@ function SignupBox({navigation}) {
       </View>
       <View style={styles.loginRow}>
         <Button
-          mode="contained"
+          variant="contained"
+          title={<Text accessibilityLabel = "sign up, button" variant="button" style={{color: 'white'}}>Sign Up</Text>}
           style={styles.navyButton}
           onPress={async () => {
             try {
@@ -233,14 +228,12 @@ function SignupBox({navigation}) {
               }
             }
           }}
-        >
-          SIGN UP
-        </Button>  
+        />
+  
       </View>
     </View>
   );
 }
-
 
 function LoginScreen({navigation}) {
     const [loginMode, setLoginMode] = useState(true);
@@ -269,20 +262,19 @@ function LoginScreen({navigation}) {
         <View styles={styles.modeSwitchContainer}>
             { loginMode ? 
             <Button
-            mode="text"
-            textColor='black'
-            onPress={()=>{setLoginMode(!loginMode)}}>
-                <Text 
+            variant ="text"
+            color='black'
+            title={<Text accessibilityLabel="Sign up for your own preparedness account, button"><Text 
                 style={{color: '#0E5681'}}> Sign up </Text> 
-                for your own preparedness account!
-            </Button>
+                for your own preparedness account!</Text>}
+            onPress={()=>{setLoginMode(!loginMode)}}/>
             :
-            <Button mode="text" textColor='black' onPress={()=>{setLoginMode(!loginMode)}}>Returning user? 
-                <Text 
-                 
-                style={{color: '#0E5681'}}> Sign in </Text> 
-                instead!
-            </Button>
+            <Button 
+            variant="text" 
+            color='black' 
+            title={<Text accessibilityLabel="Returning user? Sign in instead, button">Returning user? 
+              <Text style={{color: '#0E5681'}}> Sign in </Text>instead!</Text>}
+            onPress={()=>{setLoginMode(!loginMode)}}/>
             }
         </View>
     </View>
