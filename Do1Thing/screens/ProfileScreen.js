@@ -69,14 +69,14 @@ export default function ProfileScreen({navigation}) {
           <Text style={styles.badgeSectionText}>Badges: {currentUser.badges.length.toString()}</Text>
           <View style={styles.badgesSection}>
 
-          <FlatList
-            data={currentUser.badges}
-            renderBadge={({badge})=>{
-              return (
-                   <Badge badge={badge}/>
-              );
-             }}>
-        </FlatList>
+         {currentUser.badges.map((badge, index) => {
+          return (
+            <Badge
+              badge={badge}
+              key={index}
+            />
+          );
+        })}
             
           </View>
       </View>
