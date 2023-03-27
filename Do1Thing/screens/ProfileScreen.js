@@ -48,7 +48,6 @@ export default function ProfileScreen({navigation}) {
         {/* <Header navigation={navigation} headingText={""} /> */}
 
         <View style={styles.profile}>
-          <View style={styles.profile_pic}></View>
           <Text style={styles.usernameText}>username</Text>
           <Text style={styles.startDateText}>
             Player since 1/1/2001
@@ -99,12 +98,6 @@ export default function ProfileScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  profile_pic: {
-    backgroundColor: "darkblue",
-    width: "30%",
-    height: "60%",
-    borderRadius: "100%",
   },
   profile: {
     display: "flex",
