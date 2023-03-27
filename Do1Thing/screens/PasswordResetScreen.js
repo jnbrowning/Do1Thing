@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { getFBAuth } from '../data/DB';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { Snackbar, Button, TextInput } from 'react-native-paper';
+import { Snackbar } from 'react-native-paper';
+import { Text, TextInput, Button } from "@react-native-material/core";
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { Ionicons } from '@expo/vector-icons';
+
 
 const PasswordResetScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -36,35 +40,35 @@ const PasswordResetScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.bodyContainer}>
-      <Image 
-        style={styles.logoExtended} 
-        source={require('../assets/logoExtend.jpg')}
-        accessibilityRole="image"
-        accessibilityLabel="Logo"
-        />
+      <Button
+        style={styles.backButton}
+        variant="text"
+        title={<Text accessibilityLabel="back, button"
+          variant='button' style={{color: '#0E5681'}}
+          ><Ionicons name="md-chevron-back" size={16} color="#492C7A" /> Back</Text>}
+        onPress={()=>{navigation.goBack()}}
+      />
       <Text accessibilityRole="header" style={styles.heading}>Forgot Password</Text>
-      <Text style={styles.label}>Email:</Text>
       <TextInput 
-        mode="outlined"
+        color='#0E5681'
+        label={<Text accessible={false}>Email</Text>}
+        variant="outlined"
+        leading={props => <Icon name="email" {...props} accessible={false}/>}
         style={styles.loginInputBox}
-        outlineColor='#DDDDDD'
-        activeOutlineColor='#0E5681'
         accessibilityLabel="Enter Email, required"
         autoCapitalize='none'
         spellCheck={false}
         onChangeText={text=>setEmail(text)}
         value={email}
+        returnKeyType="next"
+        onSubmitEditing={() => passwordRef.current.focus()}
+        blurOnSubmit={false}
       />
       <Button
         style={styles.navyButton}
+        title={<Text accessibilityLabel = "submit, button" variant="button" style={{color: 'white'}}>Submit</Text>}
         mode='contained'
-        onPress={()=>{handleSubmit()}}>
-          Submit
-        </Button>
-      <Button
-        textColor='#0E5681'
-        onPress={()=>{navigation.goBack()}}
-      >Back</Button>
+        onPress={()=>{handleSubmit()}}/>
       <Snackbar
         visible={openSnackBar}
         onDismiss={onDismissSnackBar}
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bodyContainer: {
-    flex: 0.8,
+    flex: 0.9,
     justifyContent: 'flex-start',
     alignItems: 'center',
     // backgroundColor: 'tan',
@@ -149,6 +153,11 @@ const styles = StyleSheet.create({
     width: '80%',
     padding: '2%',
     margin: '7%'
+  },
+  backButton: {
+    flexDirection: 'row',
+    width: '100%',
+    padding: '3%'
   },
 });
 
