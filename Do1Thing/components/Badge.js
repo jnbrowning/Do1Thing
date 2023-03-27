@@ -16,7 +16,9 @@ import { getFBAuth, saveAndDispatch } from "../data/DB";
 export default function Badge(badgeID) {
 
     return (
-        <View style={styles.badge}></View>
+        <View style={styles.badge}>
+
+        </View>
     )
 }
 
