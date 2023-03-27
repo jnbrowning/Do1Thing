@@ -16,9 +16,15 @@ import { getFBAuth, saveAndDispatch } from "../data/DB";
 
 export default function Badge(badgeID) {
 
+  function determineBadgeIcon() {
+    if (badgeID === 1) {
+      return require("../assets/badge_icons/Sign_Up_Icon.png");
+    } 
+  }
+
     return (
           <Image
-          source={require("../assets/badge_icons/Sign_Up_Icon.png")}
+          source={determineBadgeIcon()}
           style={styles.badge}>
           </Image>
     )
