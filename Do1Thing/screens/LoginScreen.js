@@ -72,7 +72,7 @@ function SigninBox({navigation}) {
       <View style={styles.loginRow}>
         <Button
           onPress={() => {
-            navigation.navigate('Home',{screen: 'HomeScreen', signedUp: false})
+            navigation.navigate('Home',{screen: 'HomeScreen', newUser: false,})
             // dispatch(loadUser({}));
           }}
         >
@@ -161,7 +161,10 @@ function LoginScreen({navigation}) {
     useEffect(() => {
       onAuthStateChanged(getFBAuth(), user => {
         if (user) {
-          navigation.navigate('Home',{screen: 'HomeScreen', signedUp: true});
+          navigation.navigate('Home',
+          {screen: 'HomeScreen', 
+          newUser: false,
+        });
         } else {
           // console.log('user is signed out!');
           navigation.navigate('Login');

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function HomeScreen(props) {
 
     const dispatch = useDispatch();
-    const {navigation, signedUp} = props;
+    const {navigation, newUser} = props;
     const [overlayVisible, setOverlayVisible] = useState(false);
 
     const loggedIn = useSelector((state) => {
@@ -18,12 +18,14 @@ export default function HomeScreen(props) {
         }
     })
 
-    if (signedUp === true) {
-      console.log("new user")
-    }
-    else {
-      console.log("returning user")
-    }
+    console.log(newUser)
+
+    // if (newUser === 'true') {
+    //   console.log("new user")
+    // }
+    // else {
+    //   console.log("returning user")
+    // }
 
     // if (!loginMode) {
     //   setOverlayVisible(true)
