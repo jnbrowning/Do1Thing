@@ -1,23 +1,13 @@
-import { Button } from "@rneui/themed";
 import {
-  View,
   Image,
-  Text,
   StyleSheet,
-  ImageBackground,
-  FlatList,
-  TouchableOpacity,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
-import { useState } from "react";
-import { useFonts } from "expo-font";
-import { getFBAuth, saveAndDispatch } from "../data/DB";
 
 export default function Badge(badgeID) {
 
+
   function determineBadgeIcon() {
-    if (badgeID === 1) {
+    if (badgeID.badge === 1) {
       return require("../assets/badge_icons/Sign_Up_Icon.png");
     } 
   }
@@ -26,7 +16,7 @@ export default function Badge(badgeID) {
           <Image
           source={determineBadgeIcon()}
           style={styles.badge}>
-          </Image>
+          </Image>  
     )
 }
 
