@@ -11,7 +11,7 @@ import { Text, TextInput, Button } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 import { getFBAuth, saveAndDispatch } from '../data/DB';
-import { createUser, setLogin, loadUser } from '../data/Actions';
+import { createUser, editUser, setLogin, loadUser } from '../data/Actions';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -121,7 +121,7 @@ function SigninBox({navigation}) {
           variant='button' style={{color: 'white'}}
           >Enter as guest</Text>}
           onPress={() => {
-            navigation.navigate('Home',{screen: 'HomeScreen'})
+            navigation.navigate('Home',{screen: 'HomeScreen', newUser: false,})
             // dispatch(loadUser({}));
           }}
         />
@@ -241,7 +241,10 @@ function LoginScreen({navigation}) {
     useEffect(() => {
       onAuthStateChanged(getFBAuth(), user => {
         if (user) {
-          navigation.navigate('Home',{screen: 'HomeScreen'});
+          navigation.navigate('Home',
+          {screen: 'HomeScreen', 
+          returningUser: true,
+        });
         } else {
           // console.log('user is signed out!');
           navigation.navigate('Login');

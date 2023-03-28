@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch } from "../data/DB";
+import Badge from "../components/Badge";
 
 const auth = getFBAuth();
 
@@ -47,7 +48,6 @@ export default function ProfileScreen({navigation}) {
         {/* <Header navigation={navigation} headingText={""} /> */}
 
         <View style={styles.profile}>
-          <View style={styles.profile_pic}></View>
           <Text style={styles.usernameText}>username</Text>
           <Text style={styles.startDateText}>
             Player since 1/1/2001
@@ -67,9 +67,16 @@ export default function ProfileScreen({navigation}) {
 
           <Text style={styles.badgeSectionText}>Badges: {currentUser.badges.length.toString()}</Text>
           <View style={styles.badgesSection}>
-            <View style={styles.badge}></View>
-            <View style={styles.badge}></View>
-            <View style={styles.badge}></View>
+
+         {currentUser.badges.map((badge, index) => {
+          return (
+            <Badge
+              badge={badge}
+              key={index}
+            />
+          );
+        })}
+            
           </View>
       </View>
     );
@@ -91,12 +98,6 @@ export default function ProfileScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  profile_pic: {
-    backgroundColor: "darkblue",
-    width: "30%",
-    height: "60%",
-    borderRadius: "100%",
   },
   profile: {
     display: "flex",

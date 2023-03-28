@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
@@ -6,15 +6,33 @@ import { setLogin } from '../data/Actions';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen(props) {
 
     const dispatch = useDispatch();
+    const {navigation, returningUser} = props;
+    const [overlayVisible, setOverlayVisible] = useState(false);
 
     const loggedIn = useSelector((state) => {
         if (state !== undefined){
             return state.loggedIn;
         }
     })
+
+    console.log(returningUser)
+
+    // if (newUser === 'true') {
+    //   console.log("new user")
+    // }
+    // else {
+    //   console.log("returning user")
+    // }
+
+    // if (!loginMode) {
+    //   setOverlayVisible(true)
+    // }
+    // else { 
+    //   setOverlayVisible(false)
+    // }
 
     useEffect(() => {
         subscribeToUsersCollection(dispatch);
@@ -26,6 +44,8 @@ export default function HomeScreen({navigation}) {
         }
         else {console.log('Cannot find state users yet');}
     })
+
+  
 
 
     return(
@@ -43,6 +63,50 @@ export default function HomeScreen({navigation}) {
                     navigation.navigate('Login');
                 }}></Button>
             }
+
+<Overlay
+          isVisible={overlayVisible}
+          onBackdropPress={() => setOverlayVisible(false)}
+          overlayStyle={styles.overlayView}
+        >
+          <Text style={styles.overlayText}>
+            You earned a badge!
+          </Text>
+          <TouchableOpacity
+            style={styles.okayButton}
+            onPress={() => {
+              setOverlayVisible(false);
+            }}
+          >
+            <Text style={styles.buttonText}>Okay</Text>
+          </TouchableOpacity>
+        </Overlay>
+
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    buttonText: {
+        textAlign: "center",
+        top: "25%",
+        color: "white",
+        fontWeight: "bold",
+        fontSize: "18pt",
+      },
+      overlayView: {
+        height: "20%",
+        width: "60%",
+      },
+      overlayText: {
+        margin: "10%",
+      },
+      okayButton: {
+        width: "50%",
+        height: "30%",
+        backgroundColor: "black",
+        margin: "auto",
+        borderRadius: "70%",
+        left: "25%",
+      },
+})
