@@ -16,6 +16,7 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PasswordResetScreen from './screens/PasswordResetScreen';
+import ModulesScreen from './screens/ModulesScreen';
 
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
@@ -32,7 +33,7 @@ export default function App() {
       const Tabs = createBottomTabNavigator();
   
       return (
-        <Tabs.Navigator initialRouteName='Checklist'>
+        <Tabs.Navigator initialRouteName='Checklist' screenOptions={{ headerShown: false}}>
                   <Tabs.Screen
                       name='Checklist' 
                       component={ChecklistTabStack}
@@ -50,8 +51,8 @@ export default function App() {
                       }
                       />
                   <Tabs.Screen 
-                      name='Calendar' 
-                      component={CalendarTabStack}
+                      name='Modules' 
+                      component={ModulesTabStack}
                       options={{
                           tabBarIcon: ({focused, color, size}) => {
                               return (
@@ -89,15 +90,30 @@ export default function App() {
         const stack = createNativeStackNavigator();
 
         return (
-          <Stack.Navigator initialRouteName = 'HomeScreen' screenOptions={{ headerShown: false}}>
-            <Stack.Screen name = 'HomeScreen' component={HomeScreen}/>
+          <Stack.Navigator initialRouteName = 'HomeScreen' screenOptions={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: 'transparent',
+            },
+            }}>
+            <Stack.Screen name = 'HomeScreen' component={HomeScreen} options={{ headerShadowVisible: false}}/>
           </Stack.Navigator>
         )
       }
 
-      const CalendarTabStack =  () => {
+      const ModulesTabStack =  () => {
         const stack = createNativeStackNavigator();
-        // Add code
+        
+        return (
+          <Stack.Navigator initialRouteName = 'ModulesScreen' screenOptions={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: 'transparent',
+            },
+            }}>
+            <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ headerShadowVisible: false}}/>
+          </Stack.Navigator>
+        )
       }
 
       const UserTabStack =  () => {
