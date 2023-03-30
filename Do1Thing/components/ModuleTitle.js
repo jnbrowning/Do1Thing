@@ -18,11 +18,17 @@ function ModuleTitle({navigation, route}) {
       />
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>Module {route.params.moduleNum}</Text>
-        <Text style={styles.moduleTitle}>{route.params.goal}</Text>
+        <Text style={styles.moduleTitle}>{route.params.moduleName}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
         <Text style={styles.goalHeader}>Goal</Text>
-        <Text style={styles.goalText}>{route.params.moduleName}</Text>
+        <Text style={styles.goalText}>{route.params.goal}</Text>
+        <Button
+          style={styles.startButton}
+          variant="contained"
+          title={<Text accessibilityLabel = "start, button" variant="button" style={{color: 'white'}}>Start</Text>}
+          onPress={()=>console.log("start module")}
+          />
       </View>
     </View>
     )
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     bodyContainer: {
-      flex: 0.8,
+      flex: 0.95,
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
       // backgroundColor: 'tan',
@@ -52,15 +58,16 @@ const styles = StyleSheet.create({
     testIcon: {
       height: 200,
       width: 200,
-      marginTop: 75,
-      marginBottom: 75,
+      marginTop: 55,
+      marginBottom: 55,
       alignSelf: 'center',
       color: 'blue',
     },
     backButton: {
       height: 70,
       paddingLeft: '5%',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      marginTop: 25,
     },
     moduleHeading: {
       color: '#12B1C3',
@@ -83,8 +90,17 @@ const styles = StyleSheet.create({
     },
     goalText: {
       paddingLeft: '10%',
+      paddingRight: '10%',
       paddingTop: '3%',
       fontSize: 20,
+    },
+    startButton: {
+      backgroundColor: '#0E5681',
+      width: '80%',
+      padding: '2%',
+      alignSelf: 'center',
+      position: 'absolute',
+      bottom:0,
     },
   });
 
