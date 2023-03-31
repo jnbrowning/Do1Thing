@@ -4,20 +4,9 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Ionicons } from '@expo/vector-icons'; 
 
 
-function ModuleTitle({navigation, route}) {
+function ModuleSectionHead({navigation, route}) {
 
-  // TO ADD TO MODULES PAGE WHEN COMPLETED
-//   const modules = [
-//     {moduleNum: '1', moduleName: 'Make a Plan', logo: '', goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.'}, 
-//     {moduleNum: '2', moduleName: 'Water', logo: '', goal: 'Have 72 hours (3 days) worth of water stored for your household.'},
-// ]
-
-//   function goToModule(mod) {
-//       console.log(modules[mod]);
-//       navigation.navigate('ModuleTitle', {module: modules[mod]});
-//   }
-
-  let link = route.params.module.logo;
+  let link = route.params.image;
   console.log(route.params);
 
   return (
@@ -29,23 +18,26 @@ function ModuleTitle({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>Module {route.params.module.moduleNum}</Text>
-        <Text style={styles.moduleTitle}>{route.params.module.moduleName}</Text>
+        <Text style={styles.moduleHeading}>{route.params.mod}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
-        <Text style={styles.goalHeader}>Goal</Text>
-        <Text style={styles.goalText}>{route.params.module.goal}</Text>
+        <View style={styles.goalBlock}>
+          <Text style={styles.goalHeader}>Section {route.params.sectionNum}</Text>
+          <Text style={styles.goalText}>{route.params.sectionTitle}</Text>
+        </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "start, button" variant="button" style={{color: 'white'}}>Start</Text>}
-          onPress={()=>navigation.navigate('ModuleSectionHead', 
+          title={<Text accessibilityLabel = "let's go, button" variant="button" style={{color: 'white'}}>Let's Go</Text>}
+          onPress={()=>navigation.navigate('ModuleContent', 
           {mod: 'Module 1 - Make a Plan',
-          sectionNum: '1',
+          headText: 'Choose two emergency meeting places',
           sectionTitle: 'Plan what to do if you have to evacuate',
-          image: require('../assets/test_assets/img2.jpg'),
+          image: require('../assets/test_assets/img3.jpg'),
+          info: 'The other should be outside of your neighborhood, in case you cannot return home or are asked to evacuate.',
           })}
           />
+
       </View>
     </View>
     )
@@ -73,10 +65,9 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     testIcon: {
-      height: 200,
-      width: 200,
-      marginTop: 55,
-      marginBottom: 55,
+      height: 300,
+      width: 300,
+      marginTop: 50,
       alignSelf: 'center',
       color: 'blue',
     },
@@ -88,28 +79,24 @@ const styles = StyleSheet.create({
     },
     moduleHeading: {
       color: '#12B1C3',
-      fontSize: 20,
+      fontSize: 24,
       paddingLeft: '10%',
-    },
-    moduleTitle: {
-      color: '#0E5681',
-      fontSize: 36,
-      paddingTop: 10,
-      paddingBottom: 10,
-      fontWeight: 'bold',
-      paddingLeft: '10%',
+   
     },
     goalHeader: {
       paddingLeft: '10%',
       color: "#1D7DAB",
+      fontSize: '24',
       fontWeight: 'bold',
-      fontSize: '32',
     },
     goalText: {
-      paddingLeft: '10%',
-      paddingRight: '10%',
-      paddingTop: '3%',
-      fontSize: 20,
+      paddingLeft: '15%',
+      paddingRight: '15%',
+      paddingTop: '5%',
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#0E5681',
+
     },
     startButton: {
       backgroundColor: '#1D7DAB',
@@ -119,6 +106,12 @@ const styles = StyleSheet.create({
       position: 'absolute',
       bottom:10,
     },
+    goalBlock: {
+      justifyContent: 'center',
+      flex: 1,
+      marginBottom: 60,
+      width: '100%',
+    }
   });
 
-  export default ModuleTitle;
+  export default ModuleSectionHead;

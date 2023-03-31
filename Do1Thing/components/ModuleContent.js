@@ -4,20 +4,9 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Ionicons } from '@expo/vector-icons'; 
 
 
-function ModuleTitle({navigation, route}) {
+function ModuleContent({navigation, route}) {
 
-  // TO ADD TO MODULES PAGE WHEN COMPLETED
-//   const modules = [
-//     {moduleNum: '1', moduleName: 'Make a Plan', logo: '', goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.'}, 
-//     {moduleNum: '2', moduleName: 'Water', logo: '', goal: 'Have 72 hours (3 days) worth of water stored for your household.'},
-// ]
-
-//   function goToModule(mod) {
-//       console.log(modules[mod]);
-//       navigation.navigate('ModuleTitle', {module: modules[mod]});
-//   }
-
-  let link = route.params.module.logo;
+  let link = route.params.image;
   console.log(route.params);
 
   return (
@@ -29,22 +18,18 @@ function ModuleTitle({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>Module {route.params.module.moduleNum}</Text>
-        <Text style={styles.moduleTitle}>{route.params.module.moduleName}</Text>
+        <Text style={styles.moduleHeading}>{route.params.mod}</Text>
+        <Text style={styles.goalText}>{route.params.headText}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
-        <Text style={styles.goalHeader}>Goal</Text>
-        <Text style={styles.goalText}>{route.params.module.goal}</Text>
+        <View style={styles.goalBlock}>
+        <Text style={styles.infoText}>{route.params.info}</Text>
+        </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "start, button" variant="button" style={{color: 'white'}}>Start</Text>}
-          onPress={()=>navigation.navigate('ModuleSectionHead', 
-          {mod: 'Module 1 - Make a Plan',
-          sectionNum: '1',
-          sectionTitle: 'Plan what to do if you have to evacuate',
-          image: require('../assets/test_assets/img2.jpg'),
-          })}
+          title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>Next</Text>}
+          onPress={()=>console.log("start module")}
           />
       </View>
     </View>
@@ -74,9 +59,9 @@ const styles = StyleSheet.create({
     },
     testIcon: {
       height: 200,
-      width: 200,
-      marginTop: 55,
-      marginBottom: 55,
+      width: '100%',
+      marginTop: 40,
+      marginBottom: 30,
       alignSelf: 'center',
       color: 'blue',
     },
@@ -88,28 +73,24 @@ const styles = StyleSheet.create({
     },
     moduleHeading: {
       color: '#12B1C3',
-      fontSize: 20,
+      fontSize: 24,
       paddingLeft: '10%',
-    },
-    moduleTitle: {
-      color: '#0E5681',
-      fontSize: 36,
-      paddingTop: 10,
-      paddingBottom: 10,
-      fontWeight: 'bold',
-      paddingLeft: '10%',
+   
     },
     goalHeader: {
       paddingLeft: '10%',
       color: "#1D7DAB",
+      fontSize: '24',
       fontWeight: 'bold',
-      fontSize: '32',
     },
     goalText: {
       paddingLeft: '10%',
       paddingRight: '10%',
-      paddingTop: '3%',
-      fontSize: 20,
+      paddingTop: '5%',
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#0E5681',
+
     },
     startButton: {
       backgroundColor: '#1D7DAB',
@@ -119,6 +100,18 @@ const styles = StyleSheet.create({
       position: 'absolute',
       bottom:10,
     },
+    goalBlock: {
+      justifyContent: 'center',
+      flex: 1,
+      marginBottom: 60,
+      width: '100%',
+    },
+    infoText: {
+        fontSize: 20,
+        color: 'black',
+        marginLeft: '10%',
+        marginRight: '10%',
+    }
   });
 
-  export default ModuleTitle;
+  export default ModuleContent;
