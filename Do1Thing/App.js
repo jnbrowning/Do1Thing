@@ -17,6 +17,9 @@ import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PasswordResetScreen from './screens/PasswordResetScreen';
 import ModulesScreen from './screens/ModulesScreen';
+import ModuleTitle from './components/ModuleTitle';
+import ModuleSectionHead from './components/ModuleSectionHead';
+import ModuleContent from './components/ModuleContent';
 
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
@@ -106,13 +109,16 @@ export default function App() {
         
         return (
           <Stack.Navigator initialRouteName = 'ModulesScreen' screenOptions={{
-            headerShown: true,
+            headerShown: false,
             headerTintColor: '#1D7DAB',
             headerTitleStyle: {
               fontWeight: 'bold'
             }
             }}>
             <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ title: 'Modules' ,headerShadowVisible: false}}/>
+            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
+            <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
+            <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
           </Stack.Navigator>
         )
       }
