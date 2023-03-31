@@ -107,11 +107,12 @@ export default function App() {
         return (
           <Stack.Navigator initialRouteName = 'ModulesScreen' screenOptions={{
             headerShown: true,
-            headerStyle: {
-              backgroundColor: 'transparent',
-            },
+            headerTintColor: '#1D7DAB',
+            headerTitleStyle: {
+              fontWeight: 'bold'
+            }
             }}>
-            <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ headerShadowVisible: false}}/>
+            <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ title: 'Modules' ,headerShadowVisible: false}}/>
           </Stack.Navigator>
         )
       }
