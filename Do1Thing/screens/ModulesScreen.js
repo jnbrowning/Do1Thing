@@ -1,8 +1,8 @@
 import { useEffect, useState, createRef } from 'react';
-import { View, StyleSheet, Alert, Image, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 
-import { Text, TextInput, Button, HStack } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { HStack } from "@react-native-material/core";
+import ModuleButton from '../components/ModuleButton';
 
 
 export default function ModuleScreen(props){
@@ -13,27 +13,29 @@ export default function ModuleScreen(props){
     return(
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.bodyContainer}>
-                <HStack m={4} spacing={20}>
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton/>
+                    </View>
+                    <View style={styles.moduleContainer} />
+                </HStack>
+                <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-                <HStack m={4} spacing={20}>
+                <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-                <HStack m={4} spacing={20}>
+                <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-                <HStack m={4} spacing={20}>
+                <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
-                </HStack>
-                <HStack m={4} spacing={20}>
+                <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
@@ -67,6 +69,6 @@ const styles = StyleSheet.create({
     moduleContainer: {
       width: '48%',
       height: 150,
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FCCFFF'
     }
   });
