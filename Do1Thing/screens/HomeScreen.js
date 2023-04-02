@@ -50,8 +50,8 @@ export default function HomeScreen(props) {
 
     return(
         <View>
-            <Text>Welcome to Do1Thing</Text>
-            <Text>Small steps towards being prepared for an emergency</Text>
+            <Text style={styles.heading}>Welcome to Do1Thing</Text>
+            <Text style={styles.subheading}>Small steps towards being prepared for an emergency</Text>
             <TouchableOpacity>
               <Text>Let's Do1Thing</Text>
               <Text>For the month of April</Text>
@@ -121,4 +121,12 @@ const styles = StyleSheet.create({
         borderRadius: "70%",
         left: "25%",
       },
+      heading: {
+        color: '#1D7DAB',
+        fontSize: '24pt',
+      },
+      subheading: {
+        color: '#12B1C3',
+        fontSize: '18pt',
+      }
 })
