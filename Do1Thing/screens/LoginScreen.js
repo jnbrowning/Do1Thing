@@ -83,7 +83,6 @@ function SigninBox({navigation}) {
             try {
               const userCred = await signInWithEmailAndPassword(getFBAuth(), email, password);
               if (userCred.user.emailVerified) {
-                console.log("email is verified")
                 dispatch(setLogin(true)); 
                 navigation.navigate('Home',{screen: 'HomeScreen', newUser: false,})
               } else {
@@ -205,9 +204,9 @@ function SignupBox({navigation}) {
                 await createUserWithEmailAndPassword(
                   getFBAuth(), email, password
                 );
-              console.log("sending email verification")
+  
               await sendEmailVerification(userCred.user)
-
+              
               saveAndDispatch(createUser({
                 uid: userCred.user.uid,
                 email: userCred.user.email
