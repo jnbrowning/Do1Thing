@@ -4,7 +4,8 @@ import { View, StyleSheet, Alert, Image } from 'react-native';
 import { 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
-  onAuthStateChanged
+  onAuthStateChanged,
+  onIdTokenChanged
 } from 'firebase/auth';
 
 import { Text, TextInput, Button } from "@react-native-material/core";
@@ -14,6 +15,7 @@ import { getFBAuth, saveAndDispatch } from '../data/DB';
 import { createUser, editUser, setLogin, loadUser } from '../data/Actions';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { getAuth, sendEmailVerification } from "firebase/auth";
 
 function SigninBox({navigation}) {
 
@@ -79,8 +81,14 @@ function SigninBox({navigation}) {
           title={<Text accessibilityLabel = "sign in, button" variant="button" style={{color: 'white'}}>Sign In</Text>}
           onPress={async () => {
             try {
-              await signInWithEmailAndPassword(getFBAuth(), email, password);
-              dispatch(setLogin(true));
+              const userCred = await signInWithEmailAndPassword(getFBAuth(), email, password);
+              if (userCred.user.emailVerified) {
+                console.log("email is verified")
+                dispatch(setLogin(true)); 
+                navigation.navigate('Home',{screen: 'HomeScreen', newUser: false,})
+              } else {
+                Alert.alert("Sign In Error", 'Please verify your email address before signing in.', [{text: 'OK'}])
+              }
             } catch(error) {
               console.log(error);
               if (error == 'FirebaseError: Firebase: Error (auth/invalid-email).') {
@@ -197,14 +205,15 @@ function SignupBox({navigation}) {
                 await createUserWithEmailAndPassword(
                   getFBAuth(), email, password
                 );
+              console.log("sending email verification")
+              await sendEmailVerification(userCred.user)
 
-                saveAndDispatch(createUser({
-                  uid: userCred.user.uid,
-                  email: userCred.user.email
-                }));
-
-                dispatch(setLogin(true));
-
+              saveAndDispatch(createUser({
+                uid: userCred.user.uid,
+                email: userCred.user.email
+              }));
+              
+              Alert.alert("Sign Up Success", 'Please check your email for a verification link.', [{text: 'OK'}]);
             } catch(error) {
               console.log(error);
               if (error == 'FirebaseError: Firebase: Error (auth/invalid-email).') {
