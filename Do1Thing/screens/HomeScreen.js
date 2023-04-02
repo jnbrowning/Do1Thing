@@ -50,8 +50,20 @@ export default function HomeScreen(props) {
 
     return(
         <View>
-            <Text>Welcome to the app!</Text>
-            <Text>Current user email: {currentUser.email? currentUser.email : "Guest Mode"}</Text>
+            <Text>Welcome to Do1Thing</Text>
+            <Text>Small steps towards being prepared for an emergency</Text>
+            <TouchableOpacity>
+              <Text>Let's Do1Thing</Text>
+              <Text>For the month of April</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text>View Modules</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text>Donate</Text>
+            </TouchableOpacity>
+            <Text>Popular Modules</Text>
+            {/* <Text>Current user email: {currentUser.email? currentUser.email : "Guest Mode"}</Text>
             { loggedIn ? 
                 <Button title='Sign out' onPress={async () => {
                     signOutFB();
@@ -62,7 +74,7 @@ export default function HomeScreen(props) {
                 <Button title='Back to sign in page' onPress={async () => {
                     navigation.navigate('Login');
                 }}></Button>
-            }
+            } */}
 
 <Overlay
           isVisible={overlayVisible}
