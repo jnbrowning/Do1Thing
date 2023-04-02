@@ -15,29 +15,51 @@ export default function ModuleScreen(props){
             <ScrollView contentContainerStyle={styles.bodyContainer}>
                 <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton/>
+                        <ModuleButton moduleNumber={1}/>
                     </View>
-                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={2}/>
+                    </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={3}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={4}/>
+                    </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={5}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={6}/>
+                    </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={7}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={8}/>
+                    </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={9}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={10}/>
+                    </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={11}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={12}/>
+                    </View>
                 </HStack>
             </ScrollView>
         </View>

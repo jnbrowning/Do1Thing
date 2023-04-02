@@ -3,7 +3,7 @@ import { findModuleIcon } from '../data/ModuleIcons';
 
 export default function ModuleButton(props) {
 
-    const SvgIcon = findModuleIcon(1);
+    const SvgIcon = findModuleIcon(props.moduleNumber);
 
     return (
         <TouchableOpacity>
