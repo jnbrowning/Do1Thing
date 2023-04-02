@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
@@ -52,17 +52,30 @@ export default function HomeScreen(props) {
         <View>
             <Text style={styles.heading}>Welcome to Do1Thing</Text>
             <Text style={styles.subheading}>Small steps towards being prepared for an emergency</Text>
-            <TouchableOpacity>
-              <Text>Let's Do1Thing</Text>
-              <Text>For the month of April</Text>
+
+            <View style={styles.actionButton}>
+              <Image></Image>
+              <View style={styles.actionButtonText}>
+                <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
+                <Text style={styles.actionSubheading}>For the month of April</Text>
+              </View>
+            </View>
+
+      <View style={styles.subbuttonContainer}>
+          <View>
+            <TouchableOpacity style={styles.subbutton}>
+              <Text style={styles.subbuttonText}>View Modules</Text>
             </TouchableOpacity>
+            </View>
+
+          <View style={styles.subbutton}>
             <TouchableOpacity>
-              <Text>View Modules</Text>
+              <Text style={styles.subbuttonText}>Donate</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Text>Donate</Text>
-            </TouchableOpacity>
-            <Text>Popular Modules</Text>
+            </View>   
+        </View>
+
+            <Text style={styles.popularModules}>Popular Modules</Text>
             {/* <Text>Current user email: {currentUser.email? currentUser.email : "Guest Mode"}</Text>
             { loggedIn ? 
                 <Button title='Sign out' onPress={async () => {
@@ -123,10 +136,67 @@ const styles = StyleSheet.create({
       },
       heading: {
         color: '#1D7DAB',
-        fontSize: '24pt',
+        fontSize: '32pt',
+        fontWeight: 'bold',
+        textAlign: 'center',
       },
       subheading: {
-        color: '#12B1C3',
-        fontSize: '18pt',
+        color: '#77B169',
+        fontSize: '14pt',
+        textAlign: 'center'
+      },
+      actionButton: {
+        boxShadow: '10pt',
+        borderRadius: '20%',
+        backgroundColor: 'white',
+        width: '90%',
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '5%',
+        alignSelf: 'center',
+        margin: '2%',
+        height: '30%',
+        alignItems: 'center',
+      },
+      actionHeading: {
+        color: '#1D7DAB',
+        fontSize: '20pt',
+        fontWeight: 'bold',
+      },
+      actionSubheading: {
+        color: '#1D7DAB',
+        fontSize: '12pt',
+      },
+      actionButtonText: {
+        display: 'flex',
+        flexDirection: 'vertical',
+      },
+      popularModules: {
+        fontWeight: 'bold',
+        color: '#1D7DAB',
+        fontSize: '24pt',
+        margin: '2%',
+      },
+      subbuttonText: {
+        fontWeight: 'bold',
+        color: '#1D7DAB',
+        fontSize: '16pt',
+        textAlign: 'center',
+      },
+      subbutton: {
+        boxShadow: '10pt',
+        borderRadius: '20%',
+        backgroundColor: 'white',
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '5%',
+        margin: '2%',
+        justifyContent: 'center',
+      },
+      subbuttonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
       }
 })
