@@ -6,6 +6,7 @@ import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
 
 import { useDispatch, useSelector } from 'react-redux';
+import { style } from '@mui/system';
 
 export default function HomeScreen(props) {
 
@@ -20,7 +21,7 @@ export default function HomeScreen(props) {
     })
 
     let customFonts = {
-      Roboto: require("../assets/fonts/Roboto-Regular.ttf"),
+      // Roboto: require("../assets/fonts/Roboto-Regular.ttf"),
     };
     const [fontsLoaded] = useFonts(customFonts);
 
@@ -57,7 +58,7 @@ export default function HomeScreen(props) {
       return <View></View>;
     } else {
     return(
-        <View>
+        <View style={styles.container}>
             <Text style={styles.heading}>Welcome to Do1Thing</Text>
             <Text style={styles.subheading}>Small steps towards being prepared for an emergency</Text>
 
@@ -65,19 +66,22 @@ export default function HomeScreen(props) {
               <Image></Image>
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
-                <Text style={styles.actionSubheading}>For the month of April</Text>
+                <Text style={styles.actionSubheading}>for the month of April</Text>
+                <Image></Image>
               </View>
             </View>
 
       <View style={styles.subbuttonContainer}>
-          <View>
-            <TouchableOpacity style={styles.subbutton}>
+          <View style={styles.subbutton}>
+            <TouchableOpacity>
+              <Image></Image>
               <Text style={styles.subbuttonText}>View Modules</Text>
             </TouchableOpacity>
             </View>
 
           <View style={styles.subbutton}>
             <TouchableOpacity>
+              <Image></Image>
               <Text style={styles.subbuttonText}>Donate</Text>
             </TouchableOpacity>
             </View>   
@@ -121,7 +125,10 @@ export default function HomeScreen(props) {
 }
 
 const styles = StyleSheet.create({
-    buttonText: {
+  container: {
+    flex: 1,
+  }, 
+  buttonText: {
         textAlign: "center",
         top: "25%",
         color: "white",
@@ -155,17 +162,20 @@ const styles = StyleSheet.create({
         textAlign: 'center'
       },
       actionButton: {
-        boxShadow: '10pt',
-        borderRadius: '20%',
+        borderRadius: '15px',
         backgroundColor: 'white',
         width: '90%',
         display: 'flex',
         flexDirection: 'row',
         padding: '5%',
         alignSelf: 'center',
-        margin: '2%',
-        height: '30%',
+        margin: '5%',
+        height: '15%',
         alignItems: 'center',
+        shadowColor: '#1d7dab',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
       },
       actionHeading: {
         color: '#1D7DAB',
@@ -193,14 +203,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
       },
       subbutton: {
-        boxShadow: '10pt',
-        borderRadius: '20%',
+        borderRadius: '15px',
         backgroundColor: 'white',
         display: 'flex',
         flexDirection: 'row',
         padding: '5%',
-        margin: '2%',
+        margin: '5%',
         justifyContent: 'center',
+        shadowColor: '#1d7dab',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
+        height: '80%',
+        flex: 1,
+        alignItems: 'center',
       },
       subbuttonContainer: {
         display: 'flex',
