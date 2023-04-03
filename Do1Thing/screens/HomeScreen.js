@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
+import { useFonts } from "expo-font";
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,6 +18,11 @@ export default function HomeScreen(props) {
             return state.loggedIn;
         }
     })
+
+    let customFonts = {
+      Roboto: require("../assets/fonts/Roboto-Regular.ttf"),
+    };
+    const [fontsLoaded] = useFonts(customFonts);
 
     console.log(returningUser)
 
@@ -47,7 +53,9 @@ export default function HomeScreen(props) {
 
   
 
-
+    if (!fontsLoaded) {
+      return <View></View>;
+    } else {
     return(
         <View>
             <Text style={styles.heading}>Welcome to Do1Thing</Text>
@@ -109,6 +117,7 @@ export default function HomeScreen(props) {
 
         </View>
     )
+}
 }
 
 const styles = StyleSheet.create({
