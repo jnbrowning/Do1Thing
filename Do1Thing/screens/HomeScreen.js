@@ -7,7 +7,7 @@ import { useFonts } from "expo-font";
 import { HStack } from "@react-native-material/core";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { style } from '@mui/system';
+// import { style } from '@mui/system';
 
 export default function HomeScreen(props) {
 

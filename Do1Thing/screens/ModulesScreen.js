@@ -8,66 +8,59 @@ import ModuleButton from '../components/ModuleButton';
 export default function ModuleScreen(props){
 
     const {navigation} = props;
-    const modulesLinks = [];
-
   
-
     return(
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.bodyContainer}>
                 <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={1}/>
+                        <ModuleButton moduleNumber={1} navigation={navigation} />
                     </View>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={2}/>
-                    </View>
-                </HStack>
-                <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={3}/>
-                    </View>
-                    <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={4}/>
+                        <ModuleButton moduleNumber={2} navigation={navigation}/>
                     </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={5}/>
+                        <ModuleButton moduleNumber={3} navigation={navigation}/>
                     </View>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={6}/>
-                    </View>
-                </HStack>
-                <HStack m={8} spacing={20}>
-                    <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={7}/>
-                    </View>
-                    <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={8}/>
+                        <ModuleButton moduleNumber={4} navigation={navigation}/>
                     </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={9}/>
+                        <ModuleButton moduleNumber={5} navigation={navigation}/>
                     </View>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={10}/>
+                        <ModuleButton moduleNumber={6} navigation={navigation}/>
                     </View>
                 </HStack>
                 <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={11}/>
+                        <ModuleButton moduleNumber={7} navigation={navigation}/>
                     </View>
                     <View style={styles.moduleContainer} >
-                        <ModuleButton moduleNumber={12}/>
+                        <ModuleButton moduleNumber={8} navigation={navigation}/>
+                    </View>
+                </HStack>
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={9} navigation={navigation}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={10} navigation={navigation}/>
+                    </View>
+                </HStack>
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={11} navigation={navigation}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={12} navigation={navigation}/>
                     </View>
                 </HStack>
             </ScrollView>
-            <Button
-            title='Module Template Test'
-            onPress={()=>goToModule(0)}
-            />
             
         </View>
     )
