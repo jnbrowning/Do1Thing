@@ -123,7 +123,7 @@ export default function App() {
                 fontWeight: 'bold'
                 }
             }}/>
-            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
+            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle} options={{ headerShadowVisible: false}}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
             <Stack.Screen name = 'ModuleImageOnly' component={ModuleImageOnly}/>
