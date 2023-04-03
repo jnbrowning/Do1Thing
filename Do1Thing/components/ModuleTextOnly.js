@@ -4,13 +4,17 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Ionicons } from '@expo/vector-icons'; 
 
 
-function ModuleContent({navigation, route}) {
+function ModuleTextOnly({navigation, route}) {
 
-  const currentPage = route.params.fullModule.currentPage;
-  const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
-  const pageContent = route.params.fullModule.moduleContent[currentPage];
+  let link = route.params.image;
+  console.log(route.params);
 
-  let link = pageContent.content.image;
+  const nextPage = {pageType: 'ModuleCongrats',
+  content: {
+    info: 'You went through all the materials for Module 1, hopefully you learned a bit more about how to make a plan.',
+    image: require('../assets/test_assets/img5.jpg'),
+    },
+  buttonText: 'Done'}
 
   return (
     <View style={styles.container}>
@@ -21,20 +25,16 @@ function ModuleContent({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
-        <Text style={styles.goalText}>{pageContent.content.headText}</Text>
-        <Image style={styles.testIcon} 
-        source={link}/>
+        <Text style={styles.moduleHeading}>{route.params.mod}</Text>
         <View style={styles.goalBlock}>
-        <Text style={styles.infoText}>{pageContent.content.info}</Text>
+            <Text style={styles.goalText}>{route.params.headText}</Text>
+            <Text style={styles.infoText}>{route.params.info}</Text>
         </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
-          onPress={()=>{
-            route.params.fullModule.currentPage += 1;
-            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+          title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>Next</Text>}
+          onPress={()=>navigation.navigate(nextPage.pageType, nextPage.content)}
           />
       </View>
     </View>
@@ -92,9 +92,9 @@ const styles = StyleSheet.create({
       paddingLeft: '10%',
       paddingRight: '10%',
       paddingTop: '5%',
-      fontSize: 24,
+      fontSize: 32,
       fontWeight: 'bold',
-      color: '#0E5681',
+      color: '#1D7DAB',
 
     },
     startButton: {
@@ -106,9 +106,8 @@ const styles = StyleSheet.create({
       bottom:10,
     },
     goalBlock: {
-      justifyContent: 'center',
-      flex: 1,
-      marginBottom: 60,
+      justifyContent: 'space-evenly',
+      flex: 0.8,
       width: '100%',
     },
     infoText: {
@@ -119,4 +118,4 @@ const styles = StyleSheet.create({
     }
   });
 
-  export default ModuleContent;
+  export default ModuleTextOnly;

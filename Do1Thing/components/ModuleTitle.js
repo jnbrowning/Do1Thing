@@ -6,19 +6,34 @@ import { Ionicons } from '@expo/vector-icons';
 
 function ModuleTitle({navigation, route}) {
 
-  // TO ADD TO MODULES PAGE WHEN COMPLETED
 //   const modules = [
-//     {moduleNum: '1', moduleName: 'Make a Plan', logo: '', goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.'}, 
-//     {moduleNum: '2', moduleName: 'Water', logo: '', goal: 'Have 72 hours (3 days) worth of water stored for your household.'},
+//     {currentPage: 0,
+//     moduleContent: [
+//         {pageType: 'ModuleTitle',
+//         content: {moduleNum: '1', 
+//                 moduleName: 'Make a Plan', 
+//                 logo: require('../assets/test_assets/img1.jpg'), 
+//                 goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
+//                 },
+//         buttonText: 'Start'},
+//     ]
+//     }
 // ]
 
 //   function goToModule(mod) {
-//       console.log(modules[mod]);
-//       navigation.navigate('ModuleTitle', {module: modules[mod]});
-//   }
+//       console.log(modules[mod].currentPage);
+//       const modulePage = modules[mod].moduleContent[modules[mod].currentPage];
+//       console.log(modulePage.buttonText);
+//       modules[mod].currentPage += 1;
+//       console.log(modules[mod].currentPage);
+//       navigation.navigate(modulePage.pageType, {module: modulePage.content, fullModule: modules[mod]});
+//     }
 
-  let link = route.params.module.logo;
-  console.log(route.params);
+  const currentPage = route.params.fullModule.currentPage;
+  const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
+  const pageContent = route.params.fullModule.moduleContent[currentPage];
+
+  let link = pageContent.content.logo;
 
   return (
     <View style={styles.container}>
@@ -29,23 +44,20 @@ function ModuleTitle({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>Module {route.params.module.moduleNum}</Text>
-        <Text style={styles.moduleTitle}>{route.params.module.moduleName}</Text>
+        <Text style={styles.moduleHeading}>Module {pageContent.content.moduleNum}</Text>
+        <Text style={styles.moduleTitle}>{pageContent.content.moduleName}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
         <Text style={styles.goalHeader}>Goal</Text>
-        <Text style={styles.goalText}>{route.params.module.goal}</Text>
+        <Text style={styles.goalText}>{pageContent.content.goal}</Text>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "start, button" variant="button" style={{color: 'white'}}>Start</Text>}
-          onPress={()=>navigation.navigate('ModuleSectionHead', 
-          {mod: 'Module 1 - Make a Plan',
-          sectionNum: '1',
-          sectionTitle: 'Plan what to do if you have to evacuate',
-          image: require('../assets/test_assets/img2.jpg'),
-          })}
-          />
+          title={<Text accessibilityLabel = "start, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
+          onPress={()=>{
+            route.params.fullModule.currentPage += 1;
+            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+        />
       </View>
     </View>
     )

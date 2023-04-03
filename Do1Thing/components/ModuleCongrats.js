@@ -4,13 +4,10 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { Ionicons } from '@expo/vector-icons'; 
 
 
-function ModuleContent({navigation, route}) {
+function ModuleCongrats({navigation, route}) {
 
-  const currentPage = route.params.fullModule.currentPage;
-  const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
-  const pageContent = route.params.fullModule.moduleContent[currentPage];
-
-  let link = pageContent.content.image;
+  let link = route.params.image;
+  console.log(route.params);
 
   return (
     <View style={styles.container}>
@@ -21,20 +18,17 @@ function ModuleContent({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
-        <Text style={styles.goalText}>{pageContent.content.headText}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
+        <Text style={styles.goalText}>Congratulations!</Text>
         <View style={styles.goalBlock}>
-        <Text style={styles.infoText}>{pageContent.content.info}</Text>
+        <Text style={styles.infoText}>{route.params.info}</Text>
         </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
-          onPress={()=>{
-            route.params.fullModule.currentPage += 1;
-            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+          title={<Text accessibilityLabel = "done, button" variant="button" style={{color: 'white'}}>Done</Text>}
+          onPress={()=>navigation.navigate('ModulesScreen')}
           />
       </View>
     </View>
@@ -63,8 +57,8 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     testIcon: {
-      height: 200,
-      width: '100%',
+      flex: 1,
+      width: '80%',
       marginTop: 40,
       marginBottom: 30,
       alignSelf: 'center',
@@ -107,7 +101,7 @@ const styles = StyleSheet.create({
     },
     goalBlock: {
       justifyContent: 'center',
-      flex: 1,
+      flex: 0.8,
       marginBottom: 60,
       width: '100%',
     },
@@ -119,4 +113,4 @@ const styles = StyleSheet.create({
     }
   });
 
-  export default ModuleContent;
+  export default ModuleCongrats;
