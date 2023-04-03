@@ -1,9 +1,10 @@
-import { View, Text, Image, StyleSheet, FlatList, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
+import { HStack } from "@react-native-material/core";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { style } from '@mui/system';
@@ -73,7 +74,7 @@ export default function HomeScreen(props) {
 
       <View style={styles.subbuttonContainer}>
           <View style={styles.subbutton}>
-            <TouchableOpacity>
+            <TouchableOpacity >
               <Image></Image>
               <Text style={styles.subbuttonText}>View Modules</Text>
             </TouchableOpacity>
@@ -88,18 +89,14 @@ export default function HomeScreen(props) {
         </View>
 
             <Text style={styles.popularModules}>Popular Modules</Text>
-            {/* <Text>Current user email: {currentUser.email? currentUser.email : "Guest Mode"}</Text>
-            { loggedIn ? 
-                <Button title='Sign out' onPress={async () => {
-                    signOutFB();
-                    dispatch(setLogin(false));
-                }}>
-                </Button> 
-            : 
-                <Button title='Back to sign in page' onPress={async () => {
-                    navigation.navigate('Login');
-                }}></Button>
-            } */}
+            <HStack m={4} spacing={20}>
+                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} />
+                </HStack>
+                <HStack m={4} spacing={20}>
+                    <View style={styles.moduleContainer} />
+                    <View style={styles.moduleContainer} />
+                </HStack>
 
 <Overlay
           isVisible={overlayVisible}
@@ -194,7 +191,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#1D7DAB',
         fontSize: '24pt',
-        margin: '2%',
+        marginLeft: '5%',
+        marginTop: '5%',
       },
       subbuttonText: {
         fontWeight: 'bold',
@@ -223,5 +221,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly'
+      },
+      moduleContainer: {
+        width: '45%',
+        marginLeft: '2%',
+        marginRight: '2%',
+        marginTop: '2%',
+        height: 160,
+        backgroundColor: '#FFFFFF',
+        borderRadius: '15px',
+        shadowColor: '#1d7dab',
+        shadowOffset: {width: 0, height: 1},
+        shadowOpacity: 0.2,
+        shadowRadius: 40,
       }
 })
