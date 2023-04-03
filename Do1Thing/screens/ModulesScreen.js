@@ -7,8 +7,10 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default function ModuleScreen(props){
 
+    const {navigation} = props;
     const modulesLinks = [];
 
+  
 
     return(
         <View style={styles.container}>
@@ -38,6 +40,11 @@ export default function ModuleScreen(props){
                     <View style={styles.moduleContainer} />
                 </HStack>
             </ScrollView>
+            <Button
+            title='Module Template Test'
+            onPress={()=>goToModule(0)}
+            />
+            
         </View>
     )
 }
