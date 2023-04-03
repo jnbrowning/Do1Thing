@@ -41,7 +41,10 @@ function ModuleTitle({navigation, route}) {
       style={styles.backButton}
       variant='text'
       title={<Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />}
-      onPress={()=>navigation.goBack()}
+      onPress={()=>{
+        const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
+        route.params.fullModule.currentPage -= 1;
+        navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}
       />
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>Module {pageContent.content.moduleNum}</Text>

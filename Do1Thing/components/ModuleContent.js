@@ -18,14 +18,17 @@ function ModuleContent({navigation, route}) {
       style={styles.backButton}
       variant='text'
       title={<Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />}
-      onPress={()=>navigation.goBack()}
+      onPress={()=>{
+        const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
+        route.params.fullModule.currentPage -= 1;
+        navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}
       />
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
         <Text style={styles.goalText}>{pageContent.content.headText}</Text>
+        <View style={styles.goalBlock}>
         <Image style={styles.testIcon} 
         source={link}/>
-        <View style={styles.goalBlock}>
         <Text style={styles.infoText}>{pageContent.content.info}</Text>
         </View>
         <Button
@@ -63,12 +66,11 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     testIcon: {
+      resizeMode: 'contain',
       height: 200,
-      width: '100%',
-      marginTop: 40,
+      marginTop: 20,
       marginBottom: 30,
       alignSelf: 'center',
-      color: 'blue',
     },
     backButton: {
       height: 70,
@@ -80,7 +82,6 @@ const styles = StyleSheet.create({
       color: '#12B1C3',
       fontSize: 24,
       paddingLeft: '10%',
-   
     },
     goalHeader: {
       paddingLeft: '10%',
@@ -95,10 +96,9 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontWeight: 'bold',
       color: '#0E5681',
-
     },
     startButton: {
-      backgroundColor: '#1D7DAB',
+      backgroundColor: '#2E8540',
       width: '65%',
       padding: '3%',
       alignSelf: 'center',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
       bottom:10,
     },
     goalBlock: {
-      justifyContent: 'center',
+      justifyContent: 'space-evenly',
       flex: 1,
       marginBottom: 60,
       width: '100%',
