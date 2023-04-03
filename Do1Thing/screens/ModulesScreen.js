@@ -1,8 +1,8 @@
 import { useEffect, useState, createRef } from 'react';
-import { View, StyleSheet, Alert, Image, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 
-import { Text, TextInput, Button, HStack } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { HStack } from "@react-native-material/core";
+import ModuleButton from '../components/ModuleButton';
 
 
 export default function ModuleScreen(props){
@@ -13,29 +13,53 @@ export default function ModuleScreen(props){
     return(
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.bodyContainer}>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={1}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={2}/>
+                    </View>
                 </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={3}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={4}/>
+                    </View>
                 </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={5}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={6}/>
+                    </View>
                 </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={7}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={8}/>
+                    </View>
                 </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={9}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={10}/>
+                    </View>
                 </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
+                <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={11}/>
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={12}/>
+                    </View>
                 </HStack>
             </ScrollView>
         </View>
@@ -67,6 +91,6 @@ const styles = StyleSheet.create({
     moduleContainer: {
       width: '48%',
       height: 150,
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FCCFFF'
     }
   });

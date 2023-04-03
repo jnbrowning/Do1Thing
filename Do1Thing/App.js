@@ -110,12 +110,16 @@ export default function App() {
         return (
           <Stack.Navigator initialRouteName = 'ModulesScreen' screenOptions={{
             headerShown: false,
-            headerTintColor: '#1D7DAB',
-            headerTitleStyle: {
-              fontWeight: 'bold'
-            }
             }}>
-            <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ title: 'Modules' ,headerShadowVisible: false}}/>
+            <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ 
+              title: 'Modules' ,
+              headerShown: true,
+              headerShadowVisible: false,
+                headerTintColor: '#1D7DAB',
+                  headerTitleStyle: {
+                fontWeight: 'bold'
+                }
+            }}/>
             <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
