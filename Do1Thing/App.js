@@ -20,6 +20,9 @@ import ModulesScreen from './screens/ModulesScreen';
 import ModuleTitle from './components/ModuleTitle';
 import ModuleSectionHead from './components/ModuleSectionHead';
 import ModuleContent from './components/ModuleContent';
+import ModuleImageOnly from './components/ModuleImageOnly';
+import ModuleTextOnly from './components/ModuleTextOnly';
+import ModuleCongrats from './components/ModuleCongrats';
 
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
@@ -123,6 +126,9 @@ export default function App() {
             <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
+            <Stack.Screen name = 'ModuleImageOnly' component={ModuleImageOnly}/>
+            <Stack.Screen name = 'ModuleTextOnly' component={ModuleTextOnly}/>
+            <Stack.Screen name = 'ModuleCongrats' component={ModuleCongrats}/>
           </Stack.Navigator>
         )
       }

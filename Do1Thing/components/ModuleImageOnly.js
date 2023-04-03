@@ -1,16 +1,19 @@
 import { View, StyleSheet, Image } from "react-native";
-import { Text, TextInput, Button } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { Text, Button } from "@react-native-material/core";
 import { Ionicons } from '@expo/vector-icons'; 
 
+function ModuleImageOnly({navigation, route}) {
 
-function ModuleContent({navigation, route}) {
+    const nextPage = {pageType: 'ModuleTextOnly',
+    content: {mod: 'Module 1 - Make a Plan',
+            headText: 'Great!',
+            info: 'Now that you know what disasters could happen in your community, there are things you can do to lower your risk of injury or property damage. Here are some suggestions.',
+            },
+    buttonText: 'See Suggestions'}
 
-  const currentPage = route.params.fullModule.currentPage;
-  const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
-  const pageContent = route.params.fullModule.moduleContent[currentPage];
 
-  let link = pageContent.content.image;
+  let link = route.params.image;
+  console.log(route.params);
 
   return (
     <View style={styles.container}>
@@ -21,20 +24,15 @@ function ModuleContent({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
-        <Text style={styles.goalText}>{pageContent.content.headText}</Text>
+        <Text style={styles.moduleHeading}>{route.params.mod}</Text>
+        <Text style={styles.goalText}>{route.params.headText}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
-        <View style={styles.goalBlock}>
-        <Text style={styles.infoText}>{pageContent.content.info}</Text>
-        </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
-          onPress={()=>{
-            route.params.fullModule.currentPage += 1;
-            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+          title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>{nextPage.buttonText}</Text>}
+          onPress={()=>navigation.navigate(nextPage.pageType, nextPage.content)}
           />
       </View>
     </View>
@@ -63,10 +61,10 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     testIcon: {
-      height: 200,
-      width: '100%',
-      marginTop: 40,
-      marginBottom: 30,
+      flex: 0.90,
+      width: '90%',
+      marginTop: 30,
+      marginBottom: 40,
       alignSelf: 'center',
       color: 'blue',
     },
@@ -119,4 +117,4 @@ const styles = StyleSheet.create({
     }
   });
 
-  export default ModuleContent;
+  export default ModuleImageOnly;

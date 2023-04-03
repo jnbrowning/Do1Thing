@@ -6,8 +6,11 @@ import { Ionicons } from '@expo/vector-icons';
 
 function ModuleSectionHead({navigation, route}) {
 
-  let link = route.params.image;
-  console.log(route.params);
+  const currentPage = route.params.fullModule.currentPage;
+  const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
+  const pageContent = route.params.fullModule.moduleContent[currentPage];
+
+  let link = pageContent.content.image;
 
   return (
     <View style={styles.container}>
@@ -18,26 +21,21 @@ function ModuleSectionHead({navigation, route}) {
       onPress={()=>navigation.goBack()}
       />
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>{route.params.mod}</Text>
+        <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
         <Image style={styles.testIcon} 
         source={link}/>
         <View style={styles.goalBlock}>
-          <Text style={styles.goalHeader}>Section {route.params.sectionNum}</Text>
-          <Text style={styles.goalText}>{route.params.sectionTitle}</Text>
+          <Text style={styles.goalHeader}>Section {pageContent.content.sectionNum}</Text>
+          <Text style={styles.goalText}>{pageContent.content.sectionTitle}</Text>
         </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "let's go, button" variant="button" style={{color: 'white'}}>Let's Go</Text>}
-          onPress={()=>navigation.navigate('ModuleContent', 
-          {mod: 'Module 1 - Make a Plan',
-          headText: 'Choose two emergency meeting places',
-          sectionTitle: 'Plan what to do if you have to evacuate',
-          image: require('../assets/test_assets/img3.jpg'),
-          info: 'The other should be outside of your neighborhood, in case you cannot return home or are asked to evacuate.',
-          })}
+          title={<Text accessibilityLabel = "let's go, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
+          onPress={()=>{
+            route.params.fullModule.currentPage += 1;
+            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
           />
-
       </View>
     </View>
     )
