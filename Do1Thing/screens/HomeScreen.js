@@ -22,7 +22,8 @@ export default function HomeScreen(props) {
     })
 
     let customFonts = {
-      // Roboto: require("../assets/fonts/Roboto-Regular.ttf"),
+      Roboto: require("../assets/fonts/RobotoRegular.ttf"),
+      RobotoBold: require("../assets/fonts/RobotoBold.ttf")
     };
     const [fontsLoaded] = useFonts(customFonts);
 
@@ -152,11 +153,13 @@ const styles = StyleSheet.create({
         fontSize: '32pt',
         fontWeight: 'bold',
         textAlign: 'center',
+        fontFamily: 'RobotoBold'
       },
       subheading: {
         color: '#77B169',
         fontSize: '14pt',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Roboto'
       },
       actionButton: {
         borderRadius: '15px',
@@ -178,10 +181,12 @@ const styles = StyleSheet.create({
         color: '#1D7DAB',
         fontSize: '20pt',
         fontWeight: 'bold',
+        fontFamily: 'RobotoBold'
       },
       actionSubheading: {
         color: '#1D7DAB',
         fontSize: '12pt',
+        fontFamily: 'Roboto'
       },
       actionButtonText: {
         display: 'flex',
@@ -193,12 +198,14 @@ const styles = StyleSheet.create({
         fontSize: '24pt',
         marginLeft: '5%',
         marginTop: '5%',
+        fontFamily: 'RobotoBold'
       },
       subbuttonText: {
         fontWeight: 'bold',
         color: '#1D7DAB',
         fontSize: '16pt',
         textAlign: 'center',
+        fontFamily: 'RobotoBold'
       },
       subbutton: {
         borderRadius: '15px',
