@@ -13,6 +13,7 @@ import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch } from "../data/DB";
 import Badge from "../components/Badge";
+import { useFonts } from "expo-font";
 
 const auth = getFBAuth();
 
@@ -29,6 +30,13 @@ export default function ProfileScreen({navigation}) {
 //     return <View></View>;
 //   } else {
 
+
+let customFonts = {
+  Roboto: require("../assets/fonts/RobotoRegular.ttf"),
+  RobotoBold: require("../assets/fonts/RobotoBold.ttf")
+};
+const [fontsLoaded] = useFonts(customFonts);
+
   const loggedIn = useSelector((state) => {
       if (state !== undefined){
           return state.loggedIn;
@@ -41,6 +49,10 @@ export default function ProfileScreen({navigation}) {
     }
     else {console.log('Cannot find state users yet');}
   })
+
+  if (!fontsLoaded) {
+    return <View></View>;
+  } else {
 
   if (loggedIn) {
     return (
@@ -94,6 +106,7 @@ export default function ProfileScreen({navigation}) {
 
     
         }
+      }
 
 const styles = StyleSheet.create({
   container: {
