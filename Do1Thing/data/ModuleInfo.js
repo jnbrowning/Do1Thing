@@ -17,4 +17,23 @@ const findModuleIcon = (moduleNumber) => {
     return moduleIconList[moduleNumber - 1];
 }
 
-export {findModuleIcon};
+const moduleButtonTextList = [
+    'Make a Plan',
+    'Water',
+    'Sheltering',
+    'Food',
+    'Work, School & Communities',
+    'Unique Needs',
+    'Family Communication Plan',
+    'Involved',
+    'Informed',
+    'Power',
+    'Emergency Supplies',
+    'First Aid'
+]
+
+const findModuleButtonText = (moduleNumber) => {
+    return moduleButtonTextList[moduleNumber - 1];
+}
+
+export {findModuleIcon, findModuleButtonText};

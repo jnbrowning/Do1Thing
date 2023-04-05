@@ -10,7 +10,6 @@ export default function ModuleScreen(props){
     const {navigation} = props;
   
     return(
-        <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.bodyContainer}>
                 <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
@@ -61,25 +60,23 @@ export default function ModuleScreen(props){
                     </View>
                 </HStack>
             </ScrollView>
-            
-        </View>
     )
 }
 
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-    },
+    // container: {
+    //   flex: 1,
+    //   backgroundColor: '#fff',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    //   width: '100%',
+    // },
     bodyContainer: {
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
       alignItems: 'center',
-      width: '90%',
-      backgroundColor: 'tan',
+      width: '100%',
+    //   backgroundColor: 'tan',
     },
     heading: {
       fontSize: 24,
@@ -89,8 +86,8 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     moduleContainer: {
-      width: '48%',
+      width: '45%',
       height: 150,
-      backgroundColor: '#FCCFFF'
+    //   backgroundColor: '#FCCFFF'
     }
   });
