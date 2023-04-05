@@ -108,8 +108,134 @@ export default function ModuleButton(props) {
               info: 'You went through all the materials for Module 1, hopefully you learned a bit more about how to make a plan.',
               image: require('../assets/test_assets/img5.jpg'),
               }}
-        ]}
-    ]
+        ]},
+        {currentPage: 0,
+            moduleContent: [
+                {pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                moduleNum: '2',
+                moduleName: 'Water',
+                logo: require('../assets/test_assets/img2_1.png'),
+                goal: 'Have 72 hours (3 days) worth of water stored for your household.',
+            }},
+            {pageType: 'ModuleSectionHead',
+            buttonText: "Let's Go",
+            content: {
+                mod: 'Module 2 - Water',
+                sectionNum: '1',
+                sectionTitle: 'Determine how much water is needed',
+                image: require('../assets/test_assets/img2_2.png'),
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: 'Water Needed Per Day',
+                info: 'To prepare for an emergency, plan to have one gallon (4 liters) per person per day.',
+                image: require('../assets/test_assets/img2_3.png')
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: 'Total Water Needed',
+                info: 'Determine total water needed by multiplying the number of people by 3 - that is how many gallons you need!',
+                image: require('../assets/test_assets/img2_4.png')
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Don't Forget Pets",
+                info: 'Include an extra one gallon (4 liters) for a medium size pet. That one gallon should last three days, but plan for more or less if your pet is very large or very small.',
+                image: require('../assets/test_assets/img2_5.png')
+            }},
+            {pageType: 'WaterCalculate',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Calculate Your Water Need",
+            }},
+            {pageType: 'ModuleSectionHead',
+            buttonText: "Let's Go",
+            content: {
+                mod: 'Module 2 - Water',
+                sectionNum: '2',
+                sectionTitle: 'How to get enough water',
+                image: require('../assets/test_assets/img2_6.png'),
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Purchasing Water",
+                info: 'Option 1: Purchase enough water at the store.\n\nPurchased water should be replaced once a year',
+                image: require('../assets/test_assets/img2_7.png')
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Bottling Your Own",
+                info: 'Option 2: Bottle your own water. Begin by finding water containers. Do NOT use milk jugs.',
+                image: require('../assets/test_assets/img2_8.png')
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Bottling Your Own",
+                info: 'Next, be sure to clean the containers before filling them with water.',
+                image: require('../assets/test_assets/img2_9.png')
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Bottling Your Own",
+                info: 'Finally, bottle enough water for your household.',
+                image: require('../assets/test_assets/img2_10.png')
+            }},
+            {pageType: 'ModuleSectionHead',
+            buttonText: "Let's Go",
+            content: {
+                mod: 'Module 2 - Water',
+                sectionNum: '3',
+                sectionTitle: 'Important Things to Keep in Mind',
+                image: require('../assets/test_assets/img2_11.png'),
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Store Water in the Freezer",
+                info: 'If possible, store water in the freezer. This will keep the water fresh tasting and your food colder in a power outage!',
+                image: require('../assets/test_assets/img2_12.png')
+            }},
+            {pageType: 'ModuleContent',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: "Drink Enough Water",
+                info: 'If supplies run low, never ration water. Drink the amount you need today and look for more tomorrow.',
+                image: require('../assets/test_assets/img2_13.png')
+            }},
+            {pageType: 'ModuleTextOnly',
+            buttonText: 'Next',
+            content: {
+                mod: 'Module 2 - Water',
+                headText: 'Learn Other Ways to Get Water in a Disaster',
+                info: 'Did you know you can get water from your pipes or hot water heater in an emergency?\n\nThese methods can be dangerous if done incorrectly, so make sure to do your research and understand what you are doing before trying these.',
+            }},
+            {pageType: 'ModuleCongrats',
+            buttonText: 'Done',
+            content: {
+              info: 'You went through all the materials for Module 2, hopefully you learned a bit more about water preparedness.',
+              image: require('../assets/test_assets/img5.jpg'),
+            }}
+        ]
+    }]
 
     function goToModules(num) {
         console.log(num);

@@ -1,5 +1,5 @@
 import { useEffect, useState, createRef } from 'react';
-import { View, StyleSheet, Alert, Image } from 'react-native';
+import { View, StyleSheet, Alert, Image, TouchableWithoutFeedback, Keyboard  } from 'react-native';
 
 import { 
   signInWithEmailAndPassword, 
@@ -29,6 +29,7 @@ function SigninBox({navigation}) {
   const dispatch = useDispatch();
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={styles.loginContainer}>
       <Image 
         alt="logo"
@@ -134,6 +135,7 @@ function SigninBox({navigation}) {
         />
       </View>
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
