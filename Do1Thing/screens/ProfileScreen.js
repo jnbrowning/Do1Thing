@@ -13,23 +13,10 @@ import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch } from "../data/DB";
 import Badge from "../components/Badge";
-import { useFonts } from "expo-font";
 
 const auth = getFBAuth();
 
 export default function ProfileScreen({navigation}) {
-// What font are we using?
-//   let customFonts = {
-//     Armalite: require("../assets/fonts/armalite.ttf"),
-//     ZenDots: require("../assets/fonts/zendots.ttf"),
-//     RobotoMono: require("../assets/fonts/RobotoMono.ttf"),
-//   };
-//   const [fontsLoaded] = useFonts(customFonts);
-
-//   if (!fontsLoaded) {
-//     return <View></View>;
-//   } else {
-
 
 let customFonts = {
   Roboto: require("../assets/fonts/RobotoRegular.ttf"),
@@ -54,32 +41,18 @@ const [fontsLoaded] = useFonts(customFonts);
     return <View></View>;
   } else {
 
-  if (loggedIn) {
+  // if (loggedIn) {
     return (
       <View style={styles.container}>
-        {/* <Header navigation={navigation} headingText={""} /> */}
 
         <View style={styles.profile}>
-          <Text style={styles.usernameText}>username</Text>
-          <Text style={styles.startDateText}>
-            Player since 1/1/2001
-          </Text>
+          <Text style={styles.usernameText}>{currentUser.email}</Text>
         </View>
 
-        <View style={styles.statisticsList}>
-          <View style={styles.statisticGroup}>
-            <Text style={styles.statisticText}>Modules completed:</Text>
-            <Text style={styles.numberText}>0</Text>
-          </View>
-          <View style={styles.statisticGroup}>
-            <Text style={styles.statisticText}>Percent finished:</Text>
-            <Text style={styles.numberText}>0%</Text>
-          </View>
-          </View>
-
-          <Text style={styles.badgeSectionText}>Badges: {currentUser.badges.length.toString()}</Text>
+         
+           <Text style={styles.badgeSectionText}>Badges Completed: {currentUser.badges.length.toString()}</Text>
+          
           <View style={styles.badgesSection}>
-
          {currentUser.badges.map((badge, index) => {
           return (
             <Badge
@@ -87,25 +60,43 @@ const [fontsLoaded] = useFonts(customFonts);
               key={index}
             />
           );
-        })}
-            
+        })} 
           </View>
+
+
+        <View style={styles.profileOption}>
+        <TouchableOpacity style={styles.optionGroup}>
+        <Image></Image>
+        <Text style={styles.optionText}>Settings</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.optionGroup}>
+        <Image></Image>
+        <Text style={styles.optionText}>Help</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.optionGroup}>
+        <Image></Image>
+        <Text style={styles.optionText}>Log Out</Text>
+        </TouchableOpacity>
+        </View>
+
       </View>
     );
   }
   
-  else {
-    return (
-      <View style={styles.container}>
-        <View style={styles.profile}>
-          <Text> Guest mode </Text>
-        </View>
-      </View>
-    );
-  }
+  // else {
+  //   return (
+  //     <View style={styles.container}>
+  //       <View style={styles.profile}>
+  //         <Text> Guest mode </Text>
+  //       </View>
+  //     </View>
+  //   );
+  // }
 
     
-        }
+        // }
       }
 
 const styles = StyleSheet.create({
@@ -120,33 +111,17 @@ const styles = StyleSheet.create({
     flex: 0.3,
   },
   usernameText: {
-    fontSize: "16pt",
-    fontWeight: "bold",
+    fontSize: "24pt",
     padding: "1%",
-  },
-  startDateText: {
-    fontSize: "14pt",
-  },
-  statisticsList: {
-    flex: 0.3,
-    display: "flex",
-    justifyContent: "space-evenly",
-  },
-  statisticGroup: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    paddingLeft: "15%",
-    paddingRight: "15%",
-  },
-  numberText: {
-    fontWeight: "bold",
+    fontFamily: "RobotoBold",
+    color: '#1D7DAB',
   },
   badgesSection: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-evenly",
+    justifyContent: "start",
+    padding: '5%',
     flex: 0.1,
   },
   badge: {
@@ -157,9 +132,27 @@ const styles = StyleSheet.create({
     margin: '2%',
   },
   badgeSectionText: {
-    fontWeight: 'bold',
+    fontFamily: "RobotoBold",
     paddingLeft: '3%',
     paddingBottom: '3%',
-    fontSize: '18pt'
+    fontSize: '24pt',
+    color: '#1D7DAB',
+  },
+  optionGroup: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: '2%',
+    flex: .2,
+  },
+  profileOption: {
+display: 'flex',
+flexDirection: 'column',
+flex: 0.3,
+  },
+  optionText: {
+    fontFamily: 'RobotoBold',
+    fontSize: '24pt',
+    color: '#1D7DAB',
+    paddingLeft: '5%',
   }
 });
