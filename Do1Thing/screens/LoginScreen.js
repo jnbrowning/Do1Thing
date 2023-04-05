@@ -84,7 +84,7 @@ function SigninBox({navigation}) {
               const userCred = await signInWithEmailAndPassword(getFBAuth(), email, password);
               if (userCred.user.emailVerified) {
                 dispatch(setLogin(true)); 
-                navigation.navigate('Home',{screen: 'HomeScreen', newUser: false,})
+                navigation.navigate('Main',{screen: 'HomeScreen', newUser: false,})
               } else {
                 Alert.alert("Sign In Error", 'Please verify your email address before signing in.', [{text: 'OK'}])
               }
@@ -128,7 +128,7 @@ function SigninBox({navigation}) {
           variant='button' style={{color: 'white'}}
           >Enter as guest</Text>}
           onPress={() => {
-            navigation.navigate('Home',{screen: 'HomeScreen', newUser: false,})
+            navigation.navigate('Main',{screen: 'HomeScreen', newUser: false,})
             // dispatch(loadUser({}));
           }}
         />
@@ -249,7 +249,7 @@ function LoginScreen({navigation}) {
     useEffect(() => {
       onAuthStateChanged(getFBAuth(), user => {
         if (user) {
-          navigation.navigate('Home',
+          navigation.navigate('Main',
           {screen: 'HomeScreen', 
           returningUser: true,
         });

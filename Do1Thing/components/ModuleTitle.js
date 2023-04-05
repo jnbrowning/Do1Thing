@@ -1,33 +1,9 @@
 import { View, StyleSheet, Image } from "react-native";
-import { Text, TextInput, Button } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { Ionicons } from '@expo/vector-icons'; 
-
+import { Text, Button } from "@react-native-material/core";
+import { AntDesign } from '@expo/vector-icons'; 
+import { TouchableOpacity } from "react-native";
 
 function ModuleTitle({navigation, route}) {
-
-//   const modules = [
-//     {currentPage: 0,
-//     moduleContent: [
-//         {pageType: 'ModuleTitle',
-//         content: {moduleNum: '1', 
-//                 moduleName: 'Make a Plan', 
-//                 logo: require('../assets/test_assets/img1.jpg'), 
-//                 goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
-//                 },
-//         buttonText: 'Start'},
-//     ]
-//     }
-// ]
-
-//   function goToModule(mod) {
-//       console.log(modules[mod].currentPage);
-//       const modulePage = modules[mod].moduleContent[modules[mod].currentPage];
-//       console.log(modulePage.buttonText);
-//       modules[mod].currentPage += 1;
-//       console.log(modules[mod].currentPage);
-//       navigation.navigate(modulePage.pageType, {module: modulePage.content, fullModule: modules[mod]});
-//     }
 
   const currentPage = route.params.fullModule.currentPage;
   const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
@@ -37,20 +13,15 @@ function ModuleTitle({navigation, route}) {
 
   return (
     <View style={styles.container}>
-      <Button
-      style={styles.backButton}
-      variant='text'
-      title={<Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />}
-      onPress={()=>{
-        const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
-        route.params.fullModule.currentPage -= 1;
-        navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}
-      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
+          <AntDesign name="close" size={30} color="#9D9D9D"/>
+        </TouchableOpacity>
+      </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>Module {pageContent.content.moduleNum}</Text>
         <Text style={styles.moduleTitle}>{pageContent.content.moduleName}</Text>
-        <Image style={styles.testIcon} 
-        source={link}/>
+        <Image style={styles.icon} source={link}/>
         <Text style={styles.goalHeader}>Goal</Text>
         <Text style={styles.goalText}>{pageContent.content.goal}</Text>
         <Button
@@ -63,43 +34,35 @@ function ModuleTitle({navigation, route}) {
         />
       </View>
     </View>
-    )
-}
+)}
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'flex-start',
       justifyContent: 'center',
     },
     bodyContainer: {
       flex: 0.95,
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      // backgroundColor: 'tan',
       width: '100%',
     },
-    heading: {
-      fontSize: 24,
-      color: 'black',
-      paddingBottom: '5%',
-      paddingTop: '5%',
-      fontWeight: 'bold'
+    buttonContainer: {
+      paddingRight: '5%',
+      alignItems: 'flex-end',
+      width: '100%',
+      marginTop: 35,
     },
-    testIcon: {
+    backButton: {
+      padding: '3%',
+    },
+    icon: {
       height: 200,
       width: 200,
       marginTop: 55,
       marginBottom: 55,
       alignSelf: 'center',
-      color: 'blue',
-    },
-    backButton: {
-      height: 70,
-      paddingLeft: '5%',
-      justifyContent: 'center',
-      marginTop: 25,
     },
     moduleHeading: {
       color: '#12B1C3',
