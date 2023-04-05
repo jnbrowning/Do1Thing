@@ -11,7 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useFonts } from "expo-font";
-import { getFBAuth, saveAndDispatch } from "../data/DB";
+import { getFBAuth, saveAndDispatch, signOutFB } from "../data/DB";
 import Badge from "../components/Badge";
 
 const auth = getFBAuth();
@@ -41,7 +41,7 @@ const [fontsLoaded] = useFonts(customFonts);
     return <View></View>;
   } else {
 
-  // if (loggedIn) {
+  if (loggedIn) {
     return (
       <View style={styles.container}>
 
@@ -75,28 +75,33 @@ const [fontsLoaded] = useFonts(customFonts);
         <Text style={styles.optionText}>Help</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.optionGroup}>
+        <TouchableOpacity 
+        style={styles.optionGroup}
+        onPress={async () => {
+          signOutFB();
+          dispatch(setLogin(false));
+      }} >
         <Image></Image>
         <Text style={styles.optionText}>Log Out</Text>
-        </TouchableOpacity>
+        </TouchableOpacity >
         </View>
 
       </View>
     );
   }
   
-  // else {
-  //   return (
-  //     <View style={styles.container}>
-  //       <View style={styles.profile}>
-  //         <Text> Guest mode </Text>
-  //       </View>
-  //     </View>
-  //   );
-  // }
+  else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.profile}>
+          <Text> Guest mode </Text>
+        </View>
+      </View>
+    );
+  }
 
     
-        // }
+        }
       }
 
 const styles = StyleSheet.create({
