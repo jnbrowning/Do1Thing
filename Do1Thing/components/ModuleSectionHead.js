@@ -1,8 +1,7 @@
-import { View, StyleSheet, Image } from "react-native";
-import { Text, TextInput, Button } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Text, Button } from "@react-native-material/core";
 import { Ionicons } from '@expo/vector-icons'; 
-
+import { AntDesign } from '@expo/vector-icons'; 
 
 function ModuleSectionHead({navigation, route}) {
 
@@ -14,18 +13,22 @@ function ModuleSectionHead({navigation, route}) {
 
   return (
     <View style={styles.container}>
-      <Button
-      style={styles.backButton}
-      variant='text'
-      title={<Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />}
-      onPress={()=>{
-        const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
-        route.params.fullModule.currentPage -= 1;
-        navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}
-      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+        style={styles.backButton}
+        onPress={()=>{
+          const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
+          route.params.fullModule.currentPage -= 1;
+          navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}>
+          <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
+          <AntDesign name="close" size={30} color="#9D9D9D"/>
+        </TouchableOpacity>
+      </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
-        <Image style={styles.testIcon} 
+        <Image style={styles.picture} 
         source={link}/>
         <View style={styles.goalBlock}>
           <Text style={styles.goalHeader}>Section {pageContent.content.sectionNum}</Text>
@@ -55,34 +58,29 @@ const styles = StyleSheet.create({
       flex: 0.95,
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      // backgroundColor: 'tan',
       width: '100%',
     },
-    heading: {
-      fontSize: 24,
-      color: 'black',
-      paddingBottom: '5%',
-      paddingTop: '5%',
-      fontWeight: 'bold'
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '100%',
+      marginTop: 25,
     },
-    testIcon: {
+    backButton: {
+      padding: '7%',
+      justifyContent: 'center',
+    },
+    picture: {
       height: 300,
       width: 300,
       marginTop: 50,
       alignSelf: 'center',
       color: 'blue',
     },
-    backButton: {
-      height: 70,
-      paddingLeft: '5%',
-      justifyContent: 'center',
-      marginTop: 25,
-    },
     moduleHeading: {
       color: '#12B1C3',
       fontSize: 24,
       paddingLeft: '10%',
-   
     },
     goalHeader: {
       paddingLeft: '10%',
@@ -97,7 +95,6 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontWeight: 'bold',
       color: '#0E5681',
-
     },
     startButton: {
       backgroundColor: '#2E8540',

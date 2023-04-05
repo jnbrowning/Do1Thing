@@ -1,8 +1,7 @@
-import { View, StyleSheet, Image } from "react-native";
-import { Text, TextInput, Button } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Text, Button } from "@react-native-material/core";
 import { Ionicons } from '@expo/vector-icons'; 
-
+import { AntDesign } from '@expo/vector-icons'; 
 
 function ModuleContent({navigation, route}) {
 
@@ -14,15 +13,19 @@ function ModuleContent({navigation, route}) {
 
   return (
     <View style={styles.container}>
-      <Button
-      style={styles.backButton}
-      variant='text'
-      title={<Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />}
-      onPress={()=>{
-        const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
-        route.params.fullModule.currentPage -= 1;
-        navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}
-      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+        style={styles.backButton}
+        onPress={()=>{
+          const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
+          route.params.fullModule.currentPage -= 1;
+          navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}>
+          <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
+          <AntDesign name="close" size={30} color="#9D9D9D"/>
+        </TouchableOpacity>
+      </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
         <Text style={styles.goalText}>{pageContent.content.headText}</Text>
@@ -72,11 +75,15 @@ const styles = StyleSheet.create({
       marginBottom: 30,
       alignSelf: 'center',
     },
-    backButton: {
-      height: 70,
-      paddingLeft: '5%',
-      justifyContent: 'center',
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '100%',
       marginTop: 25,
+    },
+    backButton: {
+      padding: '7%',
+      justifyContent: 'center',
     },
     moduleHeading: {
       color: '#12B1C3',

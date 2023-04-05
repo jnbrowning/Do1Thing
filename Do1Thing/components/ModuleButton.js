@@ -115,7 +115,12 @@ export default function ModuleButton(props) {
         console.log(num);
         const pageNum = modules[num - 1].currentPage;
         const modulePage = modules[num - 1].moduleContent[pageNum];
-        navigation.navigate(modulePage.pageType, {fullModule: modules[num - 1]});
+        if (pageNum === 0) {
+            navigation.navigate(modulePage.pageType, {fullModule: modules[num - 1]});
+        }
+        else {
+            navigation.navigate('ModuleResume', {fullModule: modules[num - 1]});
+        }
     }
     if (!fontsLoaded) {
         return <TouchableOpacity onPress={()=>goToModules(moduleNumber)} style={styles.moduleContainer} />

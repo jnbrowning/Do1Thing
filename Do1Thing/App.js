@@ -23,6 +23,7 @@ import ModuleContent from './components/ModuleContent';
 import ModuleImageOnly from './components/ModuleImageOnly';
 import ModuleTextOnly from './components/ModuleTextOnly';
 import ModuleCongrats from './components/ModuleCongrats';
+import ModuleResume from './components/ModuleResume';
 
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
@@ -39,15 +40,15 @@ export default function App() {
       const Tabs = createBottomTabNavigator();
   
       return (
-        <Tabs.Navigator initialRouteName='Checklist' screenOptions={{ headerShown: false}}>
+        <Tabs.Navigator initialRouteName='Home' screenOptions={{ headerShown: false}}>
                   <Tabs.Screen
-                      name='Checklist' 
+                      name='Home' 
                       component={ChecklistTabStack}
                       options={{
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
-                                      name = "list"
+                                      name = "home"
                                       type = "font-awesome-5"
                                       color= {color}
                                       size = {size}
@@ -122,6 +123,7 @@ export default function App() {
               },
             }}/>
             <Stack.Screen name = 'ModuleTitle' component={ModuleTitle} options={{ headerShadowVisible: false}}/>
+            <Stack.Screen name = 'ModuleResume' component={ModuleResume} options={{ headerShadowVisible: false}}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
             <Stack.Screen name = 'ModuleImageOnly' component={ModuleImageOnly}/>
@@ -148,7 +150,7 @@ export default function App() {
               <Stack.Navigator initialRouteName = 'Login' screenOptions={{ headerShown: false}}>
                 <Stack.Screen name = 'Login' component = {LoginScreen} />
                 <Stack.Screen name = 'PasswordReset' component = {PasswordResetScreen} />
-                <Stack.Screen name = 'Home' component = {MainTabNavigator} />
+                <Stack.Screen name = 'Main' component = {MainTabNavigator} />
                 <Stack.Screen name="Profile" component={ProfileScreen} />
               </Stack.Navigator>
             </NavigationContainer>
