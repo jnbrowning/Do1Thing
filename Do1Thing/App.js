@@ -117,11 +117,9 @@ export default function App() {
             <Stack.Screen name = 'ModulesScreen' component={ModulesScreen} options={{ 
               title: 'Modules' ,
               headerShown: true,
-              headerShadowVisible: false,
-                headerTintColor: '#1D7DAB',
-                  headerTitleStyle: {
-                fontWeight: 'bold'
-                }
+              headerStyle: {
+                backgroundColor: 'transparent',
+              },
             }}/>
             <Stack.Screen name = 'ModuleTitle' component={ModuleTitle} options={{ headerShadowVisible: false}}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
