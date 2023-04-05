@@ -24,6 +24,7 @@ import ModuleImageOnly from './components/ModuleImageOnly';
 import ModuleTextOnly from './components/ModuleTextOnly';
 import ModuleCongrats from './components/ModuleCongrats';
 import ModuleResume from './components/ModuleResume';
+import WaterCalculate from './components/WaterCalculate';
 
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core','Constants.platform.ios.model has been deprecated in favor of']);
@@ -129,6 +130,7 @@ export default function App() {
             <Stack.Screen name = 'ModuleImageOnly' component={ModuleImageOnly}/>
             <Stack.Screen name = 'ModuleTextOnly' component={ModuleTextOnly}/>
             <Stack.Screen name = 'ModuleCongrats' component={ModuleCongrats}/>
+            <Stack.Screen name = "WaterCalculate" component={WaterCalculate}/>
           </Stack.Navigator>
         )
       }
