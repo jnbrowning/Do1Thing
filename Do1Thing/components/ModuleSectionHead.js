@@ -2,12 +2,15 @@ import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Text, Button } from "@react-native-material/core";
 import { Ionicons } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
+import * as Progress from 'react-native-progress';
 
 function ModuleSectionHead({navigation, route}) {
 
   const currentPage = route.params.fullModule.currentPage;
   const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
   const pageContent = route.params.fullModule.moduleContent[currentPage];
+  const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
+  console.log(progressWidth);
 
   let link = pageContent.content.image;
 
@@ -40,9 +43,18 @@ function ModuleSectionHead({navigation, route}) {
           title={<Text accessibilityLabel = "let's go, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
           onPress={()=>{
             route.params.fullModule.currentPage += 1;
-            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+            navigation.push(nextPage.pageType, {fullModule: route.params.fullModule})}}
           />
       </View>
+      <Progress.Bar 
+        progress={progressWidth} 
+        width={null} 
+        height={15}
+        borderRadius={0}
+        color={'#1D7DAB'}
+        unfilledColor={"#EDEDED"}
+        borderColor={'#fff'}
+        style={{position: 'absolute', bottom: 0, width: '100%'}}/>
     </View>
     )
 }
@@ -71,8 +83,8 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     picture: {
-      height: 300,
-      width: 300,
+      height: 275,
+      width: 275,
       marginTop: 50,
       alignSelf: 'center',
       color: 'blue',
@@ -102,7 +114,7 @@ const styles = StyleSheet.create({
       padding: '3%',
       alignSelf: 'center',
       position: 'absolute',
-      bottom:10,
+      bottom: 25,
     },
     goalBlock: {
       justifyContent: 'center',
