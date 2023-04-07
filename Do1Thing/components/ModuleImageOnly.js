@@ -2,12 +2,15 @@ import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Text, Button } from "@react-native-material/core";
 import { Ionicons } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
+import * as Progress from 'react-native-progress';
 
 function ModuleImageOnly({navigation, route}) {
 
   const currentPage = route.params.fullModule.currentPage;
   const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
   const pageContent = route.params.fullModule.moduleContent[currentPage];
+  const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
+  console.log(progressWidth);
 
   let link = pageContent.content.image;
 
@@ -37,9 +40,18 @@ function ModuleImageOnly({navigation, route}) {
           title={<Text accessibilityLabel = "next, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
           onPress={()=>{
             route.params.fullModule.currentPage += 1;
-            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+            navigation.push(nextPage.pageType, {fullModule: route.params.fullModule})}}
           />
       </View>
+      <Progress.Bar 
+        progress={progressWidth} 
+        width={null} 
+        height={15}
+        borderRadius={0}
+        color={'#1D7DAB'}
+        unfilledColor={"#EDEDED"}
+        borderColor={'#fff'}
+        style={{position: 'absolute', bottom: 0, width: '100%'}}/>
     </View>
     )
 }
@@ -66,10 +78,9 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     testIcon: {
-      flex: 0.90,
-      width: '90%',
-      marginTop: 30,
-      marginBottom: 40,
+      resizeMode: 'contain',
+      height: 400,
+      marginTop: 15,
       alignSelf: 'center',
       color: 'blue',
     },
@@ -110,7 +121,7 @@ const styles = StyleSheet.create({
       padding: '3%',
       alignSelf: 'center',
       position: 'absolute',
-      bottom:10,
+      bottom: 25,
     },
     goalBlock: {
       justifyContent: 'center',
