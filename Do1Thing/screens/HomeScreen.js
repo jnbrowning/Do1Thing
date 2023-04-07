@@ -5,6 +5,7 @@ import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
 import { HStack } from "@react-native-material/core";
+import BadgePopup from "../components/BadgePopup";
 
 import { useDispatch, useSelector } from 'react-redux';
 // import { style } from '@mui/system';
@@ -13,7 +14,6 @@ export default function HomeScreen(props) {
 
     const dispatch = useDispatch();
     const {navigation, returningUser} = props;
-    const [overlayVisible, setOverlayVisible] = useState(false);
 
     const loggedIn = useSelector((state) => {
         if (state !== undefined){
@@ -98,24 +98,10 @@ export default function HomeScreen(props) {
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-
-<Overlay
-          isVisible={overlayVisible}
-          onBackdropPress={() => setOverlayVisible(false)}
-          overlayStyle={styles.overlayView}
-        >
-          <Text style={styles.overlayText}>
-            You earned a badge!
-          </Text>
-          <TouchableOpacity
-            style={styles.okayButton}
-            onPress={() => {
-              setOverlayVisible(false);
-            }}
-          >
-            <Text style={styles.buttonText}>Okay</Text>
-          </TouchableOpacity>
-        </Overlay>
+{/* If user has just signed up */}
+<BadgePopup
+badge={1}>
+</BadgePopup>
 
         </View>
     )

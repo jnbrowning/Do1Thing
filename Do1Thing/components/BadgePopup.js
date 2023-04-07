@@ -6,6 +6,8 @@ import {
   import Badge from "../components/Badge";
   
   export default function BadgePopup(badgeID) {
+    const [overlayVisible, setOverlayVisible] = useState(true);
+
     return (
 <Overlay
           isVisible={overlayVisible}
