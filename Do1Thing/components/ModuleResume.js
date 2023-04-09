@@ -3,6 +3,7 @@ import { Text, Button } from "@react-native-material/core";
 import { AntDesign } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native";
 import { useState } from "react";
+import * as Progress from 'react-native-progress';
 
 
 function ModuleResume({navigation, route}) {
@@ -10,6 +11,9 @@ function ModuleResume({navigation, route}) {
   const currentPage = route.params.fullModule.currentPage;
   const nextPage = route.params.fullModule.moduleContent[currentPage];
   const pageContent = route.params.fullModule.moduleContent[0];
+  const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
+  console.log(progressWidth);
+
 
   let link = pageContent.content.logo;
 
@@ -34,7 +38,7 @@ function ModuleResume({navigation, route}) {
           variant="contained"
           title={<Text accessibilityLabel = "resume, button" variant="button" style={{color: 'white'}}>Resume</Text>}
           onPress={()=>{
-            navigation.navigate(nextPage.pageType, {fullModule: route.params.fullModule})}}
+            navigation.push(nextPage.pageType, {fullModule: route.params.fullModule})}}
         />
         <Button
             variant="text"
@@ -67,6 +71,15 @@ function ModuleResume({navigation, route}) {
           </View>
         </View>
       </Modal>
+      <Progress.Bar 
+        progress={progressWidth} 
+        width={null} 
+        height={15}
+        borderRadius={0}
+        color={'#1D7DAB'}
+        unfilledColor={"#EDEDED"}
+        borderColor={'#fff'}
+        style={{position: 'absolute', bottom: 0, width: '100%'}}/>
     </View>
 )}
 

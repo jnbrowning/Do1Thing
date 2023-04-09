@@ -124,8 +124,8 @@ export default function App() {
                 backgroundColor: 'transparent',
               },
             }}/>
-            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle} options={{ headerShadowVisible: false}}/>
-            <Stack.Screen name = 'ModuleResume' component={ModuleResume} options={{ headerShadowVisible: false}}/>
+            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
+            <Stack.Screen name = 'ModuleResume' component={ModuleResume}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
             <Stack.Screen name = 'ModuleImageOnly' component={ModuleImageOnly}/>
