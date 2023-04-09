@@ -111,13 +111,11 @@ const imageStyles = StyleSheet.create({
     image: {
         width: 80,
         height: 80,
-        //margin: "5%",
         margin: "5%",
         marginTop: 22
     },
     textContainer: {
         flex: 1,
-        //justifyContent: 'space-between',
         height: 100, // Set the height of the text container to match the image height
         marginLeft: 10,
     },
@@ -138,7 +136,6 @@ const styles = StyleSheet.create({
         flex: 0.95,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        // backgroundColor: 'tan',
         width: '100%',
     },
     heading: {
@@ -251,7 +248,6 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         paddingLeft: "7%", // Add horizontal padding
         paddingRight: "5%",
-        // Add vertical padding
         paddingVertical: "5%"
     },
     // Other styles
