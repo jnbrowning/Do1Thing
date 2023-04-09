@@ -25,7 +25,6 @@ import ModuleTextOnly from './components/ModuleTextOnly';
 import ModuleCongrats from './components/ModuleCongrats';
 import ModuleResume from './components/ModuleResume';
 import WaterCalculate from './components/WaterCalculate';
-import CheckboxList from './components/Checklist';
 import ModuleChecklist from './components/ModuleChecklist';
 
 
