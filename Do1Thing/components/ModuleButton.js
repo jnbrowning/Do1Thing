@@ -30,7 +30,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 sectionNum: '1',
                 sectionTitle: 'Plan what to do if you have to evacuate',
-                image: require('../assets/test_assets/img2.jpg'),
+                image: require('../assets/module1/MAP_Sec1_Img1.png'),
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -38,7 +38,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 headText: 'Choose two emergency meeting places',
                 info: 'One should be right outside your home in case of a sudden emergency, such as a fire.',
-                image: require('../assets/test_assets/img3.jpg')
+                image: require('../assets/module1/MAP_Sec1_Img2.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -46,7 +46,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 headText: 'Choose two emergency meeting places',
                 info: 'The other should be outside of your neighborhood, in case you cannot return home or are asked to evacuate.',
-                image: require('../assets/test_assets/img6.png')
+                image: require('../assets/module1/MAP_Sec1_Img3.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next Section',
@@ -54,7 +54,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 headText: 'Plan ahead for your pets',
                 info: 'Due to health concerns, pets are not allowed in Red Cross shelters.\n\nCall your local humane society to ask if pet emergency shelters will be opened in a disaster.',
-                image: require('../assets/test_assets/img7.png')
+                image: require('../assets/module1/MAP_Sec1_Img4.png')
             }},
             {pageType: 'ModuleSectionHead',
             buttonText: "Let's Go",
@@ -62,7 +62,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 sectionNum: '2',
                 sectionTitle: 'Take steps to prevent damage to your home',
-                image: require('../assets/test_assets/img8.png'),
+                image: require('../assets/module1/MAP_Sec2_Img1.png'),
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Continue',
@@ -70,7 +70,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 headText: '',
                 info: 'Take some time now and learn what disasters could happen in your community.',
-                image: require('../assets/test_assets/img9.png')
+                image: require('../assets/module1/MAP_Sec2_Img2.png')
             }},
             {pageType: 'ModuleTextOnly',
             buttonText: 'See Suggestions',
@@ -84,7 +84,7 @@ export default function ModuleButton(props) {
             content: {
                 mod: 'Module 1 - Make a Plan',
                 headText: 'Take Steps to Prevent Damage',
-                image: require('../assets/test_assets/img10.png'),
+                image: require('../assets/module1/MAP_Sec2_Img3.png'),
             }},
             {pageType: 'ModuleSectionHead',
             buttonText: "Let's Go",
@@ -92,7 +92,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 sectionNum: '3',
                 sectionTitle: 'Meet with your family or household members',
-                image: require('../assets/test_assets/img11.png'),
+                image: require('../assets/module1/MAP_Sec2_Img4.png'),
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Continue',
@@ -100,13 +100,13 @@ export default function ModuleButton(props) {
                 mod: 'Module 1 - Make a Plan',
                 headText: '',
                 info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
-                image: require('../assets/test_assets/img12.png')
+                image: require('../assets/module1/MAP_Sec2_Img5.png')
             }},
             {pageType: 'ModuleCongrats',
             buttonText: 'Done',
             content: {
               info: 'You went through all the materials for Module 1, hopefully you learned a bit more about how to make a plan.',
-              image: require('../assets/test_assets/img5.jpg'),
+              image: require('../assets/module1/Congratulations_Image.png'),
               }}
         ]},
         {currentPage: 0,
@@ -125,7 +125,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 sectionNum: '1',
                 sectionTitle: 'Determine how much water is needed',
-                image: require('../assets/test_assets/img2_2.png'),
+                image: require('../assets/module2/Water_Sec1_Img1.png'),
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -133,7 +133,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: 'Water Needed Per Day',
                 info: 'To prepare for an emergency, plan to have one gallon (4 liters) per person per day.',
-                image: require('../assets/test_assets/img2_3.png')
+                image: require('../assets/module2/Water_Sec1_Img2.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -141,7 +141,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: 'Total Water Needed',
                 info: 'Determine total water needed by multiplying the number of people by 3 - that is how many gallons you need!',
-                image: require('../assets/test_assets/img2_4.png')
+                image: require('../assets/module2/Water_Sec1_Img3.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -149,7 +149,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Don't Forget Pets",
                 info: 'Include an extra one gallon (4 liters) for a medium size pet. That one gallon should last three days, but plan for more or less if your pet is very large or very small.',
-                image: require('../assets/test_assets/img2_5.png')
+                image: require('../assets/module2/Water_Sec1_Img4.png')
             }},
             {pageType: 'WaterCalculate',
             buttonText: 'Next',
@@ -163,7 +163,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 sectionNum: '2',
                 sectionTitle: 'How to get enough water',
-                image: require('../assets/test_assets/img2_6.png'),
+                image: require('../assets/module2/Water_Sec2_Img1.png'),
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -171,7 +171,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Purchasing Water",
                 info: 'Option 1: Purchase enough water at the store.\n\nPurchased water should be replaced once a year',
-                image: require('../assets/test_assets/img2_7.png')
+                image: require('../assets/module2/Water_Sec2_Img2.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -179,7 +179,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Bottling Your Own",
                 info: 'Option 2: Bottle your own water. Begin by finding water containers. Do NOT use milk jugs.',
-                image: require('../assets/test_assets/img2_8.png')
+                image: require('../assets/module2/Water_Sec2_Img3.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -187,7 +187,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Bottling Your Own",
                 info: 'Next, be sure to clean the containers before filling them with water.',
-                image: require('../assets/test_assets/img2_9.png')
+                image: require('../assets/module2/Water_Sec2_Img4.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -195,7 +195,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Bottling Your Own",
                 info: 'Finally, bottle enough water for your household.',
-                image: require('../assets/test_assets/img2_10.png')
+                image: require('../assets/module2/Water_Sec2_Img5.png')
             }},
             {pageType: 'ModuleSectionHead',
             buttonText: "Let's Go",
@@ -203,7 +203,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 sectionNum: '3',
                 sectionTitle: 'Important Things to Keep in Mind',
-                image: require('../assets/test_assets/img2_11.png'),
+                image: require('../assets/module2/Water_Sec3_Img1.png'),
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -211,7 +211,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Store Water in the Freezer",
                 info: 'If possible, store water in the freezer. This will keep the water fresh tasting and your food colder in a power outage!',
-                image: require('../assets/test_assets/img2_12.png')
+                image: require('../assets/module2/Water_Sec3_Img2.png')
             }},
             {pageType: 'ModuleContent',
             buttonText: 'Next',
@@ -219,7 +219,7 @@ export default function ModuleButton(props) {
                 mod: 'Module 2 - Water',
                 headText: "Drink Enough Water",
                 info: 'If supplies run low, never ration water. Drink the amount you need today and look for more tomorrow.',
-                image: require('../assets/test_assets/img2_13.png')
+                image: require('../assets/module2/Water_Sec3_Img3.png')
             }},
             {pageType: 'ModuleTextOnly',
             buttonText: 'Next',
@@ -232,7 +232,7 @@ export default function ModuleButton(props) {
             buttonText: 'Done',
             content: {
               info: 'You went through all the materials for Module 2, hopefully you learned a bit more about water preparedness.',
-              image: require('../assets/test_assets/img5.jpg'),
+              image: require('../assets/module2/Congratulations_Image.png'),
             }}
         ]
     }]
