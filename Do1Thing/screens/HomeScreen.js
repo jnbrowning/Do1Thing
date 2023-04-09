@@ -98,10 +98,10 @@ export default function HomeScreen(props) {
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-{/* If user has just signed up */}
-<BadgePopup
+{returningUser ? <BadgePopup
 badge={1}>
-</BadgePopup>
+</BadgePopup> : <View/>}
+
 
         </View>
     )
