@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     badge: {
         width: "18%",
         height: "100%",
-        borderRadius: "100%",
+        // borderRadius: "100%",
         margin: '2%',
       },
     })

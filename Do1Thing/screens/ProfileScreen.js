@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "start",
+    justifyContent: "flex-start",
     padding: '5%',
     flex: 0.1,
   },
@@ -139,7 +139,6 @@ const styles = StyleSheet.create({
     backgroundColor: "pink",
     width: "18%",
     height: "100%",
-    borderRadius: "100%",
     margin: '2%',
   },
   badgeSectionText: {

@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         height: "30%",
         backgroundColor: "black",
         margin: "auto",
-        borderRadius: "70%",
+        // borderRadius: "70%",
         left: "25%",
       },
       heading: {
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
-        margin: '5% 2%',
+        margin: '5%',
         shadowColor: '#1d7dab',
         shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.2,
