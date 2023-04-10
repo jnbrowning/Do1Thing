@@ -29,20 +29,6 @@ export default function HomeScreen(props) {
 
     console.log(returningUser)
 
-    // if (newUser === 'true') {
-    //   console.log("new user")
-    // }
-    // else {
-    //   console.log("returning user")
-    // }
-
-    // if (!loginMode) {
-    //   setOverlayVisible(true)
-    // }
-    // else { 
-    //   setOverlayVisible(false)
-    // }
-
     useEffect(() => {
         subscribeToUsersCollection(dispatch);
     },[])
