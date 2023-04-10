@@ -54,8 +54,6 @@ export default function HomeScreen(props) {
         else {console.log('Cannot find state users yet');}
     })
 
-  
-
     if (!fontsLoaded) {
       return <View></View>;
     } else {
@@ -65,28 +63,36 @@ export default function HomeScreen(props) {
             <Text style={styles.subheading}>Small steps towards being prepared for an emergency</Text>
 
             <View style={styles.actionButton}>
-              <Image></Image>
+              <Image source={require("../assets/general/Thumbnail_Logo.png")}
+          style={styles.logo}></Image>
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
                 <Text style={styles.actionSubheading}>for the month of April</Text>
+                <TouchableOpacity
+                            onPress={() => {
+                              navigation.navigate('Modules',{screen: 'ModulesScreen'})
+                            }} >
                 <Image></Image>
+                </TouchableOpacity>
               </View>
             </View>
 
       <View style={styles.subbuttonContainer}>
-          <View style={styles.subbutton}>
-            <TouchableOpacity >
-              <Image></Image>
+            <TouchableOpacity 
+            style={styles.subbutton}
+            onPress={() => {
+              navigation.navigate('Modules',{screen: 'ModulesScreen'})
+            }} >
+              <Image source={require("../assets/general/Grid_Icon.png")}
+          style={styles.subbuttonImage}></Image>
               <Text style={styles.subbuttonText}>View Modules</Text>
             </TouchableOpacity>
-            </View>
 
-          <View style={styles.subbutton}>
-            <TouchableOpacity>
-              <Image></Image>
+            <TouchableOpacity style={styles.subbutton}>
+              <Image source={require("../assets/general/Donate_Icon.png")}
+          style={styles.subbuttonImage}></Image>
               <Text style={styles.subbuttonText}>Donate</Text>
             </TouchableOpacity>
-            </View>   
         </View>
 
             <Text style={styles.popularModules}>Popular Modules</Text>
@@ -155,7 +161,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: '5%',
         alignSelf: 'center',
-        margin: '5%',
+        marginTop: '5%',
         height: '15%',
         alignItems: 'center',
         shadowColor: '#1d7dab',
@@ -183,7 +189,6 @@ const styles = StyleSheet.create({
         color: '#1D7DAB',
         fontSize: '24pt',
         marginLeft: '5%',
-        marginTop: '5%',
         fontFamily: 'RobotoBold'
       },
       subbuttonText: {
@@ -198,9 +203,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         display: 'flex',
         flexDirection: 'row',
-        padding: '5%',
-        margin: '5%',
-        justifyContent: 'center',
+        flexWrap: 'nowrap',
+        margin: '5% 2%',
         shadowColor: '#1d7dab',
         shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.2,
@@ -208,12 +212,13 @@ const styles = StyleSheet.create({
         height: '80%',
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'space-evenly',
       },
       subbuttonContainer: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
       },
       moduleContainer: {
         width: '45%',
@@ -227,5 +232,16 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 0, height: 1},
         shadowOpacity: 0.2,
         shadowRadius: 40,
+      },
+      subbuttonImage: {
+      width: 40,
+      height: 40,
+      resizeMode: 'stretch',
+      },
+      logo: {
+        width: 70,
+        height: 70,
+        resizeMode: 'stretch',
+        marginRight: '5%',
       }
 })
