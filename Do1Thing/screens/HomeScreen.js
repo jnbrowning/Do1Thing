@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         top: "25%",
         color: "white",
         fontWeight: "bold",
-        fontSize: "18pt",
+        fontSize: 18,
       },
       overlayView: {
         height: "20%",
@@ -150,19 +150,19 @@ const styles = StyleSheet.create({
       },
       heading: {
         color: '#1D7DAB',
-        fontSize: '32pt',
+        fontSize: 32,
         fontWeight: 'bold',
         textAlign: 'center',
         fontFamily: 'RobotoBold'
       },
       subheading: {
         color: '#77B169',
-        fontSize: '14pt',
+        fontSize: 14,
         textAlign: 'center',
         fontFamily: 'Roboto'
       },
       actionButton: {
-        borderRadius: '15px',
+        borderRadius: 15,
         backgroundColor: 'white',
         width: '90%',
         display: 'flex',
@@ -179,23 +179,23 @@ const styles = StyleSheet.create({
       },
       actionHeading: {
         color: '#1D7DAB',
-        fontSize: '20pt',
+        fontSize: 20,
         fontWeight: 'bold',
         fontFamily: 'RobotoBold'
       },
       actionSubheading: {
         color: '#1D7DAB',
-        fontSize: '12pt',
+        fontSize: 12,
         fontFamily: 'Roboto'
       },
       actionButtonText: {
         display: 'flex',
-        flexDirection: 'vertical',
+        flexDirection: 'column',
       },
       popularModules: {
         fontWeight: 'bold',
         color: '#1D7DAB',
-        fontSize: '24pt',
+        fontSize: 24,
         marginLeft: '5%',
         marginTop: '5%',
         fontFamily: 'RobotoBold'
@@ -203,12 +203,12 @@ const styles = StyleSheet.create({
       subbuttonText: {
         fontWeight: 'bold',
         color: '#1D7DAB',
-        fontSize: '16pt',
+        fontSize: 16,
         textAlign: 'center',
         fontFamily: 'RobotoBold'
       },
       subbutton: {
-        borderRadius: '15px',
+        borderRadius: 15,
         backgroundColor: 'white',
         display: 'flex',
         flexDirection: 'row',
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
         marginTop: '2%',
         height: 160,
         backgroundColor: '#FFFFFF',
-        borderRadius: '15px',
+        borderRadius: 15,
         shadowColor: '#1d7dab',
         shadowOffset: {width: 0, height: 1},
         shadowOpacity: 0.2,
