@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     flex: 0.3,
   },
   usernameText: {
-    fontSize: "24pt",
+    fontSize: 24,
     padding: "1%",
     fontFamily: "RobotoBold",
     color: '#1D7DAB',
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     fontFamily: "RobotoBold",
     paddingLeft: '3%',
     paddingBottom: '3%',
-    fontSize: '24pt',
+    fontSize: 24,
     color: '#1D7DAB',
   },
   optionGroup: {
@@ -156,7 +156,7 @@ flex: 0.3,
   },
   optionText: {
     fontFamily: 'RobotoBold',
-    fontSize: '24pt',
+    fontSize: 24,
     color: '#1D7DAB',
     paddingLeft: '5%',
   }

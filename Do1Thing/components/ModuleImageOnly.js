@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     goalHeader: {
       paddingLeft: '10%',
       color: "#1D7DAB",
-      fontSize: '24',
+      fontSize: 24,
       fontWeight: 'bold',
     },
     goalText: {
