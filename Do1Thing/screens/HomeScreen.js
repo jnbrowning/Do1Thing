@@ -68,13 +68,14 @@ export default function HomeScreen(props) {
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
                 <Text style={styles.actionSubheading}>for the month of April</Text>
-                <TouchableOpacity
+              </View>
+              <TouchableOpacity
                             onPress={() => {
                               navigation.navigate('Modules',{screen: 'ModulesScreen'})
                             }} >
-                <Image></Image>
+                <Image source={require("../assets/general/Forward_Arrow_Icon.png")}
+                style={styles.arrow}></Image>
                 </TouchableOpacity>
-              </View>
             </View>
 
       <View style={styles.subbuttonContainer}>
@@ -189,7 +190,8 @@ const styles = StyleSheet.create({
         color: '#1D7DAB',
         fontSize: '24pt',
         marginLeft: '5%',
-        fontFamily: 'RobotoBold'
+        fontFamily: 'RobotoBold',
+        marginTop: '5%'
       },
       subbuttonText: {
         fontWeight: 'bold',
@@ -243,5 +245,11 @@ const styles = StyleSheet.create({
         height: 70,
         resizeMode: 'stretch',
         marginRight: '5%',
+      },
+      arrow: {
+        width: 50,
+        height: 50,
+        resizeMode: 'stretch',
+        marginLeft: '25%',
       }
 })
