@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
@@ -89,7 +89,8 @@ export default function HomeScreen(props) {
               <Text style={styles.subbuttonText}>View Modules</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.subbutton}>
+            <TouchableOpacity style={styles.subbutton}
+             onPress={() => Linking.openURL('https://www.paypal.com/donate?hosted_button_id=P6NUL4NVKM4HC')}>
               <Image source={require("../assets/general/Donate_Icon.png")}
           style={styles.subbuttonImage}></Image>
               <Text style={styles.subbuttonText}>Donate</Text>
