@@ -95,6 +95,14 @@ const [fontsLoaded] = useFonts(customFonts);
       <View style={styles.container}>
         <View style={styles.profile}>
           <Text> Guest mode </Text>
+            <TouchableOpacity 
+          style={styles.optionGroup}
+          onPress={() => {
+            navigation.navigate('Login');
+        }} >
+          <Image></Image>
+          <Text style={styles.optionText}>Sign in</Text>
+          </TouchableOpacity >
         </View>
       </View>
     );
