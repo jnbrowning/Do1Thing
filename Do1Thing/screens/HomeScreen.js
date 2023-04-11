@@ -4,9 +4,8 @@ import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
-import { HStack } from "@react-native-material/core";
 import BadgePopup from "../components/BadgePopup";
-
+import { HStack } from "@react-native-material/core";
 import { useDispatch, useSelector } from 'react-redux';
 // import { style } from '@mui/system';
 
@@ -15,6 +14,9 @@ function HomeScreen({navigation, route}) {
     const dispatch = useDispatch();
 
     const returningUser = route.params.returningUser;
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 
     console.log("returning user: " + returningUser);
 
@@ -56,7 +58,7 @@ function HomeScreen({navigation, route}) {
           style={styles.logo}></Image>
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
-                <Text style={styles.actionSubheading}>for the month of April</Text>
+                <Text style={styles.actionSubheading}>for the month of {months[new Date().getMonth()]}</Text>
               </View>
               <TouchableOpacity
                             onPress={() => {
@@ -95,8 +97,7 @@ function HomeScreen({navigation, route}) {
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-{/* {returningUser ? <BadgePopup
-badge={1}>
+{/* {returningUser ? <BadgePopup badgeID={1}>
 </BadgePopup> : <View/>} */}
 
 
