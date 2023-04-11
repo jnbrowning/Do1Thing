@@ -46,11 +46,13 @@ const [fontsLoaded] = useFonts(customFonts);
       <View style={styles.container}>
 
         <View style={styles.profile}>
-          <Text style={styles.usernameText}>{currentUser.email}</Text>
+          <Text style={styles.usernameText}>Profile</Text>
+          <Image source={require("../assets/general/Thumbnail_Logo.png")}
+          style={styles.logo}></Image>
         </View>
 
          
-           <Text style={styles.badgeSectionText}>Badges Completed: {currentUser.badges.length.toString()}</Text>
+           <Text style={styles.badgeSectionText}>My Badges</Text>
           
           <View style={styles.badgesSection}>
          {currentUser.badges.map((badge, index) => {
@@ -65,13 +67,10 @@ const [fontsLoaded] = useFonts(customFonts);
 
 
         <View style={styles.profileOption}>
-        <TouchableOpacity style={styles.optionGroup}>
-        <Image></Image>
-        <Text style={styles.optionText}>Settings</Text>
-        </TouchableOpacity>
 
         <TouchableOpacity style={styles.optionGroup}>
-        <Image></Image>
+        <Image source={require("../assets/general/Help_Icon.png")}
+          style={styles.optionImage}></Image>
         <Text style={styles.optionText}>Help</Text>
         </TouchableOpacity>
 
@@ -81,7 +80,8 @@ const [fontsLoaded] = useFonts(customFonts);
           signOutFB();
           dispatch(setLogin(false));
       }} >
-        <Image></Image>
+        <Image source={require("../assets/general/Log_Out_Icon.png")}
+          style={styles.optionImage}></Image>
         <Text style={styles.optionText}>Log Out</Text>
         </TouchableOpacity >
         </View>
@@ -114,15 +114,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  profile: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 0.3,
-  },
   usernameText: {
-    fontSize: 24,
+    fontSize: 36,
     padding: "1%",
     fontFamily: "RobotoBold",
     color: '#1D7DAB',
@@ -133,7 +126,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "flex-start",
     padding: '5%',
-    flex: 0.1,
+    flex: .2,
   },
   badge: {
     backgroundColor: "pink",
@@ -141,28 +134,52 @@ const styles = StyleSheet.create({
     height: "100%",
     margin: '2%',
   },
+  profile: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginLeft: '10%',
+    marginRight: '10%',
+    padding: '2%',
+  },
+  logo : {
+    width: 80,
+    height: 80,
+    resizeMode: 'stretch',
+  },
   badgeSectionText: {
     fontFamily: "RobotoBold",
     paddingLeft: '3%',
     paddingBottom: '3%',
     fontSize: 24,
     color: '#1D7DAB',
+    paddingTop: '10%',
+    marginLeft: '5%'
   },
   optionGroup: {
     display: 'flex',
     flexDirection: 'row',
-    padding: '2%',
+    padding: '1%',
+    margin: '5%',
     flex: .2,
   },
   profileOption: {
 display: 'flex',
 flexDirection: 'column',
-flex: 0.3,
+flex: 0.5,
+paddingTop: '10%',
   },
   optionText: {
     fontFamily: 'RobotoBold',
     fontSize: 24,
     color: '#1D7DAB',
     paddingLeft: '5%',
+  },
+  optionImage: {
+    width: 30,
+    height: 30,
+    resizeMode: 'stretch',
   }
 });

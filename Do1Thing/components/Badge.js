@@ -22,8 +22,8 @@ export default function Badge(badgeID) {
 
 const styles = StyleSheet.create({
     badge: {
-        width: "18%",
-        height: "100%",
+        width: 80,
+        height: 80,
         // borderRadius: "100%",
         margin: '2%',
       },
