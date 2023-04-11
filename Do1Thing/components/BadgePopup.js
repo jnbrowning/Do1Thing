@@ -2,8 +2,11 @@ import {
     Image,
     Overlay,
     StyleSheet,
+    Text,
+    TouchableOpacity,
   } from "react-native";
   import Badge from "../components/Badge";
+  import { useState } from "react";
   
   export default function BadgePopup(badgeID) {
     const [overlayVisible, setOverlayVisible] = useState(true);

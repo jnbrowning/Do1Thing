@@ -10,10 +10,13 @@ import BadgePopup from "../components/BadgePopup";
 import { useDispatch, useSelector } from 'react-redux';
 // import { style } from '@mui/system';
 
-export default function HomeScreen(props) {
+function HomeScreen({navigation, route}) {
 
     const dispatch = useDispatch();
-    const {navigation, returningUser} = props;
+
+    const returningUser = route.params.returningUser;
+
+    console.log("returning user: " + returningUser);
 
     const loggedIn = useSelector((state) => {
         if (state !== undefined){
@@ -27,7 +30,7 @@ export default function HomeScreen(props) {
     };
     const [fontsLoaded] = useFonts(customFonts);
 
-    console.log(returningUser)
+    console.log('Returning User:' + returningUser)
 
     useEffect(() => {
         subscribeToUsersCollection(dispatch);
@@ -92,9 +95,9 @@ export default function HomeScreen(props) {
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-{returningUser ? <BadgePopup
+{/* {returningUser ? <BadgePopup
 badge={1}>
-</BadgePopup> : <View/>}
+</BadgePopup> : <View/>} */}
 
 
         </View>
@@ -240,3 +243,5 @@ const styles = StyleSheet.create({
         marginLeft: '25%',
       }
 })
+
+export default HomeScreen;

@@ -85,7 +85,7 @@ function SigninBox({navigation}) {
               const userCred = await signInWithEmailAndPassword(getFBAuth(), email, password);
               if (userCred.user.emailVerified) {
                 dispatch(setLogin(true)); 
-                navigation.navigate('Main',{screen: 'HomeScreen', newUser: false,})
+                navigation.navigate('Main',{screen: 'HomeScreen', params: {returningUser: true},});
               } else {
                 Alert.alert("Sign In Error", 'Please verify your email address before signing in.', [{text: 'OK'}])
               }
@@ -129,7 +129,7 @@ function SigninBox({navigation}) {
           variant='button' style={{color: 'white'}}
           >Enter as guest</Text>}
           onPress={() => {
-            navigation.navigate('Main',{screen: 'HomeScreen', newUser: false,})
+            navigation.navigate('Main',{screen: 'HomeScreen', params: {returningUser: true},});
             // dispatch(loadUser({}));
           }}
         />
@@ -200,6 +200,7 @@ function SignupBox({navigation}) {
           variant="contained"
           title={<Text accessibilityLabel = "sign up, button" variant="button" style={{color: 'white'}}>Sign Up</Text>}
           style={styles.navyButton}
+          //add more logic for login here
           onPress={async () => {
             try {
               const userCred = 
@@ -253,7 +254,7 @@ function LoginScreen({navigation}) {
         if (user) {
           navigation.navigate('Main',
           {screen: 'HomeScreen', 
-          returningUser: true,
+          params: {returningUser: true},
         });
         } else {
           // console.log('user is signed out!');
