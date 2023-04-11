@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import BadgePopup from "../components/BadgePopup";
 import { HStack } from "@react-native-material/core";
 import { useDispatch, useSelector } from 'react-redux';
+import ModuleButton from '../components/ModuleButton';
 // import { style } from '@mui/system';
 
 function HomeScreen({navigation, route}) {
@@ -89,14 +90,22 @@ function HomeScreen({navigation, route}) {
         </View>
 
             <Text style={styles.popularModules}>Popular Modules</Text>
-            <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
-                </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
-                </HStack>
+            <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={1} navigation={navigation} />
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={9} navigation={navigation} />
+                    </View>
+                    </HStack>
+                    <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={6} navigation={navigation} />
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={7} navigation={navigation} />
+                    </View>
+                    </HStack>
 {/* {returningUser ? <BadgePopup badgeID={1}>
 </BadgePopup> : <View/>} */}
 
