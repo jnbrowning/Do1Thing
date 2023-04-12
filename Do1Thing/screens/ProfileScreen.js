@@ -26,7 +26,6 @@ import Module9Locked from '../assets/badge_icons/Information_Icon_Locked.svg'
 import Module10Locked from '../assets/badge_icons/Power_Icon_Locked.svg'
 import Module11Locked from '../assets/badge_icons/Emergency_Supplies_Icon_Locked.svg'
 import Module12Locked from '../assets/badge_icons/First_Aid_Icon_Locked.svg'
-import Badge from "../components/Badge";
 
 const auth = getFBAuth();
 
@@ -84,7 +83,7 @@ const SvgIcon12 = findModuleIcon(12);
           <View style={styles.badgesSection}>
 
 
-{currentUser.badges.includes(1) ? <Image source={require("../assets/badge_icons/Sign_Up_Icon.png")} style={styles.badge}></Image>  : <View></View> }
+<Image source={require("../assets/badge_icons/Sign_Up_Icon.png")} style={styles.signUpIcon}/>
 {currentUser.badges.includes(2) ? <SvgIcon1 style={styles.badge}/> : <Module1Locked style={styles.badge}/> }
 {currentUser.badges.includes(3) ? <SvgIcon2 style={styles.badge}/> : <Module2Locked style={styles.badge}/>  }
 {currentUser.badges.includes(4) ? <SvgIcon3 style={styles.badge}/> : <Module3Locked style={styles.badge}/>  }
@@ -98,29 +97,7 @@ const SvgIcon12 = findModuleIcon(12);
 {currentUser.badges.includes(11) ? <SvgIcon11 style={styles.badge}/> : <Module11Locked style={styles.badge}/> }
 {currentUser.badges.includes(12) ? <SvgIcon12 style={styles.badge}/> : <Module12Locked style={styles.badge}/>  }
 
-          
-        {/* <SvgIcon1 style={styles.badge}/>
-        <SvgIcon2 style={styles.badge}/>
-        <SvgIcon3 style={styles.badge}/>
-        <SvgIcon4 style={styles.badge}/>
-        <SvgIcon5 style={styles.badge}/>
-        <SvgIcon6 style={styles.badge}/>
-        <SvgIcon7 style={styles.badge}/>
-        <SvgIcon8 style={styles.badge}/>
-        <SvgIcon9 style={styles.badge}/>
-        <SvgIcon10 style={styles.badge}/>
-        <SvgIcon11 style={styles.badge}/>
-        <SvgIcon12 style={styles.badge}/> */}
 
-
-         {/* {currentUser.badges.map((badge, index) => {
-          return (
-            <Badge
-              badge={badge}
-              key={index}
-            />
-          );
-        })}  */}
           </View>
 
 
@@ -184,8 +161,10 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: '5%',
-    flex: 1.7,
+    flex: 1,
   },
   profile: {
     display: 'flex',
@@ -241,6 +220,9 @@ flex: 1,
   lockedBadge: {
     width: 80,
     height: 80,
-    fill: 'grey',
+  },
+  signUpIcon: {
+    width: 51,
+    height: 51,
   }
 });

@@ -5,7 +5,6 @@ import {
     Text,
     TouchableOpacity,
   } from "react-native";
-  import Badge from "../components/Badge";
   import { useState } from "react";
   
 export default function BadgePopup(badgeID) {
@@ -17,7 +16,6 @@ export default function BadgePopup(badgeID) {
           onBackdropPress={() => setOverlayVisible(false)}
           overlayStyle={styles.overlayView}
         >
-          <Badge badge={badgeID}></Badge>
           <Text style={styles.overlayText}>
             You earned a badge!
           </Text>
