@@ -6,6 +6,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Linking
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
@@ -68,7 +69,8 @@ const [fontsLoaded] = useFonts(customFonts);
 
         <View style={styles.profileOption}>
 
-        <TouchableOpacity style={styles.optionGroup}>
+        <TouchableOpacity style={styles.optionGroup}
+        onPress={() => Linking.openURL('https://www.do1thing.com/contact/')}>
         <Image source={require("../assets/general/Help_Icon.png")}
           style={styles.optionImage}></Image>
         <Text style={styles.optionText}>Help</Text>
