@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '5%',
-    flex: 1,
+    flex: 1.2,
   },
   profile: {
     display: 'flex',
@@ -193,9 +193,9 @@ const styles = StyleSheet.create({
   optionGroup: {
     display: 'flex',
     flexDirection: 'row',
-    padding: '5%',
+    paddingLeft: '5%',
     marginLeft: '5%',
-    flex: .3,
+    flex: .25,
   },
   profileOption: {
 display: 'flex',
@@ -212,6 +212,7 @@ flex: 1,
     width: 30,
     height: 30,
     resizeMode: 'stretch',
+    marginRight: '5%',
   },
   badge: {
     width: 80,
