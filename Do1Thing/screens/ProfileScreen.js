@@ -13,6 +13,19 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch, signOutFB } from "../data/DB";
+import { findModuleIcon } from '../data/ModuleInfo';
+import Module1Locked from '../assets/badge_icons/Make_a_Plan_Icon_Locked.svg'
+import Module2Locked from '../assets/badge_icons/Water_Icon_Locked.svg'
+import Module3Locked from '../assets/badge_icons/Sheltering_Icon_Locked.svg'
+import Module4Locked from '../assets/badge_icons/Food_Icon_Locked.svg'
+import Module5Locked from '../assets/badge_icons/Work_School_Community_Icon_Locked.svg'
+import Module6Locked from '../assets/badge_icons/Unique_Family_Needs_Icon_Locked.svg'
+import Module7Locked from '../assets/badge_icons/Family_Communication_Icon_Locked.svg'
+import Module8Locked from '../assets/badge_icons/Get_Involved_Icon_Locked.svg'
+import Module9Locked from '../assets/badge_icons/Information_Icon_Locked.svg'
+import Module10Locked from '../assets/badge_icons/Power_Icon_Locked.svg'
+import Module11Locked from '../assets/badge_icons/Emergency_Supplies_Icon_Locked.svg'
+import Module12Locked from '../assets/badge_icons/First_Aid_Icon_Locked.svg'
 import Badge from "../components/Badge";
 
 const auth = getFBAuth();
@@ -24,6 +37,19 @@ let customFonts = {
   RobotoBold: require("../assets/fonts/RobotoBold.ttf")
 };
 const [fontsLoaded] = useFonts(customFonts);
+const SvgIcon1 = findModuleIcon(1);
+const SvgIcon2 = findModuleIcon(2);
+const SvgIcon3 = findModuleIcon(3);
+const SvgIcon4 = findModuleIcon(4);
+const SvgIcon5 = findModuleIcon(5);
+const SvgIcon6 = findModuleIcon(6);
+const SvgIcon7 = findModuleIcon(7);
+const SvgIcon8 = findModuleIcon(8);
+const SvgIcon9 = findModuleIcon(9);
+const SvgIcon10 = findModuleIcon(10);
+const SvgIcon11 = findModuleIcon(11);
+const SvgIcon12 = findModuleIcon(12);
+
 
   const loggedIn = useSelector((state) => {
       if (state !== undefined){
@@ -56,14 +82,45 @@ const [fontsLoaded] = useFonts(customFonts);
            <Text style={styles.badgeSectionText}>My Badges</Text>
           
           <View style={styles.badgesSection}>
-         {currentUser.badges.map((badge, index) => {
+
+
+{currentUser.badges.includes(1) ? <Image source={require("../assets/badge_icons/Sign_Up_Icon.png")} style={styles.badge}></Image>  : <View></View> }
+{currentUser.badges.includes(2) ? <SvgIcon1 style={styles.badge}/> : <Module1Locked style={styles.badge}/> }
+{currentUser.badges.includes(3) ? <SvgIcon2 style={styles.badge}/> : <Module2Locked style={styles.badge}/>  }
+{currentUser.badges.includes(4) ? <SvgIcon3 style={styles.badge}/> : <Module3Locked style={styles.badge}/>  }
+{currentUser.badges.includes(5) ? <SvgIcon4 style={styles.badge}/> : <Module4Locked style={styles.badge}/>  }
+{currentUser.badges.includes(6) ? <SvgIcon5 style={styles.badge}/> : <Module5Locked style={styles.badge}/>  }
+{currentUser.badges.includes(7) ? <SvgIcon6 style={styles.badge}/> : <Module6Locked style={styles.badge}/>  }
+{currentUser.badges.includes(8) ? <SvgIcon7 style={styles.badge}/> : <Module7Locked style={styles.badge}/>  }
+{currentUser.badges.includes(9) ? <SvgIcon8 style={styles.badge}/> : <Module8Locked style={styles.badge}/>  }
+{currentUser.badges.includes(10) ? <SvgIcon9 style={styles.badge}/> : <Module9Locked style={styles.badge}/>  }
+{currentUser.badges.includes(10) ? <SvgIcon10 style={styles.badge}/> : <Module10Locked style={styles.badge}/>  }
+{currentUser.badges.includes(11) ? <SvgIcon11 style={styles.badge}/> : <Module11Locked style={styles.badge}/> }
+{currentUser.badges.includes(12) ? <SvgIcon12 style={styles.badge}/> : <Module12Locked style={styles.badge}/>  }
+
+          
+        {/* <SvgIcon1 style={styles.badge}/>
+        <SvgIcon2 style={styles.badge}/>
+        <SvgIcon3 style={styles.badge}/>
+        <SvgIcon4 style={styles.badge}/>
+        <SvgIcon5 style={styles.badge}/>
+        <SvgIcon6 style={styles.badge}/>
+        <SvgIcon7 style={styles.badge}/>
+        <SvgIcon8 style={styles.badge}/>
+        <SvgIcon9 style={styles.badge}/>
+        <SvgIcon10 style={styles.badge}/>
+        <SvgIcon11 style={styles.badge}/>
+        <SvgIcon12 style={styles.badge}/> */}
+
+
+         {/* {currentUser.badges.map((badge, index) => {
           return (
             <Badge
               badge={badge}
               key={index}
             />
           );
-        })} 
+        })}  */}
           </View>
 
 
@@ -127,15 +184,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "flex-start",
     padding: '5%',
-    flex: .2,
-  },
-  badge: {
-    backgroundColor: "pink",
-    width: "18%",
-    height: "100%",
-    margin: '2%',
+    flex: 1.7,
   },
   profile: {
     display: 'flex',
@@ -164,15 +214,14 @@ const styles = StyleSheet.create({
   optionGroup: {
     display: 'flex',
     flexDirection: 'row',
-    padding: '1%',
-    margin: '5%',
-    flex: .2,
+    padding: '5%',
+    marginLeft: '5%',
+    flex: .3,
   },
   profileOption: {
 display: 'flex',
 flexDirection: 'column',
-flex: 0.5,
-paddingTop: '10%',
+flex: 1,
   },
   optionText: {
     fontFamily: 'RobotoBold',
@@ -184,5 +233,14 @@ paddingTop: '10%',
     width: 30,
     height: 30,
     resizeMode: 'stretch',
+  },
+  badge: {
+    width: 80,
+    height: 80,
+  },
+  lockedBadge: {
+    width: 80,
+    height: 80,
+    fill: 'grey',
   }
 });
