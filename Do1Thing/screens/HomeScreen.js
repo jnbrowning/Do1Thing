@@ -51,8 +51,11 @@ function HomeScreen({navigation, route}) {
     } else {
     return(
         <View style={styles.container}>
-            <Text style={styles.heading}>Welcome to Do1Thing</Text>
-            <Text style={styles.subheading}>Small steps towards being prepared for an emergency</Text>
+        <Image 
+        alt="logo"
+        style={styles.logoExtended} 
+        source={require('../assets/general/logoExtend.png')}
+      />
 
             <View style={styles.actionButton}>
               <Image source={require("../assets/general/Thumbnail_Logo.png")}
@@ -251,6 +254,12 @@ const styles = StyleSheet.create({
         height: 50,
         resizeMode: 'stretch',
         marginLeft: '25%',
+      },
+      logoExtended: {
+        width: '85%',
+        height: 70,
+        alignSelf: 'center',
+        marginTop: '2%'
       }
 })
 
