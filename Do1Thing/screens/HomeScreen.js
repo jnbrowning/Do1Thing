@@ -109,6 +109,7 @@ function HomeScreen({navigation, route}) {
                         <ModuleButton moduleNumber={7} navigation={navigation} />
                     </View>
                     </HStack>
+                    
 {/* {returningUser ? <BadgePopup badgeID={1}>
 </BadgePopup> : <View/>} */}
 

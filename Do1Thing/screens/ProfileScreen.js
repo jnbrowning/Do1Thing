@@ -115,6 +115,7 @@ const [fontsLoaded] = useFonts(customFonts);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white'
   },
   usernameText: {
     fontSize: 36,
