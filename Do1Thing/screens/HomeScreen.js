@@ -95,9 +95,7 @@ function HomeScreen({navigation, route}) {
                     <View style={styles.moduleContainer} />
                     <View style={styles.moduleContainer} />
                 </HStack>
-{/* {returningUser ? <BadgePopup
-badge={1}>
-</BadgePopup> : <View/>} */}
+{returningUser ? <BadgePopup badge={1}/> : <View/>}
 
 
         </View>

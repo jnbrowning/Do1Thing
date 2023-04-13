@@ -1,23 +1,27 @@
 import {
-    Image,
-    Overlay,
     StyleSheet,
     Text,
     TouchableOpacity,
   } from "react-native";
+  import { Overlay } from 'react-native-elements';
   import Badge from "../components/Badge";
   import { useState } from "react";
   
-  export default function BadgePopup(badgeID) {
+function BadgePopup(props) {
+
+    const { badge } = props;
     const [overlayVisible, setOverlayVisible] = useState(true);
 
+    console.log('load badge popup ', badge)
+
     return (
-<Overlay
+
+        <Overlay
           isVisible={overlayVisible}
           onBackdropPress={() => setOverlayVisible(false)}
           overlayStyle={styles.overlayView}
         >
-          <Badge badge={badgeID}></Badge>
+          <Badge badge={badge}/>
           <Text style={styles.overlayText}>
             You earned a badge!
           </Text>
@@ -30,6 +34,7 @@ import {
             <Text style={styles.buttonText}>Okay</Text>
           </TouchableOpacity>
         </Overlay> 
+
   )
 }
 
@@ -57,3 +62,5 @@ const styles = StyleSheet.create({
         left: "25%",
       },
   })
+
+  export default BadgePopup;

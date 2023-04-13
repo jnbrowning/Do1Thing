@@ -3,11 +3,12 @@ import {
   StyleSheet,
 } from "react-native";
 
-export default function Badge(badgeID) {
+function Badge(props) {
 
+  const {badge} = props;
 
   function determineBadgeIcon() {
-    if (badgeID.badge === 1) {
+    if (badge === 1) {
       return require("../assets/badge_icons/Sign_Up_Icon.png");
     } 
   }
@@ -28,3 +29,5 @@ const styles = StyleSheet.create({
         margin: '2%',
       },
     })
+
+export default Badge;
