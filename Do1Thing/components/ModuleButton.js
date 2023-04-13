@@ -14,6 +14,7 @@ export default function ModuleButton(props) {
     };
     const [fontsLoaded] = useFonts(customFonts);
 
+
     function goToModules(num) {
         console.log(num);
         const pageNum = modules[num - 1].currentPage;

@@ -12,7 +12,18 @@ import { signOutFB, subscribeToUsersCollection, getFBAuth, subscribeToChecklistC
 import { useEffect } from "react";
 
 function ModuleChecklist({ navigation, route }) {
-    const currentPage = route.params.fullModule.currentPage;
+
+    let currentPage;
+    let skipTo = false;
+
+    if (route.params.skipTo) {
+        currentPage = route.params.fullModule.moduleContent.length - 2;
+        skipTo = true;
+    }
+    else {
+        currentPage = route.params.fullModule.currentPage;
+    }
+
     const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
     const pageContent = route.params.fullModule.moduleContent[currentPage];
     const modName = route.params.fullModule.moduleContent[currentPage].moduleName
@@ -39,6 +50,7 @@ function ModuleChecklist({ navigation, route }) {
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
+                {skipTo ? <View/> : 
                 <TouchableOpacity
                     style={styles.backButton}
                     onPress={() => {
@@ -47,7 +59,7 @@ function ModuleChecklist({ navigation, route }) {
                         navigation.navigate(previousPage, { fullModule: route.params.fullModule })
                     }}>
                     <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />
-                </TouchableOpacity>
+                </TouchableOpacity>}
                 <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('ModulesScreen')}>
                     <AntDesign name="close" size={30} color="#9D9D9D" />
                 </TouchableOpacity>
