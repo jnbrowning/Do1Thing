@@ -4,10 +4,10 @@ import { Button, Overlay } from '@rneui/themed';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
-import { HStack } from "@react-native-material/core";
 import BadgePopup from "../components/BadgePopup";
-
+import { HStack } from "@react-native-material/core";
 import { useDispatch, useSelector } from 'react-redux';
+import ModuleButton from '../components/ModuleButton';
 // import { style } from '@mui/system';
 
 function HomeScreen({navigation, route}) {
@@ -15,6 +15,9 @@ function HomeScreen({navigation, route}) {
     const dispatch = useDispatch();
 
     const returningUser = route.params.returningUser;
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 
     console.log("returning user: " + returningUser);
 
@@ -48,15 +51,18 @@ function HomeScreen({navigation, route}) {
     } else {
     return(
         <View style={styles.container}>
-            <Text style={styles.heading}>Welcome to Do1Thing</Text>
-            <Text style={styles.subheading}>Small steps towards being prepared for an emergency</Text>
+        <Image 
+        alt="logo"
+        style={styles.logoExtended} 
+        source={require('../assets/general/logoExtend.png')}
+      />
 
             <View style={styles.actionButton}>
               <Image source={require("../assets/general/Thumbnail_Logo.png")}
           style={styles.logo}></Image>
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
-                <Text style={styles.actionSubheading}>for the month of April</Text>
+                <Text style={styles.actionSubheading}>for the month of {months[new Date().getMonth()]}</Text>
               </View>
               <TouchableOpacity
                             onPress={() => {
@@ -87,16 +93,24 @@ function HomeScreen({navigation, route}) {
         </View>
 
             <Text style={styles.popularModules}>Popular Modules</Text>
-            <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
-                </HStack>
-                <HStack m={4} spacing={20}>
-                    <View style={styles.moduleContainer} />
-                    <View style={styles.moduleContainer} />
-                </HStack>
-{/* {returningUser ? <BadgePopup
-badge={1}>
+            <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={1} navigation={navigation} />
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={9} navigation={navigation} />
+                    </View>
+                    </HStack>
+                    <HStack m={8} spacing={20}>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={6} navigation={navigation} />
+                    </View>
+                    <View style={styles.moduleContainer} >
+                        <ModuleButton moduleNumber={7} navigation={navigation} />
+                    </View>
+                    </HStack>
+                    
+{/* {returningUser ? <BadgePopup badgeID={1}>
 </BadgePopup> : <View/>} */}
 
 
@@ -241,6 +255,12 @@ const styles = StyleSheet.create({
         height: 50,
         resizeMode: 'stretch',
         marginLeft: '25%',
+      },
+      logoExtended: {
+        width: '85%',
+        height: 70,
+        alignSelf: 'center',
+        marginTop: '2%'
       }
 })
 
