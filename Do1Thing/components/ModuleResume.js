@@ -1,10 +1,11 @@
 import { View, StyleSheet, Image, Modal } from "react-native";
 import { Text, Button } from "@react-native-material/core";
-import { AntDesign } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native";
 import { useState } from "react";
 import * as Progress from 'react-native-progress';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
+import { findModuleIcon } from '../data/ModuleInfo';
 
 function ModuleResume({navigation, route}) {
 
@@ -12,10 +13,10 @@ function ModuleResume({navigation, route}) {
   const nextPage = route.params.fullModule.moduleContent[currentPage];
   const pageContent = route.params.fullModule.moduleContent[0];
   const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
+  const checklistPage = route.params.fullModule.moduleContent.length - 2;
   console.log(progressWidth);
+  const SvgIcon = findModuleIcon(pageContent.content.moduleNum);
 
-
-  let link = pageContent.content.logo;
 
   const [visible, setVisible] = useState(false);
   const toggleOverlay = () => {setVisible(!visible);}
@@ -23,14 +24,19 @@ function ModuleResume({navigation, route}) {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
-          <AntDesign name="close" size={30} color="#9D9D9D"/>
+      <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
+      <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.backButton} 
+        onPress={() => navigation.push(route.params.fullModule.moduleContent[checklistPage].pageType, {fullModule: route.params.fullModule, skipTo: true})}>
+          <MaterialCommunityIcons name="format-list-checks" size={30} color="white" style={styles.checkButton}/>
+          <Text style={{paddingLeft: '3%', fontWeight: 'bold', alignSelf: 'center', fontSize: 14}}>{"Access\nChecklist"}</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading}>Module {pageContent.content.moduleNum}</Text>
         <Text style={styles.moduleTitle}>{pageContent.content.moduleName}</Text>
-        <Image style={styles.icon} source={link}/>
+        <SvgIcon width={350} height={350} padding={0} margin={-40} style={styles.icon} />
         <Text style={styles.goalHeader}>Goal</Text>
         <Text style={styles.goalText}>{pageContent.content.goal}</Text>
         <Button
@@ -141,19 +147,26 @@ const styles = StyleSheet.create({
       width: '100%',
     },
     buttonContainer: {
-      paddingRight: '5%',
-      alignItems: 'flex-end',
+      paddingRight: '6%',
+      paddingLeft: '5%'
+,     justifyContent: 'space-between',
+      flexDirection: 'row',
       width: '100%',
       marginTop: 35,
+      marginBottom: 15,
+    },
+    checkButton: {
+      padding: '1%',
+      backgroundColor: '#1D7DAB',
+      alignContent: 'center',
+      borderRadius: '10%',
+      overflow: 'hidden',
     },
     backButton: {
       padding: '3%',
+      flexDirection: 'row',
     },
     icon: {
-      height: 200,
-      width: 200,
-      marginTop: 55,
-      marginBottom: 55,
       alignSelf: 'center',
     },
     moduleHeading: {
