@@ -42,11 +42,9 @@ export default function App() {
       const Tabs = createBottomTabNavigator();
   
       return (
-        <Tabs.Navigator initialRouteName='Home' screenOptions={{ headerShown: false}}>
-                  <Tabs.Screen
-                      name='Home' 
-                      component={ChecklistTabStack}
-                      options={{
+        <Tabs.Navigator initialRouteName='HomeScreen' screenOptions={{ headerShown: true}}>
+                  <Tabs.Screen name = 'HomeScreen' component={HomeScreen} options={{
+                          title: 'Home',
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
@@ -56,9 +54,7 @@ export default function App() {
                                       size = {size}
                                   />
                               )
-                          }}
-                      }
-                      />
+                          }}}/>
                   <Tabs.Screen 
                       name='Modules' 
                       component={ModulesTabStack}
@@ -94,21 +90,6 @@ export default function App() {
               </Tabs.Navigator>
           )
         }
-
-      const ChecklistTabStack =  () => {
-        const stack = createNativeStackNavigator();
-
-        return (
-          <Stack.Navigator initialRouteName = 'HomeScreen' screenOptions={{
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: 'transparent',
-            },
-            }}>
-            <Stack.Screen name = 'HomeScreen' component={HomeScreen} options={{ headerShadowVisible: false}}/>
-          </Stack.Navigator>
-        )
-      }
 
       const ModulesTabStack =  () => {
         const stack = createNativeStackNavigator();
