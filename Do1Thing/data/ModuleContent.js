@@ -1,3 +1,5 @@
+import { findModuleIcon } from '../data/ModuleInfo';
+
 const modules = [
     {
         currentPage: 0,
@@ -8,7 +10,7 @@ const modules = [
                 content: {
                     moduleNum: '1',
                     moduleName: 'Make a Plan',
-                    logo: require('../assets/test_assets/img1.jpg'),
+                    logo: findModuleIcon(1),
                     goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
                 }
             },
@@ -118,7 +120,7 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: '',
                     info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
-                    image: require('../assets/test_assets/img1.jpg'),
+                    image: findModuleIcon(1),
                 }
             },
             {
@@ -140,7 +142,7 @@ const modules = [
                 content: {
                     moduleNum: '2',
                     moduleName: 'Water',
-                    logo: require('../assets/test_assets/img2_1.png'),
+                    logo: findModuleIcon(2),
                     goal: 'Have 72 hours (3 days) worth of water stored for your household.',
                 }
             },
