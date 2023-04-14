@@ -110,8 +110,8 @@ function HomeScreen({navigation, route}) {
                     </View>
                     </HStack>
                     
-{/* {returningUser ? <BadgePopup badgeID={1}>
-</BadgePopup> : <View/>} */}
+{returningUser ? <BadgePopup badgeID={1}>
+</BadgePopup> : <View/>}
 
 
         </View>
@@ -123,28 +123,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   }, 
-  buttonText: {
-        textAlign: "center",
-        top: "25%",
-        color: "white",
-        fontWeight: "bold",
-        fontSize: 18,
-      },
-      overlayView: {
-        height: "20%",
-        width: "60%",
-      },
-      overlayText: {
-        margin: "10%",
-      },
-      okayButton: {
-        width: "50%",
-        height: "30%",
-        backgroundColor: "black",
-        margin: "auto",
-        // borderRadius: "70%",
-        left: "25%",
-      },
       heading: {
         color: '#1D7DAB',
         fontSize: 32,
