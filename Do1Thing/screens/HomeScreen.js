@@ -110,7 +110,7 @@ function HomeScreen({navigation, route}) {
                     </View>
                     </HStack>
                     
-{returningUser ? <BadgePopup badgeID={1}>
+{!returningUser ? <BadgePopup badgeID={1}>
 </BadgePopup> : <View/>}
 
 
