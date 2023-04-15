@@ -8,7 +8,7 @@ const modules = [
                 content: {
                     moduleNum: '1',
                     moduleName: 'Make a Plan',
-                    // logo: require('../assets/test_assets/img1.jpg'),
+                    logo: require('../assets/module1/Make_a_Plan_Icon.svg'),
                     goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
                 }
             },
@@ -118,7 +118,7 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: '',
                     info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
-                    // image: require('../assets/test_assets/img1.jpg'),
+                    image: require('../assets/module1/Make_a_Plan_Icon.svg'),
                 }
             },
             {
@@ -140,7 +140,7 @@ const modules = [
                 content: {
                     moduleNum: '2',
                     moduleName: 'Water',
-                    // logo: require('../assets/test_assets/img2_1.png'),
+                    logo: require('../assets/module2/Water_Icon.svg'),
                     goal: 'Have 72 hours (3 days) worth of water stored for your household.',
                 }
             },
@@ -433,6 +433,17 @@ const modules = [
                     image: require('../assets/module3/Sheltering_Sec3_Img4.png')
                 }
             },
+            // {
+            //     pageType: 'ModuleChecklist',
+            //     module: 3,
+            //     moduleName: 'Sheltering',
+            //     content: {
+            //         mod: 'Module 3 - Sheltering',
+            //         headText: '',
+            //         info: '',
+            //         image: require('../assets/module3/Sheltering_Icon.svg'),
+            //     }
+            // },
             {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
@@ -440,8 +451,491 @@ const modules = [
                     info: 'You went through all the materials for Module 3, hopefully you learned a bit more about sheltering.',
                     image: require('../assets/module3/Congratulations_Image.png'),
                 }
+            },
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '4',
+                    moduleName: 'Food',
+                    logo: require('../assets/module4/Food_Icon.svg'),
+                    goal: 'Have an emergency food supply that will meet the needs of your household for three days without outside help.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 4 - Food',
+                    sectionNum: '1',
+                    sectionTitle: 'Buy a three-day emergency food supply for your household',
+                    image: require('../assets/module4/Food_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: 'Store food for 3 days',
+                    info: 'Have a 3 day supply of non-perishable food for your family.',
+                    image: require('../assets/module4/Food_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: 'Choose Things that are easy to prepare',
+                    info: 'Choose items that don’t need to be cooled, heated, or need a lot of water.',
+                    image: require('../assets/module4/Food_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Pay attention to shelf life",
+                    info: 'Look at the expiration date listed on the food item. Use and replace foods before the expiration date.',
+                    image: require('../assets/module4/Food_Sec1_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 4 - Food',
+                    sectionNum: '2',
+                    sectionTitle: 'Take steps to make sure food in your refrigerator and freezer will stay safe',
+                    image: require('../assets/module4/Food_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Install Thermometers",
+                    info: 'Install a thermometer in your fridge and freezer so you will know if your food gets too warm.',
+                    image: require('../assets/module4/Food_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Monitor Temperature",
+                    info: 'If the temperature in your fridge stays above 41 degrees Fahrenheit for more than four hours, perishable food items may be unsafe to eat.',
+                    image: require('../assets/module4/Food_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Reduce refrigerator temperature",
+                    info: 'Turn down the temperature in your fridge or freezer if you think your power might go out.',
+                    image: require('../assets/module4/Food_Sec2_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 4 - Food',
+                    sectionNum: '3',
+                    sectionTitle: 'Make sure you can meet any special dietary needs in your household',
+                    image: require('../assets/module4/Food_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Consider Special Dietary Equipment",
+                    info: 'If you use special equipment, like a blender, food scale, or feeding tubes, make sure you take those with you.',
+                    image: require('../assets/module4/Food_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Build a menu for special diets",
+                    info: 'Consider non-perishable menu options if you can’t get to a grocery store, or that can be prepared at an emergency shelter.',
+                    image: require('../assets/module4/Food_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: "Build a menu for special diets",
+                    info: 'Keep a description of your medical condition and the diet in your emergency kit.',
+                    image: require('../assets/module4/Food_Sec3_Img4.png')
+                }
+            },
+            // {
+            //     pageType: 'ModuleChecklist',
+            //     module: 3,
+            //     moduleName: 'Sheltering',
+            //     content: {
+            //         mod: 'Module 3 - Sheltering',
+            //         headText: '',
+            //         info: '',
+            //         image: require('../assets/module3/Sheltering_Icon.svg'),
+            //     }
+            // },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 4, hopefully you learned a bit more about food preparedness.',
+                    image: require('../assets/module4/Congratulations_Image.png'),
+                }
+            },
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '5',
+                    moduleName: 'Work, School & Communities',
+                    logo: require('../assets/module5/Work_School_Community_Icon.svg'),
+                    goal: 'Make sure the people who count on you are prepared for a disaster.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 5 - Work, School & Communities',
+                    sectionNum: '1',
+                    sectionTitle: 'Make sure emergency procedures are in place for your workplace or school',
+                    image: require('../assets/module5/WSC_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 5',
+                    headText: 'Develop an emergency plan',
+                    info: 'Talk to administrators at those places about their emergency plans. Ask for help planning for your family’s unique needs.',
+                    image: require('../assets/module5/WSC_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 5',
+                    headText: 'Consider everyone in your plan',
+                    info: 'Make sure your plan will work for everyone.',
+                    image: require('../assets/module5/WSC_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 5 - Work, School & Communities',
+                    sectionNum: '2',
+                    sectionTitle: 'Give emergency kits to people who count on you',
+                    image: require('../assets/module5/WSC_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 5',
+                    headText: "Make emergency kits for others",
+                    info: 'Put together basic emergency kits for people who may not be able to do so for themselves or for those who may not think of doing it for themselves.',
+                    image: require('../assets/module5/WSC_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 5',
+                    headText: "Include prescriptions",
+                    info: 'Make sure the kit meets their specific needs. For instance, if someone takes prescription medicine, include a list of medications and dosages.',
+                    image: require('../assets/module5/WSC_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 5 - Work, School & Communities',
+                    sectionNum: '3',
+                    sectionTitle: 'Know how others in your community will respond in a disaster',
+                    image: require('../assets/module5/WSC_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 5',
+                    headText: "Learn about emergency plans",
+                    info: 'Ask about emergency plans at your work, school, or other places your family members spend time.',
+                    image: require('../assets/module5/WSC_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 5',
+                    headText: "Know where emergency tools are",
+                    info: 'Find out where emergency tools like fire extinguishers are kept in the places you spend time.',
+                    image: require('../assets/module5/WSC_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 5, hopefully you have prepared for an emergency at work, in school, or in the community.',
+                    image: require('../assets/module5/Congratulations_Image.png'),
+                }
             }
         ]
-    },]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '6',
+                    moduleName: 'Unique Family Needs',
+                    logo: require('../assets/module6/Unique_Family_Needs_Icon.svg'),
+                    goal: 'Be aware of and prepare for your family’s unique needs.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 6 - Unique Family Needs',
+                    sectionNum: '1',
+                    sectionTitle: 'Talk with family members to identify your household’s unique needs',
+                    image: require('../assets/module6/WSC_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 6',
+                    headText: 'Things that might be special needs',
+                    info: '1. Infants and young children\n2. Prescription medication\n3. Health-related supplies\n4. Assistive devices\n5. Pets',
+                    image: require('../assets/module6/WSC_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 6',
+                    headText: 'Don’t overlook small items',
+                    info: 'Common items like diapers and pet food might not be easy to find right after a disaster.',
+                    image: require('../assets/module6/WSC_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 6 - Unique Family Needs',
+                    sectionNum: '2',
+                    sectionTitle: 'Make a plan to make sure pets are taken care of in a disaster',
+                    image: require('../assets/module6/WSC_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 6',
+                    headText: "Make a plan for pets",
+                    info: 'Disasters may strike while your pets are home alone.',
+                    image: require('../assets/module6/WSC_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 6',
+                    headText: "Have a neighbor check on your pets",
+                    info: 'Ask a neighbor to check on your pets if you can’t get home in a disaster.',
+                    image: require('../assets/module6/WSC_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 6 - Unique Family Needs',
+                    sectionNum: '3',
+                    sectionTitle: 'If you or someone in your household has a disability, create an evacuation plan that works for them',
+                    image: require('../assets/module6/WSC_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleImageOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 6',
+                    headText: "Create an evacuation for those with special needs",
+                    image: require('../assets/module6/WSC_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 6, hopefully you feel prepared for the unique needs of your family in an emergency.',
+                    image: require('../assets/module6/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '7',
+                    moduleName: 'Family Communication Plan',
+                    logo: require('../assets/module7/Family_Communication_Icon.svg'),
+                    goal: 'Have the ability to communicate with family members during a disaster.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    sectionNum: '1',
+                    sectionTitle: 'Have a phone with a cord and a car charger for your cell phone in case of power failure',
+                    image: require('../assets/module7/FCP_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: 'Keep a phone charger in your vehicle',
+                    info: 'Charge your phone in your car if your home power goes out.',
+                    image: require('../assets/module7/FCP_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: 'Know how to text',
+                    info: 'A text message from your cell phone may get through when a phone call doesn’t. Make sure everyone in your family knows how to send and receive text messages.',
+                    image: require('../assets/module7/FCP_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    sectionNum: '2',
+                    sectionTitle: 'Develop a plan for how your family will stay in touch during a disaster',
+                    image: require('../assets/module7/FCP_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: "Make a communication Plan",
+                    info: 'Develop a plan so you can stay in touch with your family in a disaster.',
+                    image: require('../assets/module7/FCP_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: "Have a long distance contact",
+                    info: 'Choose someone outside of the local calling area to be your “outside the area” contact. Make sure all family members carry this phone number with them.',
+                    image: require('../assets/module7/FCP_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    sectionNum: '3',
+                    sectionTitle: 'Program In Case of Emergency (ICE) numbers into all family cell phones',
+                    image: require('../assets/module7/FCP_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: "Add Emergency contact to your address book",
+                    info: 'If you have a cell phone, you can provide the phone numbers for your emergency contacts to first responders and hospital staff.',
+                    image: require('../assets/module7/FCP_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: "First responders will call ICE",
+                    info: 'If you are hurt and can’t talk, first responders and hospital staff will now know how to contact your family right away.',
+                    image: require('../assets/module7/FCP_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 7, hopefully your family has an established communication plan.',
+                    image: require('../assets/module7/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
+]
 
     export default modules;
