@@ -8,7 +8,7 @@ const modules = [
                 content: {
                     moduleNum: '1',
                     moduleName: 'Make a Plan',
-                    logo: require('../assets/test_assets/img1.jpg'),
+                    // logo: require('../assets/test_assets/img1.jpg'),
                     goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
                 }
             },
@@ -118,7 +118,7 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: '',
                     info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
-                    image: require('../assets/test_assets/img1.jpg'),
+                    // image: require('../assets/test_assets/img1.jpg'),
                 }
             },
             {
@@ -140,7 +140,7 @@ const modules = [
                 content: {
                     moduleNum: '2',
                     moduleName: 'Water',
-                    logo: require('../assets/test_assets/img2_1.png'),
+                    // logo: require('../assets/test_assets/img2_1.png'),
                     goal: 'Have 72 hours (3 days) worth of water stored for your household.',
                 }
             },
@@ -290,6 +290,158 @@ const modules = [
                 }
             }
         ]
-    }]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '3',
+                    moduleName: 'Sheltering',
+                    logo: require('../assets/module3/Sheltering_Icon.svg'),
+                    goal: 'Know how to respond safely when instructions are given to evacuate or take shelter.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    sectionNum: '1',
+                    sectionTitle: 'Identify storm shelter and practice getting to there with your family',
+                    image: require('../assets/module3/Sheltering_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: 'Stay Inside, away from windows and skylights',
+                    info: 'Windows can be dangerous in a tornado or high winds.',
+                    image: require('../assets/module3/Sheltering_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: 'Shelter down and in',
+                    info: 'Put as many walls between yourself and the outside as you can (think of the ceiling as a wall).',
+                    image: require('../assets/module3/Sheltering_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Avoid large rooms",
+                    info: 'Avoid rooms with large ceiling expanses. Find an area large enough for everyone to stay comfortably for at least 45 minutes.',
+                    image: require('../assets/module3/Sheltering_Sec1_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    sectionNum: '2',
+                    sectionTitle: 'Learn how to safely shelter in place',
+                    image: require('../assets/module3/Sheltering_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleTextOnly',
+                buttonText: 'Continue',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: 'What does it mean?',
+                    info: 'In an emergency like a chemical spill, you may be told to “shelter in place”. This means to make the place where you are a safe place to stay until the danger has passed. Shelter in place orders are given when it would be dangerous for you to go outside.',
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Stay Informed",
+                    info: 'Turn on the television or radio to see if your area has been affected.',
+                    image: require('../assets/module3/Sheltering_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Do the following...",
+                    info: 'Close all doors and windows.\n\nShut off fans and air conditioning.\n\nGo to room with the least amount of doors and windows.',
+                    image: require('../assets/module3/Sheltering_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Do NOT...",
+                    info: 'Do not call 911 to get information about emergency.\n\nDo not leave your home if instructed to “Shelter in place”.',
+                    image: require('../assets/module3/Sheltering_Sec2_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    sectionNum: '3',
+                    sectionTitle: 'Make a Go Bag for emergency sheltering',
+                    image: require('../assets/module3/Sheltering_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Shelter is available",
+                    info: 'An emergency shelter will have water and food, and a place for you to sleep.',
+                    image: require('../assets/module3/Sheltering_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Make a go bag",
+                    info: 'Pack things that will not be provided by the shelter, such as pillow and blanket, medication, identification etc.',
+                    image: require('../assets/module3/Sheltering_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: "Prohibited items",
+                    info: 'Keep in mind, weapons or alcohol or pets (except for service animals) are not allowed at the shelter.',
+                    image: require('../assets/module3/Sheltering_Sec3_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 3, hopefully you learned a bit more about sheltering.',
+                    image: require('../assets/module3/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },]
 
     export default modules;
