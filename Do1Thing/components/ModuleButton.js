@@ -1,7 +1,7 @@
 import { Image, View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { findModuleIcon, findModuleButtonText } from '../data/ModuleInfo';
 import { useFonts } from "expo-font";
-import modules from '../data/ModuleContent';
+import modules from '../data/ModuleData';
 
 export default function ModuleButton(props) {
 
