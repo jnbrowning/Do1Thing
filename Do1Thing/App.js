@@ -42,8 +42,9 @@ export default function App() {
       const Tabs = createBottomTabNavigator();
   
       return (
-        <Tabs.Navigator initialRouteName='HomeScreen' screenOptions={{ headerShown: true}}>
+        <Tabs.Navigator initialRouteName='HomeScreen'screenOptions={{ headerShown: false}}>
                   <Tabs.Screen name = 'HomeScreen' component={HomeScreen} options={{
+                          headerShown: true,
                           title: 'Home',
                           tabBarIcon: ({focused, color, size}) => {
                               return (
@@ -105,7 +106,7 @@ export default function App() {
                 backgroundColor: 'transparent',
               },
             }}/>
-            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
+            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle} options={{headerShown: false}}/>
             <Stack.Screen name = 'ModuleResume' component={ModuleResume}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
