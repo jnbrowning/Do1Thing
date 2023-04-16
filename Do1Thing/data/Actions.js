@@ -4,6 +4,7 @@ const actionTypes = {
   EDIT_USER: 'EDIT_USER',
   SET_LOGIN: 'SET_LOGIN',
   TOGGLE_CHECKBOX: 'TOGGLE_CHECKBOX',
+  ADD_BADGE: 'ADD_BADGE'
 }
 
 const loadUser = (user) => {
@@ -11,6 +12,15 @@ const loadUser = (user) => {
     type: actionTypes.LOAD_USER,
     payload: {
       user: user
+    }
+  }
+}
+
+const addBadge = (badgeId, items) => {
+  return {
+    type: actionTypes.ADD_BADGE,
+    payload: {
+      badgeId: badgeId,
     }
   }
 }
