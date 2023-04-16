@@ -126,6 +126,7 @@ const modules = [
             {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 1,
                 content: {
                     info: 'You went through all the materials for Module 1, hopefully you learned a bit more about how to make a plan.',
                     image: require('../assets/module1/Congratulations_Image.png'),
