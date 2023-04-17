@@ -940,6 +940,643 @@ const modules = [
             }
         ]
     },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '8',
+                    moduleName: 'Involved',
+                    logo: require('../assets/module8/Get_Involved_Icon.svg'),
+                    goal: 'Make your community stronger by getting trained and getting involved.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 8 - Involved',
+                    sectionNum: '1',
+                    sectionTitle: 'Connect with an isolated individual in your neighborhood or start a neighborhood organization',
+                    image: require('../assets/module8/Involved_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: 'Isolated individuals are more vulnerable',
+                    info: 'Isolated individuals are more vulnerable during and after a disaster. They are less likely to ask for help or follow emergency instructions.',
+                    image: require('../assets/module8/Involved_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: 'Take time to meet them in your neighborhood',
+                    info: 'Take time to meet them. Help them make a plan for emergencies, and include checking on them in your plan.',
+                    image: require('../assets/module8/Involved_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 8 - Involved',
+                    sectionNum: '2',
+                    sectionTitle: 'Promote emergency preparedness in your community',
+                    image: require('../assets/module8/Involved_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: "MPost preparedness information",
+                    info: 'Include a Do1Thing preparedness topic in newsletters or on bulletin boards each month.',
+                    image: require('../assets/module8/Involved_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: "Make emergency kits for seniors and children",
+                    info: 'Get a group together to make emergency kits for seniors or kids who stay home alone.',
+                    image: require('../assets/module8/Involved_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: "Learn how others are promoting preparedness",
+                    info: 'Find the materials that will work best for your organization and become a partner in preparing your community!',
+                    image: require('../assets/module8/Involved_Sec2_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 8 - Involved',
+                    sectionNum: '3',
+                    sectionTitle: 'Become a volunteer in your community',
+                    image: require('../assets/module8/Involved_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: "Sign up to volunteer",
+                    info: 'If you are interested in helping in your community or other communities during a disaster, become a volunteer for your local Red Cross or Salvation Army chapter.',
+                    image: require('../assets/module8/Involved_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: "Volunteer now",
+                    info: 'Don’t wait for disaster to strike—volunteer now. These organizations won’t send untrained volunteers into disaster areas.',
+                    image: require('../assets/module8/Involved_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 8, hopefully you learned a bit more about being informed.',
+                    image: require('../assets/module8/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '9',
+                    moduleName: 'Informed',
+                    logo: require('../assets/module9/Information_Icon.svg'),
+                    goal: 'Make sure everyone in your household can receive, understand, and act on information received in an emergency.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 9 - Informed',
+                    sectionNum: '1',
+                    sectionTitle: 'Make sure everyone in your family knows what to do when they hear emergency warnings',
+                    image: require('../assets/module9/Informed_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: 'Warning Sirens',
+                    info: 'Call your local fire department to find out if your area is covered by warning sires, when they are tested, and when they would be activated.',
+                    image: require('../assets/module9/Informed_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: 'Other ways to get the message',
+                    info: 'Some communities have other ways of warning residents. Call your police or fire department to find out how emergency warning messages will be sent. ',
+                    image: require('../assets/module9/Informed_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 9 - Informed',
+                    sectionNum: '2',
+                    sectionTitle: 'Get a NOAA Emergency Alert Radio',
+                    image: require('../assets/module9/Informed_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: "Weather can change quickly",
+                    info: 'Severe weather may strike when people are sleeping or unaware of the forecast. This can be deadly if people do not seek a safe shelter',
+                    image: require('../assets/module9/Informed_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: "Get a weather radio",
+                    info: 'A weather radio will wake you up in an emergency warning is issued.\n\nThey can be purchased at stores that sell electronics. Prices start at about $20.00',
+                    image: require('../assets/module9/Informed_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 9 - Informed',
+                    sectionNum: '3',
+                    sectionTitle: 'Make sure everyone in your household can communicate in a disaster',
+                    image: require('../assets/module9/Informed_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleImageOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: "Make sure everyone in your household can communicate in a disaster",
+                    image: require('../assets/module9/Informed_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: "Have someone to help with communication",
+                    info: 'If you think you may not be able to understand emergency information, identify someone (or more than one person) that you can contact for help in an emergency.',
+                    image: require('../assets/module9/Informed_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 9, make sure everyone can receive, understand, and act on emergency information.',
+                    image: require('../assets/module9/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '10',
+                    moduleName: 'Power',
+                    logo: require('../assets/module10/Power_Icon.svg'),
+                    goal: 'Be able to safely meet your basic needs during an electrical outage. ',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 10 - Power',
+                    sectionNum: '1',
+                    sectionTitle: 'Have flashlights ready in an easily accessible place and check batteries in flashlights and radios',
+                    image: require('../assets/module10/Power_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: 'Use battery operated flashlights',
+                    info: 'When lights go out, the safest way to provide emergency lighting is with flashlights or battery-powered lanterns.',
+                    image: require('../assets/module10/Power_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: 'Store Extra Batteries',
+                    info: 'Always keep a supply of extra batteries. Think about buying a rechargeable flashlight. Batteries might be hard to find in a disaster.',
+                    image: require('../assets/module10/Power_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 10 - Power',
+                    sectionNum: '2',
+                    sectionTitle: 'Acquire and learn how to safely use a portable generator',
+                    image: require('../assets/module10/Power_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: "Talk to an electrician",
+                    info: 'Talk to an electrician about what kind of generator will work for your home.',
+                    image: require('../assets/module10/Power_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: "Learn how to use a generator",
+                    info: 'Learn how to use a generator to make electricity for your home when the power goes out.\n\nNever operate a generator inside your house.',
+                    image: require('../assets/module10/Power_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 10 - Power',
+                    sectionNum: '3',
+                    sectionTitle: 'Create a power outage plan to minimize the effect on your household',
+                    image: require('../assets/module10/Power_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: "Have at least one phone with a cord",
+                    info: 'Home phones (not cell phones) that have cordless handsets won’t work when the power goes out.',
+                    image: require('../assets/module10/Power_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: "Always keep your gas tank at least half full",
+                    info: 'Gas stations might be closed in a disaster. Make sure your car always has gas.',
+                    image: require('../assets/module10/Power_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: "Have a car charger for your cell phone",
+                    info: 'You will still be able to charge your cell phone in your car if the power goes out.',
+                    image: require('../assets/module10/Power_Sec3_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 10, hopefully you learned a bit more about preparing for an electrical outage.',
+                    image: require('../assets/module10/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '11',
+                    moduleName: 'Emergency Supplies',
+                    logo: require('../assets/module11/Emergency_Supplies_Icon.svg'),
+                    goal: 'Remember important items that may be overlooked when leaving your home in a disaster.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    sectionNum: '1',
+                    sectionTitle: 'Gather your emergency supplies in an accessible place',
+                    image: require('../assets/module11/ES_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleImageOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: 'Have a go bag ready',
+                    image: require('../assets/module11/ES_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleTextOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: 'Think about these items for your go bag:',
+                    info: "- Battery powered radio and extra batteries\n- Flashlight with extra batteries\n- Lightweight blankets\n- Emergency information, including insurance policies\n- A list of medications and correct dosage, and doctor’s names\n- Personal items such as toothbrushes, soap, extra glasses, etc.\n- Whistle\nFirst aid kit\n- Change of clothing\nNon-perishable snacks\n- Books, cards or magazines to pass the time",
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Consider these additional items for medical conditions:",
+                    info: "Empty pill bottle(s) or a list of current medications\nYour doctor’s phone number",
+                    image: require('../assets/module11/ES_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleTextOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: 'Consider these additional items for pets:',
+                    info: "- Pet food & water\n- Collar with ID tags\n- Pet medication(s)\n- Pet carriers and leashes\n- Medical records from vet\n- Photos of your pet\n- Microchip information\n",
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    sectionNum: '2',
+                    sectionTitle: 'Create an emergency supply kit for your pet, your car, and your workplace or school',
+                    image: require('../assets/module11/ES_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleImageOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Make a go bag for your car",
+                    image: require('../assets/module11/ES_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Make a Supply kit for your Pet",
+                    info: 'Disaster can strike when you are away from home, if you travel with your pet regularly, make sure that you have an emergency kit for them as well.',
+                    image: require('../assets/module11/ES_Sec2_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleImageOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Make a go bag for your school",
+                    image: require('../assets/module11/ES_Sec2_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleImageOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Make a go bag for your office",
+                    image: require('../assets/module11/ES_Sec2_Img5.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    sectionNum: '3',
+                    sectionTitle: 'Stash some cash in case ATMs and credit card machines are not usable in a disaster',
+                    image: require('../assets/module11/ES_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "ATM Machines may not work",
+                    info: 'Many things that we take for granted are not available when there is no power. ATM machines may not work.',
+                    image: require('../assets/module11/ES_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Stash some cash",
+                    info: 'Some experts say you should have at minimum $150.00 in cash stashed away. Realizing this may not be possible for everyone, any amount is good to start with.',
+                    image: require('../assets/module11/ES_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: "Build your stash weekly, if necessary",
+                    info: 'Take $1.00 a week and place it in an envelope in your emergency kit. In just a little time, you will have some cash stashed away for us in emergencies.',
+                    image: require('../assets/module11/ES_Sec3_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 11, hopefully you have prepared an emergency supplies kit and a go bag.',
+                    image: require('../assets/module11/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
+    {
+        currentPage: 0,
+        moduleContent: [
+            {
+                pageType: 'ModuleTitle',
+                buttonText: 'Start',
+                content: {
+                    moduleNum: '12',
+                    moduleName: 'First Aid',
+                    logo: require('../assets/module12/First_Aid_Icon.svg'),
+                    goal: 'Be prepared to give first aid while waiting for an ambulance.',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    sectionNum: '1',
+                    sectionTitle: 'Know what to do while waiting for an ambulance to arrive',
+                    image: require('../assets/module12/FA_Sec1_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: 'Call 911',
+                    info: '- Stay on the line with 911 and follow Emergency Instructions\n\n- Stay calm and try to keep the patient calm',
+                    image: require('../assets/module12/FA_Sec1_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: 'DO NOT do these while help is on the way',
+                    info: "- Don’t move a patient who was injured in an automobile accident or fall, or who was found unconscious.\n\n- Don’t give an injured person anything to eat or drink (Unless instructed by the 911 dispatcher)",
+                    image: require('../assets/module12/FA_Sec1_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: 'DO these while help is on the way',
+                    info: "- If the patient is cold, cover them with a blanket\n\n- Have someone watch for the ambulance and show the crew how to get to the patient. (Especially important in apartment or office buildings, or if your address is hard to see from the street).",
+                    image: require('../assets/module12/FA_Sec1_Img4.png')
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    sectionNum: '2',
+                    sectionTitle: 'Make or buy first aid kits for your home and car',
+                    image: require('../assets/module12/FA_Sec2_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: "Buy first aid kits for your home or car",
+                    info: 'Buy a ready-made first aid kit',
+                    image: require('../assets/module12/FA_Sec2_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleTextOnly',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: "Contents of a basic first aid kit",
+                    info: '- Adhesive tape\n- Gauze Pads & Roller Gauze\n- Antiseptic Ointment\n- Hand Sanitizer\n- Band-Aids\n- Plastic Bags\n- Blanket\n- Scissors and tweezers\n- Cold Pack\n- Small Flashlight and Extra Batteries\n- Disposable Gloves\n- Triangular Bandage',
+                }
+            },
+            {
+                pageType: 'ModuleSectionHead',
+                buttonText: "Let's Go",
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    sectionNum: '3',
+                    sectionTitle: 'take training in first aid, CPR, AED, or pet first aid',
+                    image: require('../assets/module12/FA_Sec3_Img1.png'),
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: "Take Classes to learn Emergency Skills",
+                    info: 'Contact your local fire department or American Red Cross chapter to learn what first aid classes are available in your area.',
+                    image: require('../assets/module12/FA_Sec3_Img2.png')
+                }
+            },
+            {
+                pageType: 'ModuleContent',
+                buttonText: 'Next',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: "Take Classes to learn Emergency Skills",
+                    info: 'Knowing how to apply a bandage, identify the signs and symptoms of shock, perform CPR or use an automatic external defibrillator (AED) can save a life.',
+                    image: require('../assets/module12/FA_Sec3_Img3.png')
+                }
+            },
+            {
+                pageType: 'ModuleCongrats',
+                buttonText: 'Done',
+                content: {
+                    info: 'You went through all the materials for Module 12, hopefully you learned a bit more about first aid preparedness.',
+                    image: require('../assets/module12/Congratulations_Image.png'),
+                }
+            }
+        ]
+    },
 ]
 
     export default modules;
