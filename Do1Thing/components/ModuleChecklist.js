@@ -1,5 +1,5 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { Text, TextInput, Button } from "@react-native-material/core";
+import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
+import { TextInput, Button } from "@react-native-material/core";
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
@@ -10,6 +10,11 @@ import { actionTypes } from '../data/Actions';
 import { toggleCheckbox } from "../data/Actions";
 import { signOutFB, subscribeToUsersCollection, getFBAuth, subscribeToChecklistCollection } from '../data/DB';
 import { useEffect } from "react";
+import { findModuleIcon } from '../data/ModuleInfo';
+import { createRef } from "react";
+import { useFocusEffect } from '@react-navigation/native';
+import { AccessibilityInfo, findNodeHandle } from "react-native";
+import React from "react";
 
 function ModuleChecklist({ navigation, route }) {
 
@@ -28,11 +33,12 @@ function ModuleChecklist({ navigation, route }) {
     const pageContent = route.params.fullModule.moduleContent[currentPage];
     const modName = route.params.fullModule.moduleContent[currentPage].moduleName
     const moduleNumber = route.params.fullModule.moduleContent[currentPage].module;
-    let link = pageContent.content.image;
+    const SvgIcon = findModuleIcon(route.params.fullModule.moduleContent[0].content.moduleNum);
 
     useEffect(() => {
         subscribeToChecklistCollection(dispatch);
     },[])
+
 
     // Subset of items that match the current module
     const items = useSelector((state) => {
@@ -52,6 +58,8 @@ function ModuleChecklist({ navigation, route }) {
             <View style={styles.buttonContainer}>
                 {skipTo ? <View/> : 
                 <TouchableOpacity
+                accessibilityRole='button'
+                accessibilityLabel="previous page"
                     style={styles.backButton}
                     onPress={() => {
                         const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
@@ -60,12 +68,15 @@ function ModuleChecklist({ navigation, route }) {
                     }}>
                     <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />
                 </TouchableOpacity>}
-                <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('ModulesScreen')}>
+                <TouchableOpacity style={styles.backButton} 
+                        accessibilityRole="button"
+                        accessibilityLabel="close"
+                onPress={() => navigation.navigate('ModulesScreen')}>
                     <AntDesign name="close" size={30} color="#9D9D9D" />
                 </TouchableOpacity>
             </View>
 
-            <CustomImageWithText module={moduleNumber} moduleName={modName} link={link} />
+            <CustomImageWithText module={moduleNumber} moduleName={modName} SvgIcon={SvgIcon}/>
 
             <View style={styles.checkBoxContainer}>
                 <View style={styles.list}>
@@ -99,15 +110,40 @@ function ModuleChecklist({ navigation, route }) {
     )
 }
 
-const CustomImageWithText = ({ module, moduleName, link }) => {
+const CustomImageWithText = ({ module, moduleName, SvgIcon }) => {
+
+    // *********Header Focus*********
+    // This allows for the header to take focus, even if it is not the first element in the DOM
+    const inputRef = createRef();
+    const AUTO_FOCUS_DELAY = 50;
+
+    const focusOnElement = (elementRef) => {
+        const node = findNodeHandle(elementRef);
+        if (!node) {
+          return;
+        }
+        AccessibilityInfo.setAccessibilityFocus(node);
+      };
+
+    useFocusEffect (
+      React.useCallback(() => {
+        setFocus();
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }    
+        async function setFocus() {
+           await delay(50);
+           focusOnElement(inputRef.current);
+          }
+        }, [])
+    );
+    // *********End Header Focus*********
+
     return (
         <View style={imageStyles.container}>
-            <Image
-                style={imageStyles.image}
-                source={link}
-            />
+            <SvgIcon width={125} height={125} padding={0} margin={0} style={styles.icon} />
             <View style={imageStyles.textContainer}>
-                <Text style={styles.moduleHeading}>Module {module} - Checklist</Text>
+                <Text style={styles.moduleHeading} accessibilityRole="header" ref={inputRef}>Module {module} - Checklist</Text>
                 <Text style={styles.goalHeader}>{moduleName}</Text>
             </View>
         </View>

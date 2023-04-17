@@ -1,11 +1,15 @@
-import { View, StyleSheet, Image, Modal } from "react-native";
-import { Text, Button } from "@react-native-material/core";
+import { View, StyleSheet, Text, Modal } from "react-native";
+import { Button } from "@react-native-material/core";
 import { TouchableOpacity } from "react-native";
 import { useState } from "react";
 import * as Progress from 'react-native-progress';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons'; 
 import { findModuleIcon } from '../data/ModuleInfo';
+import { createRef } from "react";
+import { useFocusEffect } from '@react-navigation/native';
+import { AccessibilityInfo, findNodeHandle } from "react-native";
+import React from "react";
 
 function ModuleResume({navigation, route}) {
 
@@ -21,10 +25,40 @@ function ModuleResume({navigation, route}) {
   const [visible, setVisible] = useState(false);
   const toggleOverlay = () => {setVisible(!visible);}
 
+    // *********Header Focus*********
+    // This allows for the header to take focus, even if it is not the first element in the DOM
+    const inputRef = createRef();
+    const AUTO_FOCUS_DELAY = 50;
+
+    const focusOnElement = (elementRef) => {
+        const node = findNodeHandle(elementRef);
+        if (!node) {
+          return;
+        }
+        AccessibilityInfo.setAccessibilityFocus(node);
+      };
+
+      useFocusEffect (
+        React.useCallback(() => {
+          setFocus();
+          function delay(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
+          }    
+          async function setFocus() {
+             await delay(50);
+             focusOnElement(inputRef.current);
+            }
+          }, [])
+      );
+    // *********End Header Focus*********
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
+      <TouchableOpacity style={styles.backButton} 
+                accessibilityRole="button"
+                accessibilityLabel="back"
+      onPress={()=>navigation.navigate('ModulesScreen')}>
       <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
         </TouchableOpacity>
         <TouchableOpacity style={styles.backButton} 
