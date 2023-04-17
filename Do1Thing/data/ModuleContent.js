@@ -1,3 +1,5 @@
+import { findModuleIcon } from '../data/ModuleInfo';
+
 const modules = [
     {
         currentPage: 0,
@@ -8,7 +10,9 @@ const modules = [
                 content: {
                     moduleNum: '1',
                     moduleName: 'Make a Plan',
+
                     logo: require('../assets/module1/Make_a_Plan_Icon.svg'),
+
                     goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
                 }
             },
@@ -119,6 +123,7 @@ const modules = [
                     headText: '',
                     info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
                     image: require('../assets/module1/Make_a_Plan_Icon.svg'),
+
                 }
             },
             {

@@ -1,7 +1,7 @@
 import { getApps, initializeApp } from "firebase/app";
 import { firebaseConfig } from './Secret';
 import { actionTypes, loadUser, editUser } from './Actions';
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth, signOut, updatePassword } from 'firebase/auth';
 import {
   getFirestore,
   onSnapshot,
@@ -128,6 +128,8 @@ const saveAndDispatch = (action, dispatch) => {
       return _editUser(action, dispatch);
     case actionTypes.TOGGLE_CHECKBOX:
       return _toggleCheckBox(action, dispatch);
+      case actionTypes.ADD_BADGE:
+      return _addBadge(action, dispatch);
   }
 }
 
@@ -135,7 +137,7 @@ const _createUser = async (action, dispatch) => {
   const { user } = action.payload;
   await setDoc(doc(collection(getDB(), userCollection), user.uid), {
     email: user.email,
-    badges: [1],
+    badges: [],
     moduleCheckList: moduleCheckList,
   })
 }
@@ -166,6 +168,21 @@ const _toggleCheckBox = async (action, dispatch) => {
   const result = await setDoc(doc(collection(getDB(), checklistCollection), user.uid), {
     moduleCheckList: items
   })
+}
+
+const _addBadge = async (action, dispatch) => {
+  try {
+   let userId = getFBAuth().currentUser.uid;
+   let user = await getDoc(doc(collection(getDB(), userCollection), userId));
+   let badges = user.badges;
+   if (badges == undefined) { 
+      badges = [];
+    }
+    badges.push(action.payload.badgeId);
+    await updateDoc(doc(collection(getDB(), userCollection), userId), { badges: badges });
+  } catch (error) {
+    console.log('Error adding badge: ', error);
+  }
 }
 
 export {
