@@ -77,7 +77,7 @@ function ModuleCongrats({ navigation, route }) {
           title={<Text accessibilityLabel="done, button" variant="button" style={{ color: 'white' }}>Done</Text>}
           onPress={() => navigation.push('ModulesScreen')}
         />
-        {showEarnedBadgeAlert && <BadgePopup badgeID={1}> </BadgePopup>}
+        {showEarnedBadgeAlert && <BadgePopup badgeID={moduleNumber}> </BadgePopup>}
       </View>
       
       <Progress.Bar
