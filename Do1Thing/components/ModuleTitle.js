@@ -9,13 +9,15 @@ import { createRef } from "react";
 import { useFocusEffect } from '@react-navigation/native';
 import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
+import { useState } from "react";
 
 const ModuleTitle = ({navigation, route}) => {
 
     // *********Header Focus*********
     // This allows for the header to take focus, even if it is not the first element in the DOM
+    const [headerLoad, setHeaderLoad] = useState(false);
     const inputRef = createRef();
-    const AUTO_FOCUS_DELAY = 50;
+    const AUTO_FOCUS_DELAY = 500;
 
     const focusOnElement = (elementRef) => {
         const node = findNodeHandle(elementRef);
@@ -25,18 +27,20 @@ const ModuleTitle = ({navigation, route}) => {
         AccessibilityInfo.setAccessibilityFocus(node);
       };
 
-      useFocusEffect (
-        React.useCallback(() => {
-          setFocus();
-          function delay(ms) {
-              return new Promise(resolve => setTimeout(resolve, ms));
-          }    
-          async function setFocus() {
-             await delay(50);
-             focusOnElement(inputRef.current);
-            }
-          }, [])
-      );
+    useFocusEffect (
+      React.useCallback(() => {
+        console.log('hi');
+        focusOnElement(inputRef.current);
+
+        const timeoutId = setTimeout(() => {
+            focusOnElement(inputRef.current);
+            setHeaderLoad(true);
+          }, AUTO_FOCUS_DELAY);
+          return () => {
+            clearTimeout(timeoutId);
+          };
+        }, [])
+    );
     // *********End Header Focus*********
 
   const currentPage = route.params.fullModule.currentPage;
@@ -50,20 +54,22 @@ const ModuleTitle = ({navigation, route}) => {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity 
+      <TouchableOpacity 
+          accessible={headerLoad}
           style={styles.backButton} 
           onPress={()=>navigation.navigate('ModulesScreen')}
           accessibilityRole="button"
           accessibilityLabel="back">
-          <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
+          <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
         </TouchableOpacity>
         <TouchableOpacity 
+          accessible={headerLoad}
           style={styles.backButton} 
           onPress={() => navigation.push(route.params.fullModule.moduleContent[checklistPage].pageType, {fullModule: route.params.fullModule, skipTo: true})}
           accessibilityRole='button'
           accessibilityLabel="access checklist">
-          <MaterialCommunityIcons name="format-list-checks" size={30} color="white" style={styles.checkButton}/>
-          <Text style={{paddingLeft: '3%', alignSelf: 'center', fontSize: 14, fontFamily: 'RobotoBold'}}>{"Access\nChecklist"}</Text>
+          <MaterialCommunityIcons  accessible={false} name="format-list-checks" size={30} color="white" style={styles.checkButton}/>
+          <Text accessible={false} style={{paddingLeft: '3%', alignSelf: 'center', fontSize: 14, fontFamily: 'RobotoBold'}}>{"Access\nChecklist"}</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>

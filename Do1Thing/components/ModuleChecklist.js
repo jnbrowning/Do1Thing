@@ -9,7 +9,7 @@ import {saveAndDispatch, _toggleCheckbox} from '../data/DB';
 import { actionTypes } from '../data/Actions';
 import { toggleCheckbox } from "../data/Actions";
 import { signOutFB, subscribeToUsersCollection, getFBAuth, subscribeToChecklistCollection } from '../data/DB';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { findModuleIcon } from '../data/ModuleInfo';
 import { createRef } from "react";
 import { useFocusEffect } from '@react-navigation/native';
@@ -17,6 +17,11 @@ import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
 
 function ModuleChecklist({ navigation, route }) {
+
+    // *********Header Focus*********
+    // This allows for the header to take focus, even if it is not the first element in the DOM
+    const [headerLoad, setHeaderLoad] = useState(false);
+
 
     let currentPage;
     let skipTo = false;
@@ -58,6 +63,7 @@ function ModuleChecklist({ navigation, route }) {
             <View style={styles.buttonContainer}>
                 {skipTo ? <View/> : 
                 <TouchableOpacity
+                accessible={headerLoad}
                 accessibilityRole='button'
                 accessibilityLabel="previous page"
                     style={styles.backButton}
@@ -66,17 +72,24 @@ function ModuleChecklist({ navigation, route }) {
                         route.params.fullModule.currentPage -= 1;
                         navigation.navigate(previousPage, { fullModule: route.params.fullModule })
                     }}>
-                    <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />
+                    <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />
                 </TouchableOpacity>}
-                <TouchableOpacity style={styles.backButton} 
+                <TouchableOpacity
+                accessible={headerLoad}
+                 style={styles.backButton} 
                         accessibilityRole="button"
                         accessibilityLabel="close"
                 onPress={() => navigation.navigate('ModulesScreen')}>
-                    <AntDesign name="close" size={30} color="#9D9D9D" />
+                    <AntDesign accessible={false} name="close" size={30} color="#9D9D9D" />
                 </TouchableOpacity>
             </View>
 
-            <CustomImageWithText module={moduleNumber} moduleName={modName} SvgIcon={SvgIcon}/>
+            <CustomImageWithText 
+            headerLoad={headerLoad}
+            setHeaderLoad={setHeaderLoad}
+            module={moduleNumber} 
+            moduleName={modName} 
+            SvgIcon={SvgIcon}/>
 
             <View style={styles.checkBoxContainer}>
                 <View style={styles.list}>
@@ -98,7 +111,7 @@ function ModuleChecklist({ navigation, route }) {
             <Button
                 style={ !disableButton() ? styles.startButton : styles.buttonDisabled}
                 variant="contained"
-                title={<Text accessibilityLabel="continue, button" variant="button" style={{ color: 'white' }}>Continue</Text>}
+                title={<Text accessibilityLabel = "Continue, button" variant="button" style={{ color: 'white', fontSize: 18, fontFamily: "Roboto" }}>Continue</Text>}
                 disabled={disableButton()}
                 onPress={() => {
                     console.log("button pressed")
@@ -110,12 +123,11 @@ function ModuleChecklist({ navigation, route }) {
     )
 }
 
-const CustomImageWithText = ({ module, moduleName, SvgIcon }) => {
+const CustomImageWithText = ({ headerLoad, setHeaderLoad, module, moduleName, SvgIcon }) => {
 
-    // *********Header Focus*********
-    // This allows for the header to take focus, even if it is not the first element in the DOM
+    //***HEADER FOCUS FOR ACCESSIBILITY */
     const inputRef = createRef();
-    const AUTO_FOCUS_DELAY = 50;
+    const AUTO_FOCUS_DELAY = 500;
 
     const focusOnElement = (elementRef) => {
         const node = findNodeHandle(elementRef);
@@ -127,14 +139,16 @@ const CustomImageWithText = ({ module, moduleName, SvgIcon }) => {
 
     useFocusEffect (
       React.useCallback(() => {
-        setFocus();
-        function delay(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }    
-        async function setFocus() {
-           await delay(50);
-           focusOnElement(inputRef.current);
-          }
+        console.log('hi');
+        focusOnElement(inputRef.current);
+
+        const timeoutId = setTimeout(() => {
+            focusOnElement(inputRef.current);
+            setHeaderLoad(true);
+          }, AUTO_FOCUS_DELAY);
+          return () => {
+            clearTimeout(timeoutId);
+          };
         }, [])
     );
     // *********End Header Focus*********
@@ -143,7 +157,7 @@ const CustomImageWithText = ({ module, moduleName, SvgIcon }) => {
         <View style={imageStyles.container}>
             <SvgIcon width={125} height={125} padding={0} margin={0} style={styles.icon} />
             <View style={imageStyles.textContainer}>
-                <Text style={styles.moduleHeading} accessibilityRole="header" ref={inputRef}>Module {module} - Checklist</Text>
+                <Text style={styles.moduleHeading} ref={inputRef} accessibilityRole="header">Module {module} - Checklist</Text>
                 <Text style={styles.goalHeader}>{moduleName}</Text>
             </View>
         </View>
@@ -191,7 +205,8 @@ const styles = StyleSheet.create({
         color: 'black',
         paddingBottom: '5%',
         paddingTop: '5%',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Roboto'
     },
     testIcon: {
         flex: 1,
@@ -216,21 +231,21 @@ const styles = StyleSheet.create({
         fontSize: 24,
         paddingLeft: '2%',
         marginTop: 17,
-
+        fontFamily: 'Roboto'
     },
     goalHeader: {
         paddingLeft: '2%',
         color: "#1D7DAB",
         fontSize: 34,
-        fontWeight: 'bold',
         marginTop: 0,
+        fontFamily: 'RobotoBold'
     },
     goalText: {
         paddingLeft: '10%',
         paddingRight: '10%',
         paddingTop: '5%',
         fontSize: 24,
-        fontWeight: 'bold',
+        fontFamily: 'RobotoBold',
         color: '#0E5681',
     },
     startButton: {
@@ -260,6 +275,7 @@ const styles = StyleSheet.create({
         color: 'black',
         marginLeft: '10%',
         marginRight: '10%',
+        fontFamily: 'Roboto'
     },
     checkBoxContainer: {
         backgroundColor: '#fff',
@@ -278,6 +294,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
+        fontFamily: 'Roboto'
     },
     list: {
         backgroundColor: '#fff',
@@ -304,7 +321,8 @@ const styles = StyleSheet.create({
         flex: 1, // Make the text component take up remaining width in the row
         flexWrap: 'wrap', // Wrap text when it reaches the end of the line
         paddingRight: "5%", // Add vertical padding
-        paddingVertical: "5%"
+        paddingVertical: "5%",
+        fontFamily: "Roboto"
     },
 });
 
