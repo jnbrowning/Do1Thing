@@ -4,7 +4,6 @@ import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import * as Progress from 'react-native-progress';
 import BadgePopup from "./BadgePopup";
-import BadgeOverlay from "./BadgeOverlay";
 import { subscribeToUsersCollection } from "../data/DB";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
@@ -53,7 +52,7 @@ function ModuleCongrats({ navigation, route }) {
   const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
   const moduleNumber = route.params.fullModule.moduleContent[currentPage].module;
   let hasBadge = null; 
-  let allowUserDismiss = null;
+  let showEarnedBadgeAlert = null;
   let link = pageContent.content.image;
 
   useEffect(() => {
@@ -64,7 +63,7 @@ function ModuleCongrats({ navigation, route }) {
     if (hasBadge == null) {
       hasBadge = state.user.badges
       .includes(moduleNumber)
-      allowUserDismiss = !hasBadge;
+      showEarnedBadgeAlert = !hasBadge;
     }
     
     return hasBadge
@@ -118,7 +117,7 @@ function ModuleCongrats({ navigation, route }) {
           title={<Text accessibilityLabel="done, button" variant="button" style={{ color: 'white', fontFamily: "Roboto", fontSize: 18 }}>Done</Text>}
           onPress={() => navigation.push('ModulesScreen')}
         />
-        {allowUserDismiss && <BadgeOverlay moduleNumber={moduleNumber} />}
+        {showEarnedBadgeAlert && <BadgePopup badgeID={moduleNumber}> </BadgePopup>}
       </View>
       
       <Progress.Bar 
