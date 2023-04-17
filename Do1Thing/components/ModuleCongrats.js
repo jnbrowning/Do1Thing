@@ -1,18 +1,51 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { Text, TextInput, Button } from "@react-native-material/core";
+import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
+import { Button } from "@react-native-material/core";
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import * as Progress from 'react-native-progress';
 import BadgePopup from "./BadgePopup";
 import BadgeOverlay from "./BadgeOverlay";
 import { subscribeToUsersCollection } from "../data/DB";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { actionTypes } from '../data/Actions';
 import { saveAndDispatch } from '../data/DB';
-
+import { createRef } from "react";
+import { useFocusEffect } from '@react-navigation/native';
+import { AccessibilityInfo, findNodeHandle } from "react-native";
+import React from "react";
 
 function ModuleCongrats({ navigation, route }) {
+
+    // *********Header Focus*********
+    // This allows for the header to take focus, even if it is not the first element in the DOM
+    const [headerLoad, setHeaderLoad] = useState(false);
+    const inputRef = createRef();
+    const AUTO_FOCUS_DELAY = 500;
+
+    const focusOnElement = (elementRef) => {
+        const node = findNodeHandle(elementRef);
+        if (!node) {
+          return;
+        }
+        AccessibilityInfo.setAccessibilityFocus(node);
+      };
+
+    useFocusEffect (
+      React.useCallback(() => {
+        console.log('hi');
+        focusOnElement(inputRef.current);
+
+        const timeoutId = setTimeout(() => {
+            focusOnElement(inputRef.current);
+            setHeaderLoad(true);
+          }, AUTO_FOCUS_DELAY);
+          return () => {
+            clearTimeout(timeoutId);
+          };
+        }, [])
+    );
+    // *********End Header Focus*********
 
   const currentPage = route.params.fullModule.currentPage;
   const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
@@ -53,43 +86,52 @@ function ModuleCongrats({ navigation, route }) {
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
+        accessible={headerLoad}
           style={styles.backButton}
+          accessibilityRole='button'
+          accessibilityLabel="previous page"
           onPress={() => {
             const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
             route.params.fullModule.currentPage -= 1;
             navigation.navigate(previousPage, { fullModule: route.params.fullModule })
           }}>
-          <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />
+          <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB' />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('ModulesScreen')}>
-          <AntDesign name="close" size={30} color="#9D9D9D" />
+        <TouchableOpacity 
+        accessible={headerLoad}
+        accessibilityRole='button'
+        accessibilityLabel="close"
+        style={styles.backButton} onPress={() => navigation.navigate('ModulesScreen')}>
+          <AntDesign accessible={false} name="close" size={30} color="#9D9D9D" />
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>
         <Image style={styles.testIcon}
           source={link} />
-        <Text style={styles.goalText}>Congratulations!</Text>
+        <Text style={styles.goalText} accessibilityRole="header">Congratulations!</Text>
         <View style={styles.goalBlock}>
           <Text style={styles.infoText}>{pageContent.content.info}</Text>
         </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel="done, button" variant="button" style={{ color: 'white' }}>Done</Text>}
+          title={<Text accessibilityLabel="done, button" variant="button" style={{ color: 'white', fontFamily: "Roboto", fontSize: 18 }}>Done</Text>}
           onPress={() => navigation.push('ModulesScreen')}
         />
         {allowUserDismiss && <BadgeOverlay moduleNumber={moduleNumber} />}
       </View>
       
-      <Progress.Bar
-        progress={progressWidth}
-        width={null}
+      <Progress.Bar 
+        accessible={true}
+        accessibilityLabel={"progress bar, on module page " + currentPage + ' of ' + (route.params.fullModule.moduleContent.length - 1)}      
+        progress={progressWidth} 
+        width={null} 
         height={15}
         borderRadius={0}
         color={'#1D7DAB'}
         unfilledColor={"#EDEDED"}
         borderColor={'#fff'}
-        style={{ position: 'absolute', bottom: 0, width: '100%' }} />
+        style={{position: 'absolute', bottom: 0, width: '100%'}}/>
     </View>
   )
 }
@@ -113,7 +155,7 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingBottom: '5%',
     paddingTop: '5%',
-    fontWeight: 'bold'
+    fontFamily: 'RobotoBold'
   },
   testIcon: {
     flex: 1,
@@ -137,21 +179,21 @@ const styles = StyleSheet.create({
     color: '#12B1C3',
     fontSize: 24,
     paddingLeft: '10%',
-
+    fontFamily: "Roboto"
   },
   goalHeader: {
     paddingLeft: '10%',
     color: "#1D7DAB",
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: "RobotoBold"
   },
   goalText: {
     paddingLeft: '10%',
     paddingRight: '10%',
     paddingTop: '5%',
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#0E5681',
+    fontFamily: "RobotoBold"
   },
   startButton: {
     backgroundColor: '#2E8540',
@@ -172,6 +214,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginLeft: '10%',
     marginRight: '10%',
+    fontFamily: "Roboto"
   }
 });
 

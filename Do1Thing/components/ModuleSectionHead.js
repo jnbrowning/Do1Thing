@@ -7,7 +7,7 @@ import { createRef } from "react";
 import { useFocusEffect } from '@react-navigation/native';
 import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
-import {setTimeout} from "timers/promises";
+import { useState } from "react";
 
 function ModuleSectionHead({navigation, route}) {
 
@@ -19,29 +19,42 @@ function ModuleSectionHead({navigation, route}) {
 
   let link = pageContent.content.image;
 
-  // *********Header Focus*********
+    // *********Header Focus*********
     // This allows for the header to take focus, even if it is not the first element in the DOM
-
+    const [headerLoad, setHeaderLoad] = useState(false);
     const inputRef = createRef();
+    const AUTO_FOCUS_DELAY = 500;
 
-    async function focusOnElement (elementRef) {
-        await setTimeout(500);
+    const focusOnElement = (elementRef) => {
         const node = findNodeHandle(elementRef);
+        if (!node) {
+          return;
+        }
         AccessibilityInfo.setAccessibilityFocus(node);
       };
 
-      useFocusEffect (
-        
-        React.useCallback(() => {
-          focusOnElement(inputRef.current);
-          }, [])
-      );
+    useFocusEffect (
+      React.useCallback(() => {
+        console.log('hi');
+        focusOnElement(inputRef.current);
+
+        const timeoutId = setTimeout(() => {
+            focusOnElement(inputRef.current);
+            setHeaderLoad(true);
+          }, AUTO_FOCUS_DELAY);
+          return () => {
+            console.log('header load: ', headerLoad)
+            clearTimeout(timeoutId);
+          };
+        }, [])
+    );
     // *********End Header Focus*********
 
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
+          accessible={headerLoad}
           accessibilityRole='button'
           accessibilityLabel="previous page"
           style={styles.backButton}
@@ -49,14 +62,15 @@ function ModuleSectionHead({navigation, route}) {
           const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
           route.params.fullModule.currentPage -= 1;
           navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}>
-          <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
+          <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
         </TouchableOpacity>
         <TouchableOpacity 
+          accessible={headerLoad}
           style={styles.backButton} 
           onPress={()=>navigation.navigate('ModulesScreen')}
           accessibilityRole="button"
           accessibilityLabel="close">
-          <AntDesign name="close" size={30} color="#9D9D9D"/>
+          <AntDesign accessible={false} name="close" size={30} color="#9D9D9D"/>
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>
