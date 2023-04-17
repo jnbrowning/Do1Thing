@@ -10,9 +10,6 @@ const modules = [
                 content: {
                     moduleNum: '1',
                     moduleName: 'Make a Plan',
-
-                    logo: require('../assets/module1/Make_a_Plan_Icon.svg'),
-
                     goal: 'Understand what puts you at risk from disasters and take steps to lower your risk.',
                 }
             },
@@ -24,6 +21,7 @@ const modules = [
                     sectionNum: '1',
                     sectionTitle: 'Plan what to do if you have to evacuate',
                     image: require('../assets/module1/MAP_Sec1_Img1.png'),
+                    altText: 'notebook with written list, next to a pair of glasses a pencil, and a highlighter'
                 }
             },
             {
@@ -33,7 +31,8 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: 'Choose two emergency meeting places',
                     info: 'One should be right outside your home in case of a sudden emergency, such as a fire.',
-                    image: require('../assets/module1/MAP_Sec1_Img2.png')
+                    image: require('../assets/module1/MAP_Sec1_Img2.png'),
+                    altText: 'people standing at emergency meeting place outside of home'
                 }
             },
             {
@@ -43,7 +42,8 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: 'Choose two emergency meeting places',
                     info: 'The other should be outside of your neighborhood, in case you cannot return home or are asked to evacuate.',
-                    image: require('../assets/module1/MAP_Sec1_Img3.png')
+                    image: require('../assets/module1/MAP_Sec1_Img3.png'),
+                    altText: 'people standing at emergency meeting place outside of neighborhood'
                 }
             },
             {
@@ -53,7 +53,8 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: 'Plan ahead for your pets',
                     info: 'Due to health concerns, pets are not allowed in Red Cross shelters.\n\nCall your local humane society to ask if pet emergency shelters will be opened in a disaster.',
-                    image: require('../assets/module1/MAP_Sec1_Img4.png')
+                    image: require('../assets/module1/MAP_Sec1_Img4.png'),
+                    altText: 'a cat and a dog in a home'
                 }
             },
             {
@@ -64,6 +65,7 @@ const modules = [
                     sectionNum: '2',
                     sectionTitle: 'Take steps to prevent damage to your home',
                     image: require('../assets/module1/MAP_Sec2_Img1.png'),
+                    altText: 'exterior of home, being viewed with magnifying glass'
                 }
             },
             {
@@ -73,7 +75,8 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: '',
                     info: 'Take some time now and learn what disasters could happen in your community.',
-                    image: require('../assets/module1/MAP_Sec2_Img2.png')
+                    image: require('../assets/module1/MAP_Sec2_Img2.png'),
+                    altText: 'woman reading a book and looking on computer to learn more'
                 }
             },
             {
@@ -92,6 +95,7 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: 'Take Steps to Prevent Damage',
                     image: require('../assets/module1/MAP_Sec2_Img3.png'),
+                    altText: 'infographic with text for five types of disasters: tornado, flood, wildfire, earthquake, hurricane. Tornado: Add a tornado safe room to your house. See FEMA publication 320 for more information. Flood: Floodproof your house with special building materials. Make sure you have the right amount of flood venting. Wildfire: Use fire resistant building materials, cut back brush and branches within 30 feet of your home, keep firewood at least 30 feet away. Earthquake: Secure furniture, appliances, and water heater to walls and floors. Install safety catches on cabinets and cupboards. Make sure appliances have flexible connectors. Hurricane: Install hurricane shutters. Keep trees trim to prevent falling branch damage. Make sure entryway doors have three hinges and dead bolt locks.'
                 }
             },
             {
@@ -102,6 +106,7 @@ const modules = [
                     sectionNum: '3',
                     sectionTitle: 'Meet with your family or household members',
                     image: require('../assets/module1/MAP_Sec2_Img4.png'),
+                    altText: 'family meeting together on couch'
                 }
             },
             {
@@ -111,7 +116,8 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: '',
                     info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
-                    image: require('../assets/module1/MAP_Sec2_Img5.png')
+                    image: require('../assets/module1/MAP_Sec2_Img5.png'),
+                    altText: 'two friends discussing Tornado shelter safety'
                 }
             },
             {
@@ -122,8 +128,6 @@ const modules = [
                     mod: 'Module 1 - Make a Plan',
                     headText: '',
                     info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
-                    image: require('../assets/module1/Make_a_Plan_Icon.svg'),
-
                 }
             },
             {
@@ -146,7 +150,6 @@ const modules = [
                 content: {
                     moduleNum: '2',
                     moduleName: 'Water',
-                    logo: require('../assets/module2/Water_Icon.svg'),
                     goal: 'Have 72 hours (3 days) worth of water stored for your household.',
                 }
             },
@@ -306,7 +309,6 @@ const modules = [
                 content: {
                     moduleNum: '3',
                     moduleName: 'Sheltering',
-                    logo: require('../assets/module3/Sheltering_Icon.svg'),
                     goal: 'Know how to respond safely when instructions are given to evacuate or take shelter.',
                 }
             },
@@ -469,7 +471,6 @@ const modules = [
                 content: {
                     moduleNum: '4',
                     moduleName: 'Food',
-                    logo: require('../assets/module4/Food_Icon.svg'),
                     goal: 'Have an emergency food supply that will meet the needs of your household for three days without outside help.',
                 }
             },
@@ -623,7 +624,6 @@ const modules = [
                 content: {
                     moduleNum: '5',
                     moduleName: 'Work, School & Communities',
-                    logo: require('../assets/module5/Work_School_Community_Icon.svg'),
                     goal: 'Make sure the people who count on you are prepared for a disaster.',
                 }
             },
@@ -736,7 +736,6 @@ const modules = [
                 content: {
                     moduleNum: '6',
                     moduleName: 'Unique Family Needs',
-                    logo: require('../assets/module6/Unique_Family_Needs_Icon.svg'),
                     goal: 'Be aware of and prepare for your family’s unique needs.',
                 }
             },
@@ -838,7 +837,6 @@ const modules = [
                 content: {
                     moduleNum: '7',
                     moduleName: 'Family Communication Plan',
-                    logo: require('../assets/module7/Family_Communication_Icon.svg'),
                     goal: 'Have the ability to communicate with family members during a disaster.',
                 }
             },

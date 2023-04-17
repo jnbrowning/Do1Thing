@@ -1,8 +1,13 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { Text, Button } from "@react-native-material/core";
+import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
+import { Button } from "@react-native-material/core";
 import { Ionicons } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
 import * as Progress from 'react-native-progress';
+import { createRef } from "react";
+import { useFocusEffect } from '@react-navigation/native';
+import { AccessibilityInfo, findNodeHandle } from "react-native";
+import React from "react";
+import {setTimeout} from "timers/promises";
 
 function ModuleSectionHead({navigation, route}) {
 
@@ -14,39 +19,71 @@ function ModuleSectionHead({navigation, route}) {
 
   let link = pageContent.content.image;
 
+  // *********Header Focus*********
+    // This allows for the header to take focus, even if it is not the first element in the DOM
+
+    const inputRef = createRef();
+
+    async function focusOnElement (elementRef) {
+        await setTimeout(500);
+        const node = findNodeHandle(elementRef);
+        AccessibilityInfo.setAccessibilityFocus(node);
+      };
+
+      useFocusEffect (
+        
+        React.useCallback(() => {
+          focusOnElement(inputRef.current);
+          }, [])
+      );
+    // *********End Header Focus*********
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-        style={styles.backButton}
-        onPress={()=>{
+          accessibilityRole='button'
+          accessibilityLabel="previous page"
+          style={styles.backButton}
+          onPress={()=>{
           const previousPage = route.params.fullModule.moduleContent[currentPage - 1].pageType;
           route.params.fullModule.currentPage -= 1;
           navigation.navigate(previousPage, {fullModule: route.params.fullModule})}}>
           <Ionicons name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
+        <TouchableOpacity 
+          style={styles.backButton} 
+          onPress={()=>navigation.navigate('ModulesScreen')}
+          accessibilityRole="button"
+          accessibilityLabel="close">
           <AntDesign name="close" size={30} color="#9D9D9D"/>
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>{pageContent.content.mod}</Text>
-        <Image style={styles.picture} 
-        source={link}/>
+        <Text style={styles.moduleHeading} ref={inputRef} accessibilityRole="header">{pageContent.content.mod}</Text>
+        <Image 
+        style={styles.picture} 
+        source={link}
+        accessibilityRole="image"
+        accessibilityLabel={pageContent.content.altText}
+        accessible={true}
+        />
         <View style={styles.goalBlock}>
-          <Text style={styles.goalHeader}>Section {pageContent.content.sectionNum}</Text>
+          <Text style={styles.goalHeader} accessibilityRole="header">Section {pageContent.content.sectionNum}</Text>
           <Text style={styles.goalText}>{pageContent.content.sectionTitle}</Text>
         </View>
         <Button
           style={styles.startButton}
           variant="contained"
-          title={<Text accessibilityLabel = "let's go, button" variant="button" style={{color: 'white'}}>{pageContent.buttonText}</Text>}
+          title={<Text accessibilityLabel = {pageContent.buttonText + ", button"} variant="button" style={{color: 'white', fontFamily: "Roboto", fontSize: 18 }}>{pageContent.buttonText}</Text>}
           onPress={()=>{
             route.params.fullModule.currentPage += 1;
             navigation.push(nextPage.pageType, {fullModule: route.params.fullModule})}}
           />
       </View>
       <Progress.Bar 
+        accessible={true}
+        accessibilityLabel={"progress bar, module page " + currentPage + ' of ' + (route.params.fullModule.moduleContent.length - 1)}
         progress={progressWidth} 
         width={null} 
         height={15}
@@ -93,19 +130,20 @@ const styles = StyleSheet.create({
       color: '#12B1C3',
       fontSize: 24,
       paddingLeft: '10%',
+      fontFamily: "Roboto"
     },
     goalHeader: {
       paddingLeft: '10%',
       color: "#1D7DAB",
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: 'RobotoBold'
     },
     goalText: {
       paddingLeft: '15%',
       paddingRight: '15%',
       paddingTop: '5%',
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: 'RobotoBold',
       color: '#0E5681',
     },
     startButton: {
