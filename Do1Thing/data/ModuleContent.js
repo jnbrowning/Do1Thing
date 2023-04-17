@@ -291,8 +291,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 2,
+                moduleName: 'Make a Plan',
+                content: {
+                    mod: 'Module 2 - Make a Plan',
+                    headText: '',
+                    info: 'Discuss how to prepare and respond to emergencies that are most likely to happen where you live, learn, work, and play.',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 2,
                 content: {
                     info: 'You went through all the materials for Module 2, hopefully you learned a bit more about water preparedness.',
                     image: require('../assets/module2/Congratulations_Image.png'),
@@ -441,20 +452,21 @@ const modules = [
                     image: require('../assets/module3/Sheltering_Sec3_Img4.png')
                 }
             },
-            // {
-            //     pageType: 'ModuleChecklist',
-            //     module: 3,
-            //     moduleName: 'Sheltering',
-            //     content: {
-            //         mod: 'Module 3 - Sheltering',
-            //         headText: '',
-            //         info: '',
-            //         image: require('../assets/module3/Sheltering_Icon.svg'),
-            //     }
-            // },
+            {
+                pageType: 'ModuleChecklist',
+                module: 3,
+                moduleName: 'Sheltering',
+                content: {
+                    mod: 'Module 3 - Sheltering',
+                    headText: '',
+                    info: '',
+                    //image: require('../assets/module3/Sheltering_Icon.svg'),
+                }
+            },
             {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 3,
                 content: {
                     info: 'You went through all the materials for Module 3, hopefully you learned a bit more about sheltering.',
                     image: require('../assets/module3/Congratulations_Image.png'),
@@ -594,20 +606,20 @@ const modules = [
                     image: require('../assets/module4/Food_Sec3_Img4.png')
                 }
             },
-            // {
-            //     pageType: 'ModuleChecklist',
-            //     module: 3,
-            //     moduleName: 'Sheltering',
-            //     content: {
-            //         mod: 'Module 3 - Sheltering',
-            //         headText: '',
-            //         info: '',
-            //         image: require('../assets/module3/Sheltering_Icon.svg'),
-            //     }
-            // },
+            {
+                pageType: 'ModuleChecklist',
+                module: 4,
+                moduleName: 'Food',
+                content: {
+                    mod: 'Module 4 - Food',
+                    headText: '',
+                    info: '',
+                }
+            },
             {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 4,
                 content: {
                     info: 'You went through all the materials for Module 4, hopefully you learned a bit more about food preparedness.',
                     image: require('../assets/module4/Congratulations_Image.png'),
@@ -718,8 +730,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 5,
+                moduleName: 'Work, School & Communities',
+                content: {
+                    mod: 'Module 5 - Work, School & Communities',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 5,
                 content: {
                     info: 'You went through all the materials for Module 5, hopefully you have prepared for an emergency at work, in school, or in the community.',
                     image: require('../assets/module5/Congratulations_Image.png'),
@@ -819,8 +842,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 6,
+                moduleName: 'Unique Family Needs',
+                content: {
+                    mod: 'Module 6 - Unique Family Needs',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 6,
                 content: {
                     info: 'You went through all the materials for Module 6, hopefully you feel prepared for the unique needs of your family in an emergency.',
                     image: require('../assets/module6/Congratulations_Image.png'),
@@ -931,8 +965,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 7,
+                moduleName: 'Family Communication Plan',
+                content: {
+                    mod: 'Module 7 - Family Communication Plan',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 7,
                 content: {
                     info: 'You went through all the materials for Module 7, hopefully your family has an established communication plan.',
                     image: require('../assets/module7/Congratulations_Image.png'),
@@ -1054,8 +1099,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 8,
+                moduleName: 'Involved',
+                content: {
+                    mod: 'Module 8 - Involved',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 8,
                 content: {
                     info: 'You went through all the materials for Module 8, hopefully you learned a bit more about being informed.',
                     image: require('../assets/module8/Congratulations_Image.png'),
@@ -1166,8 +1222,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 9,
+                moduleName: 'Involved',
+                content: {
+                    mod: 'Module 9 - Informed',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 9,
                 content: {
                     info: 'You went through all the materials for Module 9, make sure everyone can receive, understand, and act on emergency information.',
                     image: require('../assets/module9/Congratulations_Image.png'),
@@ -1289,8 +1356,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 10,
+                moduleName: 'Power',
+                content: {
+                    mod: 'Module 10 - Power',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 10,
                 content: {
                     info: 'You went through all the materials for Module 10, hopefully you learned a bit more about preparing for an electrical outage.',
                     image: require('../assets/module10/Congratulations_Image.png'),
@@ -1446,8 +1524,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 11,
+                moduleName: 'Emergency Supplies',
+                content: {
+                    mod: 'Module 11 - Emergency Supplies',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 11,
                 content: {
                     info: 'You went through all the materials for Module 11, hopefully you have prepared an emergency supplies kit and a go bag.',
                     image: require('../assets/module11/Congratulations_Image.png'),
@@ -1568,8 +1657,19 @@ const modules = [
                 }
             },
             {
+                pageType: 'ModuleChecklist',
+                module: 12,
+                moduleName: 'First Aid',
+                content: {
+                    mod: 'Module 12 - First Aid',
+                    headText: '',
+                    info: '',
+                }
+            },
+            {
                 pageType: 'ModuleCongrats',
                 buttonText: 'Done',
+                module: 12,
                 content: {
                     info: 'You went through all the materials for Module 12, hopefully you learned a bit more about first aid preparedness.',
                     image: require('../assets/module12/Congratulations_Image.png'),

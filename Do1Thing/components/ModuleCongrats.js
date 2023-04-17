@@ -13,6 +13,7 @@ import { createRef } from "react";
 import { useFocusEffect } from '@react-navigation/native';
 import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
+import { useRef } from "react";
 
 function ModuleCongrats({ navigation, route }) {
 
@@ -51,28 +52,28 @@ function ModuleCongrats({ navigation, route }) {
   const pageContent = route.params.fullModule.moduleContent[currentPage];
   const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
   const moduleNumber = route.params.fullModule.moduleContent[currentPage].module;
-  let hasBadge = null; 
+  let hasBadge = useRef(null); 
+  let currentModule = useRef(moduleNumber);
   let showEarnedBadgeAlert = null;
   let link = pageContent.content.image;
+  const badges = useSelector((state) => state.badges);
 
   useEffect(() => {
     subscribeToUsersCollection(dispatch);
   }, [])
 
-  const userEarnedBadge = useSelector((state) => {
-    if (hasBadge == null) {
-      hasBadge = state.user.badges
+  useSelector((state) => {
+    if (hasBadge.current == null || currentModule.current != moduleNumber) {
+      currentModule.current = moduleNumber;
+      hasBadge.current = state.user.badges
       .includes(moduleNumber)
-      showEarnedBadgeAlert = !hasBadge;
     }
-    
-    return hasBadge
   });
 
   useEffect(() => {
     async function save() {
-      if (hasBadge != null && !hasBadge) {
-        await saveAndDispatch({ type: actionTypes.ADD_BADGE, payload: { badgeId: moduleNumber } }, dispatch);
+      if (!hasBadge.current && moduleNumber != undefined) {
+        await saveAndDispatch({ type: actionTypes.ADD_BADGE, payload: { badgeId: moduleNumber, badges: badges } }, dispatch);
       }
     }
 
@@ -117,7 +118,7 @@ function ModuleCongrats({ navigation, route }) {
           title={<Text accessibilityLabel="done, button" variant="button" style={{ color: 'white', fontFamily: "Roboto", fontSize: 18 }}>Done</Text>}
           onPress={() => navigation.push('ModulesScreen')}
         />
-        {showEarnedBadgeAlert && <BadgePopup badgeID={moduleNumber}> </BadgePopup>}
+        {!hasBadge.current && <BadgePopup badgeID={moduleNumber}> </BadgePopup>}
       </View>
       
       <Progress.Bar 
