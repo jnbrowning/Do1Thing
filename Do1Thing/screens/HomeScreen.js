@@ -57,21 +57,20 @@ function HomeScreen({navigation, route}) {
         source={require('../assets/general/logoExtend.png')}
       />
 
-            <View style={styles.actionButton}>
+            <TouchableOpacity 
+            style={styles.actionButton}
+            onPress={() => {
+              navigation.navigate('Modules',{screen: 'ModulesScreen'})
+            }}>
               <Image source={require("../assets/general/Thumbnail_Logo.png")}
           style={styles.logo}></Image>
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
                 <Text style={styles.actionSubheading}>for the month of {months[new Date().getMonth()]}</Text>
               </View>
-              <TouchableOpacity
-                            onPress={() => {
-                              navigation.navigate('Modules',{screen: 'ModulesScreen'})
-                            }} >
                 <Image source={require("../assets/general/Forward_Arrow_Icon.png")}
                 style={styles.arrow}></Image>
                 </TouchableOpacity>
-            </View>
 
       <View style={styles.subbuttonContainer}>
             <TouchableOpacity 
@@ -232,7 +231,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         resizeMode: 'stretch',
-        marginLeft: '25%',
+        marginLeft: '10%',
       },
       logoExtended: {
         width: '85%',

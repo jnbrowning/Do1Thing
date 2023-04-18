@@ -63,8 +63,8 @@ export default function App() {
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
-                                      name = "clock"
-                                      type = "font-awesome-5"
+                                      name = "grid"
+                                      type = "entypo"
                                       color={color}
                                       size = {size}
                                   />
@@ -73,13 +73,13 @@ export default function App() {
                       }
                   />
                   <Tabs.Screen 
-                      name='User' 
+                      name='Profile' 
                       component={UserTabStack}
                       options={{
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
-                                      name = "cog"
+                                      name = "user"
                                       type = "font-awesome-5"
                                       color={color}
                                       size = {size}
