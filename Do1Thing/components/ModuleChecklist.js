@@ -15,6 +15,7 @@ import { createRef } from "react";
 import { useFocusEffect } from '@react-navigation/native';
 import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
+import ModuleScreen from "../screens/ModulesScreen";
 
 function ModuleChecklist({ navigation, route }) {
 
@@ -47,8 +48,8 @@ function ModuleChecklist({ navigation, route }) {
 
     // Subset of items that match the current module
     const items = useSelector((state) => {
-        return state.items
-            .filter((item) => item[module] === currentPage.module)
+        return state.items[moduleNumber]
+            .filter((item) => item.module === moduleNumber)
             .sort((a, b) => a.order - b.order);
     });
 
@@ -99,7 +100,7 @@ function ModuleChecklist({ navigation, route }) {
                                 containerStyle={styles.checkboxContainer}
                                 checked={item.checked}
                                 onPress={async () => {
-                                    await saveAndDispatch({ type: actionTypes.TOGGLE_CHECKBOX, payload: { items: allItems, id: item.id} }, dispatch);
+                                    await saveAndDispatch({ type: actionTypes.TOGGLE_CHECKBOX, payload: { items: allItems, id: item.id, module: moduleNumber } }, dispatch);
                                 }}
                             />
                             <Text style={styles.itemText}>{item.text}</Text>
