@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: 'bold',
         textAlign: 'center',
-        fontFamily: 'RobotoBold'
+        fontFamily: 'RobotoBold',
       },
       subheading: {
         color: '#77B169',
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
         width: '85%',
         height: 70,
         alignSelf: 'center',
-        marginTop: '2%'
+        marginTop: '15%'
       }
 })
 

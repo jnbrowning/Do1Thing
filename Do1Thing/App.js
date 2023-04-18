@@ -44,7 +44,7 @@ export default function App() {
       return (
         <Tabs.Navigator initialRouteName='HomeScreen'screenOptions={{ headerShown: false}}>
                   <Tabs.Screen name = 'HomeScreen' component={HomeScreen} options={{
-                          headerShown: true,
+                          headerShown: false,
                           title: 'Home',
                           tabBarIcon: ({focused, color, size}) => {
                               return (
