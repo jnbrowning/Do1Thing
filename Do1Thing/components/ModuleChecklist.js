@@ -108,18 +108,20 @@ function ModuleChecklist({ navigation, route }) {
                     ))}
                 </View>
             </View>
-
+            {(route.params.fullModule.currentPage === (route.params.fullModule.moduleContent.length - 2)) ? 
             <Button
                 style={ !disableButton() ? styles.startButton : styles.buttonDisabled}
                 variant="contained"
                 title={<Text accessibilityLabel = "Continue, button" variant="button" style={{ color: 'white', fontSize: 18, fontFamily: "Roboto" }}>Continue</Text>}
                 disabled={disableButton()}
                 onPress={() => {
-                    console.log("button pressed")
-                    route.params.fullModule.currentPage += 1;
-                    navigation.navigate(nextPage.pageType, { fullModule: route.params.fullModule })
-                }}
+                        route.params.fullModule.currentPage += 1;
+                        navigation.navigate(nextPage.pageType, { fullModule: route.params.fullModule })}
+                }
             />
+            :
+            <View/>
+        }
         </View>
     )
 }
