@@ -128,16 +128,16 @@ const SvgIcon12 = findModuleIcon(12);
   
   else {
     return (
-      <View style={styles.container}>
-        <View style={styles.profile}>
-          <Text> Guest mode </Text>
-          <TouchableOpacity onPress={() => {
+      <View style={styles.guestModeContainer}>
+          <Text style={styles.guestModeText}> You are currently in guest mode </Text>
+          <TouchableOpacity 
+          style={styles.logInButton}
+          onPress={() => {
                               navigation.navigate('Login',{screen: 'LoginScreen'})
                             }} 
           >
-            <Text>Log In</Text>
+            <Text  style={styles.logInText}>Log In</Text>
             </TouchableOpacity>
-        </View>
       </View>
     );
   }
@@ -226,5 +226,30 @@ flex: 1,
   signUpIcon: {
     width: 51,
     height: 51,
+  },
+  logInButton: {
+    backgroundColor: '#1D7DAB',
+    padding: '3%',
+    borderRadius: '50%',
+    width: '50%',
+    margin: '5%'
+  },
+  logInText: {
+    fontFamily: 'RobotoBold',
+    color: 'white',
+    fontSize: '24pt',
+    textAlign: 'center'
+  },
+  guestModeText: {
+    fontFamily: 'Roboto',
+    fontSize: '24pt',
+    textAlign: 'center',
+  },
+  guestModeContainer: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white'
   }
 });
