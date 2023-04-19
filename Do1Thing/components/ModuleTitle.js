@@ -29,7 +29,6 @@ const ModuleTitle = ({navigation, route}) => {
 
     useFocusEffect (
       React.useCallback(() => {
-        console.log('hi');
         focusOnElement(inputRef.current);
 
         const timeoutId = setTimeout(() => {

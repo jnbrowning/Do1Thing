@@ -106,7 +106,11 @@ function ModuleCongrats({ navigation, route }) {
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>
-        <Image style={styles.testIcon}
+        <Image 
+          accessibilityRole="image"
+          accessibilityLabel={pageContent.content.altText}
+          accessible={true}
+          style={styles.testIcon}
           source={link} />
         <Text style={styles.goalText} accessibilityRole="header">Congratulations!</Text>
         <View style={styles.goalBlock}>
