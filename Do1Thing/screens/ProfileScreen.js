@@ -237,12 +237,12 @@ flex: 1,
   logInText: {
     fontFamily: 'RobotoBold',
     color: 'white',
-    fontSize: '24pt',
+    fontSize: '20pt',
     textAlign: 'center'
   },
   guestModeText: {
     fontFamily: 'Roboto',
-    fontSize: '24pt',
+    fontSize: '20pt',
     textAlign: 'center',
   },
   guestModeContainer: {
