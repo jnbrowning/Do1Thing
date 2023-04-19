@@ -11,55 +11,53 @@ import React from "react";
 
 function WaterCalculate({navigation, route}) {
 
-      // *********Header Focus*********
-    // This allows for the header to take focus, even if it is not the first element in the DOM
-    const [headerLoad, setHeaderLoad] = useState(false);
-    const inputRef = createRef();
-    const AUTO_FOCUS_DELAY = 500;
+  // *********Header Focus*********
+  // This allows for the header to take focus, even if it is not the first element in the DOM
+  const [headerLoad, setHeaderLoad] = useState(false);
+  const inputRef = createRef();
+  const AUTO_FOCUS_DELAY = 500;
 
-    const focusOnElement = (elementRef) => {
-        const node = findNodeHandle(elementRef);
-        if (!node) {
-          return;
-        }
-        AccessibilityInfo.setAccessibilityFocus(node);
-      };
+  const focusOnElement = (elementRef) => {
+    const node = findNodeHandle(elementRef);
+    if (!node) {
+      return;
+    }
+    AccessibilityInfo.setAccessibilityFocus(node);
+  };
 
-    useFocusEffect (
-      React.useCallback(() => {
-        console.log('hi');
-        focusOnElement(inputRef.current);
+  useFocusEffect (
+    React.useCallback(() => {
+      console.log('hi');
+      focusOnElement(inputRef.current);
 
-        const timeoutId = setTimeout(() => {
-            focusOnElement(inputRef.current);
-            setHeaderLoad(true);
-          }, AUTO_FOCUS_DELAY);
-          return () => {
-            clearTimeout(timeoutId);
-          };
-        }, [])
-    );
-    // *********End Header Focus*********
+      const timeoutId = setTimeout(() => {
+          focusOnElement(inputRef.current);
+          setHeaderLoad(true);
+        }, AUTO_FOCUS_DELAY);
+        return () => {
+          clearTimeout(timeoutId);
+        };
+      }, [])
+  );
+  // *********End Header Focus*********
 
   const currentPage = route.params.fullModule.currentPage;
   const nextPage = route.params.fullModule.moduleContent[currentPage + 1];
   const pageContent = route.params.fullModule.moduleContent[currentPage];
   const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
-  console.log(progressWidth);
 
   const [people, setPeople] = useState(0);
   const [pets, setPets] = useState(0);
   const [neededGallons, setGallons] = useState(0);
 
-    useEffect (()=> {
-        if (pets == '' || people == ''){
-            setGallons('--')
-        }
-        else {
-            setGallons ((people * 3) + parseInt(pets));
-        }
-
-    }, [people, pets])
+  useEffect (()=> {
+    if (pets == '' || people == ''){
+        setGallons('--')
+    }
+    else {
+        setGallons ((people * 3) + parseInt(pets));
+    }
+  }, [people, pets])
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -145,20 +143,6 @@ const styles = StyleSheet.create({
       // backgroundColor: 'tan',
       width: '100%',
     },
-    heading: {
-      fontSize: 24,
-      color: 'black',
-      paddingBottom: '5%',
-      paddingTop: '5%',
-      fontFamily: 'RobotoBold'
-    },
-    testIcon: {
-      resizeMode: 'contain',
-      height: 200,
-      marginTop: 20,
-      marginBottom: 30,
-      alignSelf: 'center',
-    },
     buttonContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -174,12 +158,6 @@ const styles = StyleSheet.create({
       fontSize: 24,
       paddingLeft: '10%',
       fontFamily: 'Roboto'
-    },
-    goalHeader: {
-      paddingLeft: '10%',
-      color: "#1D7DAB",
-      fontSize: 24,
-      fontFamily: 'RobotoBold',
     },
     goalText: {
       paddingLeft: '10%',
@@ -203,13 +181,6 @@ const styles = StyleSheet.create({
       marginTop: 60,
       marginBottom: 60,
       width: '100%',
-    },
-    infoText: {
-        fontSize: 20,
-        color: 'black',
-        marginLeft: '10%',
-        marginRight: '10%',
-        fontFamily: "Roboto"
     },
     loginInputBox: {
         width: '85%',
