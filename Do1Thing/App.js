@@ -73,9 +73,10 @@ export default function App() {
                       }
                   />
                   <Tabs.Screen 
-                      name='Profile' 
+                      name='ProfileScreen' 
                       component={UserTabStack}
                       options={{
+                        title: 'Profile',
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
