@@ -1,6 +1,5 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
-import { useEffect, useState } from 'react';
-import { Button, Overlay } from '@rneui/themed';
+import { useEffect } from 'react';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
@@ -8,7 +7,6 @@ import BadgePopup from "../components/BadgePopup";
 import { HStack } from "@react-native-material/core";
 import { useDispatch, useSelector } from 'react-redux';
 import ModuleButton from '../components/ModuleButton';
-// import { style } from '@mui/system';
 
 function HomeScreen({navigation, route}) {
 
