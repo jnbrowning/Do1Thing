@@ -137,7 +137,6 @@ export default function App() {
                 <Stack.Screen name = 'Login' component = {LoginScreen} />
                 <Stack.Screen name = 'PasswordReset' component = {PasswordResetScreen} />
                 <Stack.Screen name = 'Main' component = {MainTabNavigator} />
-                <Stack.Screen name="Profile" component={ProfileScreen} />
               </Stack.Navigator>
             </NavigationContainer>
           </Provider>
