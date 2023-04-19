@@ -31,7 +31,7 @@ export default function ModuleButton(props) {
     }
     else {
         return (
-            <TouchableOpacity onPress={() => goToModules(moduleNumber)} style={styles.moduleContainer}>
+            <TouchableOpacity accessibilityRole="button" accessibilityLabel={'module ' + props.moduleNumber + ' of 12: ' + findModuleButtonText(props.moduleNumber)} onPress={() => goToModules(moduleNumber)} style={styles.moduleContainer}>
                 <SvgIcon width={150} height={150} padding={0} margin={-30} marginTop={-20} style={styles.icon} />
                 <View style={styles.buttonTextContainer}>
                     <Text style={styles.buttonText}>{findModuleButtonText(props.moduleNumber)}</Text>
