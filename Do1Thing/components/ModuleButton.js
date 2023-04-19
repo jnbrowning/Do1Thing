@@ -20,10 +20,18 @@ export default function ModuleButton(props) {
         const pageNum = modules[num - 1].currentPage;
         const modulePage = modules[num - 1].moduleContent[pageNum];
         if (pageNum === 0) {
-            navigation.navigate(modulePage.pageType, { fullModule: modules[num - 1] });
+            navigation.navigate('Main', {
+                screen: 'Modules', 
+                params: {
+                    screen: modulePage.pageType, 
+                    params: { fullModule: modules[num - 1] }}});
         }
         else {
-            navigation.navigate('ModuleResume', { fullModule: modules[num - 1] });
+            navigation.navigate('Main', {
+                screen: 'Modules',
+                params: {
+                    screen: 'ModuleResume',
+                    params: { fullModule: modules[num - 1] }}});
         }
     }
     if (!fontsLoaded) {
