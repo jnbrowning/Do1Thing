@@ -123,8 +123,8 @@ export default function App() {
         const stack = createNativeStackNavigator();
        
         return (
-          <Stack.Navigator initialRouteName = 'Profile' screenOptions={{ headerShown: false}}>
-            <Stack.Screen name = 'Profile' component={ProfileScreen}/>
+          <Stack.Navigator initialRouteName = 'ProfileScreen' screenOptions={{ headerShown: false}}>
+            <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
           </Stack.Navigator>
         )
         
