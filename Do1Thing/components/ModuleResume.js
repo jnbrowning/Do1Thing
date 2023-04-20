@@ -1,10 +1,15 @@
-import { View, StyleSheet, Image, Modal } from "react-native";
-import { Text, Button } from "@react-native-material/core";
-import { AntDesign } from '@expo/vector-icons'; 
+import { View, StyleSheet, Text, Modal } from "react-native";
+import { Button } from "@react-native-material/core";
 import { TouchableOpacity } from "react-native";
 import { useState } from "react";
 import * as Progress from 'react-native-progress';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
+import { findModuleIcon } from '../data/ModuleInfo';
+import { createRef } from "react";
+import { useFocusEffect } from '@react-navigation/native';
+import { AccessibilityInfo, findNodeHandle } from "react-native";
+import React from "react";
 
 function ModuleResume({navigation, route}) {
 
@@ -12,38 +17,82 @@ function ModuleResume({navigation, route}) {
   const nextPage = route.params.fullModule.moduleContent[currentPage];
   const pageContent = route.params.fullModule.moduleContent[0];
   const progressWidth = currentPage / (route.params.fullModule.moduleContent.length - 1);
+  const checklistPage = route.params.fullModule.moduleContent.length - 2;
   console.log(progressWidth);
+  const SvgIcon = findModuleIcon(pageContent.content.moduleNum);
 
-
-  let link = pageContent.content.logo;
 
   const [visible, setVisible] = useState(false);
   const toggleOverlay = () => {setVisible(!visible);}
 
+    // *********Header Focus*********
+    // This allows for the header to take focus, even if it is not the first element in the DOM
+    const [headerLoad, setHeaderLoad] = useState(false);
+    const inputRef = createRef();
+    const AUTO_FOCUS_DELAY = 500;
+
+    const focusOnElement = (elementRef) => {
+        const node = findNodeHandle(elementRef);
+        if (!node) {
+          return;
+        }
+        AccessibilityInfo.setAccessibilityFocus(node);
+      };
+
+    useFocusEffect (
+      React.useCallback(() => {
+        console.log('hi');
+        focusOnElement(inputRef.current);
+
+        const timeoutId = setTimeout(() => {
+            focusOnElement(inputRef.current);
+            setHeaderLoad(true);
+          }, AUTO_FOCUS_DELAY);
+          return () => {
+            console.log('header load: ', headerLoad)
+            clearTimeout(timeoutId);
+          };
+        }, [])
+    );
+    // *********End Header Focus*********
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('ModulesScreen')}>
-          <AntDesign name="close" size={30} color="#9D9D9D"/>
+      <TouchableOpacity style={styles.backButton} 
+      accessible={headerLoad}
+                accessibilityRole="button"
+                accessibilityLabel="back"
+      onPress={()=>navigation.navigate('ModulesScreen')}>
+      <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
+        </TouchableOpacity>
+        <TouchableOpacity 
+        accessible={headerLoad} 
+        style={styles.backButton} 
+        accessibilityRole='button'
+        accessibilityLabel="access checklist"
+        onPress={() => navigation.push(route.params.fullModule.moduleContent[checklistPage].pageType, {fullModule: route.params.fullModule, skipTo: true})}>
+          <MaterialCommunityIcons accessible={false} name="format-list-checks" size={30} color="white" style={styles.checkButton}/>
+          <Text accessible={false} style={{paddingLeft: '3%', fontFamily: "RobotoBold", alignSelf: 'center', fontSize: 14}}>{"Access\nChecklist"}</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContainer}>
-        <Text style={styles.moduleHeading}>Module {pageContent.content.moduleNum}</Text>
+        <Text style={styles.moduleHeading} ref={inputRef} accessibilityRole="header">Module {pageContent.content.moduleNum}</Text>
         <Text style={styles.moduleTitle}>{pageContent.content.moduleName}</Text>
-        <Image style={styles.icon} source={link}/>
+        <SvgIcon accessible={true} accessibilityLabel="module icon" width={350} height={350} padding={0} margin={-40} style={styles.icon} />
         <Text style={styles.goalHeader}>Goal</Text>
         <Text style={styles.goalText}>{pageContent.content.goal}</Text>
         <Button
           style={styles.resumeButton}
           variant="contained"
-          title={<Text accessibilityLabel = "resume, button" variant="button" style={{color: 'white'}}>Resume</Text>}
+          title={<Text accessibilityLabel = "resume, button" variant="button" style={{color: 'white', fontFamily: "Roboto", fontSize: 18}}>Resume</Text>}
           onPress={()=>{
             navigation.push(nextPage.pageType, {fullModule: route.params.fullModule})}}
         />
         <Button
             variant="text"
           style={styles.startButton}
-          title={<Text accessibilityLabel = "start over, button" variant="button" style={{color: "#9D9D9D"}}>Start Over</Text>}
+          title={<Text accessibilityLabel = "start over, button" variant="button" style={{color: "#9D9D9D", fontFamily: 'Roboto', fontSize: 18}}>Start Over</Text>}
           onPress={()=>{toggleOverlay();}}
         />
       </View>
@@ -51,13 +100,13 @@ function ModuleResume({navigation, route}) {
         <View style={styles.overlayContainer}>
         </View>
             <View style={styles.overlay}>
-        <Text style={styles.overlayHeader}>Are you sure you want to start over?</Text>
+        <Text style={styles.overlayHeader} accessibilityLabel="alert, are you sure you want to start over">Are you sure you want to start over?</Text>
         <Text style={styles.overlayText}>All progress will be lost if you start over.</Text>
         <View style={styles.overlayButtonContainer}>
         <Button
         style={styles.confirmButton}
           variant="contained"
-          title={<Text accessibilityLabel = "confirm, button" variant="button" style={{color: 'white'}}>Confirm</Text>}
+          title={<Text accessibilityLabel = "confirm, button" variant="button" style={{color: 'white', fontFamily: "Roboto", fontSize: 16}}>Confirm</Text>}
           onPress={()=>{
             route.params.fullModule.currentPage = 0;
             toggleOverlay();
@@ -66,7 +115,7 @@ function ModuleResume({navigation, route}) {
         <Button
         style={styles.cancelButton}
           variant="contained"
-          title={<Text accessibilityLabel = "cancel, button" variant="button" style={{color: "white"}}>Cancel</Text>}
+          title={<Text accessibilityLabel = "cancel, button" variant="button" style={{color: "white", fontFamily: "Roboto", fontSize: 16}}>Cancel</Text>}
           onPress={()=>{toggleOverlay();}}/>
           </View>
         </View>
@@ -141,19 +190,26 @@ const styles = StyleSheet.create({
       width: '100%',
     },
     buttonContainer: {
-      paddingRight: '5%',
-      alignItems: 'flex-end',
+      paddingRight: '6%',
+      paddingLeft: '5%'
+,     justifyContent: 'space-between',
+      flexDirection: 'row',
       width: '100%',
       marginTop: 35,
+      marginBottom: 15,
+    },
+    checkButton: {
+      padding: '1%',
+      backgroundColor: '#1D7DAB',
+      alignContent: 'center',
+      borderRadius: '10%',
+      overflow: 'hidden',
     },
     backButton: {
       padding: '3%',
+      flexDirection: 'row',
     },
     icon: {
-      height: 200,
-      width: 200,
-      marginTop: 55,
-      marginBottom: 55,
       alignSelf: 'center',
     },
     moduleHeading: {

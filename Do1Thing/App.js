@@ -42,8 +42,9 @@ export default function App() {
       const Tabs = createBottomTabNavigator();
   
       return (
-        <Tabs.Navigator initialRouteName='HomeScreen' screenOptions={{ headerShown: true}}>
+        <Tabs.Navigator initialRouteName='HomeScreen'screenOptions={{ headerShown: false}}>
                   <Tabs.Screen name = 'HomeScreen' component={HomeScreen} options={{
+                          headerShown: false,
                           title: 'Home',
                           tabBarIcon: ({focused, color, size}) => {
                               return (
@@ -62,8 +63,8 @@ export default function App() {
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
-                                      name = "clock"
-                                      type = "font-awesome-5"
+                                      name = "grid"
+                                      type = "entypo"
                                       color={color}
                                       size = {size}
                                   />
@@ -72,13 +73,14 @@ export default function App() {
                       }
                   />
                   <Tabs.Screen 
-                      name='User' 
+                      name='ProfileTab' 
                       component={UserTabStack}
                       options={{
+                        title: 'Profile',
                           tabBarIcon: ({focused, color, size}) => {
                               return (
                                   <Icon
-                                      name = "cog"
+                                      name = "user"
                                       type = "font-awesome-5"
                                       color={color}
                                       size = {size}
@@ -105,7 +107,7 @@ export default function App() {
                 backgroundColor: 'transparent',
               },
             }}/>
-            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle}/>
+            <Stack.Screen name = 'ModuleTitle' component={ModuleTitle} options={{headerShown: false}}/>
             <Stack.Screen name = 'ModuleResume' component={ModuleResume}/>
             <Stack.Screen name = 'ModuleSectionHead' component={ModuleSectionHead}/>
             <Stack.Screen name = 'ModuleContent' component={ModuleContent}/>
@@ -122,8 +124,8 @@ export default function App() {
         const stack = createNativeStackNavigator();
        
         return (
-          <Stack.Navigator initialRouteName = 'Profile' screenOptions={{ headerShown: false}}>
-            <Stack.Screen name = 'Profile' component={ProfileScreen}/>
+          <Stack.Navigator initialRouteName = 'ProfileScreen' screenOptions={{ headerShown: false}}>
+            <Stack.Screen name = 'ProfileScreen' component={ProfileScreen}/>
           </Stack.Navigator>
         )
         

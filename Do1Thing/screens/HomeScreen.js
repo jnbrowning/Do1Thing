@@ -1,6 +1,5 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
-import { useEffect, useState } from 'react';
-import { Button, Overlay } from '@rneui/themed';
+import { useEffect } from 'react';
 import { signOutFB, subscribeToUsersCollection, getFBAuth } from '../data/DB';
 import { setLogin } from '../data/Actions';
 import { useFonts } from "expo-font";
@@ -8,7 +7,6 @@ import BadgePopup from "../components/BadgePopup";
 import { HStack } from "@react-native-material/core";
 import { useDispatch, useSelector } from 'react-redux';
 import ModuleButton from '../components/ModuleButton';
-// import { style } from '@mui/system';
 
 function HomeScreen({navigation, route}) {
 
@@ -52,47 +50,53 @@ function HomeScreen({navigation, route}) {
     return(
         <View style={styles.container}>
         <Image 
-        alt="logo"
+        accessible={true}
+        accessibilityLabel="do one thing dot com logo, small steps toward being prepared for an emergency, image"
         style={styles.logoExtended} 
         source={require('../assets/general/logoExtend.png')}
       />
 
-            <View style={styles.actionButton}>
+            <TouchableOpacity 
+            accessibilityRole="button"
+            accessibilityLabel="Let's go do one thing"
+            style={styles.actionButton}
+            onPress={() => {
+              navigation.navigate('Modules',{screen: 'ModulesScreen'})
+            }}>
               <Image source={require("../assets/general/Thumbnail_Logo.png")}
-          style={styles.logo}></Image>
+              style={styles.logo}></Image>
               <View style={styles.actionButtonText}>
                 <Text style={styles.actionHeading}>Let's Go Do1Thing</Text>
                 <Text style={styles.actionSubheading}>for the month of {months[new Date().getMonth()]}</Text>
               </View>
-              <TouchableOpacity
-                            onPress={() => {
-                              navigation.navigate('Modules',{screen: 'ModulesScreen'})
-                            }} >
                 <Image source={require("../assets/general/Forward_Arrow_Icon.png")}
                 style={styles.arrow}></Image>
-                </TouchableOpacity>
-            </View>
+              </TouchableOpacity>
 
       <View style={styles.subbuttonContainer}>
             <TouchableOpacity 
+            accessibilityRole='button'
+            accessibilityLabel="View Modules"
             style={styles.subbutton}
             onPress={() => {
               navigation.navigate('Modules',{screen: 'ModulesScreen'})
             }} >
               <Image source={require("../assets/general/Grid_Icon.png")}
-          style={styles.subbuttonImage}></Image>
+              style={styles.subbuttonImage}></Image>
               <Text style={styles.subbuttonText}>View Modules</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.subbutton}
+              accessibilityRole="button"
+              accessibilityLabel="Donate, links to external paypal site"
              onPress={() => Linking.openURL('https://www.paypal.com/donate?hosted_button_id=P6NUL4NVKM4HC')}>
               <Image source={require("../assets/general/Donate_Icon.png")}
-          style={styles.subbuttonImage}></Image>
+              style={styles.subbuttonImage}></Image>
               <Text style={styles.subbuttonText}>Donate</Text>
             </TouchableOpacity>
         </View>
 
-            <Text style={styles.popularModules}>Popular Modules</Text>
+            <Text style={styles.popularModules} accessibilityRole="header">Popular Modules</Text>
             <HStack m={8} spacing={20}>
                     <View style={styles.moduleContainer} >
                         <ModuleButton moduleNumber={1} navigation={navigation} />
@@ -110,8 +114,8 @@ function HomeScreen({navigation, route}) {
                     </View>
                     </HStack>
                     
-{/* {returningUser ? <BadgePopup badgeID={1}>
-</BadgePopup> : <View/>} */}
+{!returningUser ? <BadgePopup badgeID={1}>
+</BadgePopup> : <View/>}
 
 
         </View>
@@ -123,34 +127,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   }, 
-  buttonText: {
-        textAlign: "center",
-        top: "25%",
-        color: "white",
-        fontWeight: "bold",
-        fontSize: 18,
-      },
-      overlayView: {
-        height: "20%",
-        width: "60%",
-      },
-      overlayText: {
-        margin: "10%",
-      },
-      okayButton: {
-        width: "50%",
-        height: "30%",
-        backgroundColor: "black",
-        margin: "auto",
-        // borderRadius: "70%",
-        left: "25%",
-      },
       heading: {
         color: '#1D7DAB',
         fontSize: 32,
         fontWeight: 'bold',
         textAlign: 'center',
-        fontFamily: 'RobotoBold'
+        fontFamily: 'RobotoBold',
       },
       subheading: {
         color: '#77B169',
@@ -254,13 +236,13 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         resizeMode: 'stretch',
-        marginLeft: '25%',
+        marginLeft: '10%',
       },
       logoExtended: {
         width: '85%',
         height: 70,
         alignSelf: 'center',
-        marginTop: '2%'
+        marginTop: '15%'
       }
 })
 

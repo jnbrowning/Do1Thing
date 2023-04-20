@@ -1,7 +1,9 @@
 import { actionTypes } from './Actions'
+import { moduleCheckList } from './DB';
 
 const _loadUser = (state, action) => {
     const { user } = action.payload;
+    const { badges } = action.payload;
 
     return {
         ...state,
@@ -35,11 +37,8 @@ const _toggleCheckBox = (state, action) => {
 const initialState = {
     user: {},
     loggedIn: false,
-    items: [
-        { module: 1, id: 1, order: 1, text: 'Find out what kind of disasters can happen where you live and plan what to do in a disaster.', checked: false },
-        { module: 1, id: 2, order: 2, text: 'Protect your house from damage in a disaster.', checked: false },
-        { module: 1, id: 3, order: 3, text: 'Plan what to do if you have to leave your house in an emergency.', checked: false },
-      ],
+    items: moduleCheckList,
+    badges: []
 }
 
 function rootReducer(state = initialState, action) {

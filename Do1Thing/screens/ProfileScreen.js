@@ -9,10 +9,11 @@ import {
   Linking
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch, signOutFB } from "../data/DB";
+import { setLogin } from "../data/Actions";
 import { findModuleIcon } from '../data/ModuleInfo';
 import Module1Locked from '../assets/badge_icons/Make_a_Plan_Icon_Locked.svg'
 import Module2Locked from '../assets/badge_icons/Water_Icon_Locked.svg'
@@ -30,6 +31,8 @@ import Module12Locked from '../assets/badge_icons/First_Aid_Icon_Locked.svg'
 const auth = getFBAuth();
 
 export default function ProfileScreen({navigation}) {
+
+const dispatch = useDispatch();
 
 let customFonts = {
   Roboto: require("../assets/fonts/RobotoRegular.ttf"),
@@ -72,38 +75,39 @@ const SvgIcon12 = findModuleIcon(12);
       <View style={styles.container}>
 
         <View style={styles.profile}>
-          <Text style={styles.usernameText}>Profile</Text>
-          <Image source={require("../assets/general/Thumbnail_Logo.png")}
-          style={styles.logo}></Image>
+          <Text style={styles.usernameText} accessibilityRole="header">Profile</Text>
+          <Image accessible={true} accessibilityLabel="do one thing logo" source={require("../assets/general/Thumbnail_Logo.png")}
+          style={styles.logo}/>
         </View>
 
          
-           <Text style={styles.badgeSectionText}>My Badges</Text>
+           <Text style={styles.badgeSectionText} accessibilityRole="header">My Badges</Text>
           
           <View style={styles.badgesSection}>
 
+      <Image accessible={true} accessibilityLabel="active, sign up badge, image" source={require("../assets/badge_icons/Sign_Up_Icon.png")} style={styles.signUpIcon}/>
+      {currentUser.badges.includes(2) ? <SvgIcon1 accessible={true} accessibilityLabel="active, make a plan badge, image" style={styles.badge}/> : <Module1Locked accessible={true} accessibilityLabel="not active, make a plan badge, image" style={styles.badge}/> }
+      {currentUser.badges.includes(3) ? <SvgIcon2 accessible={true} accessibilityLabel="active, water badge, image" style={styles.badge}/> : <Module2Locked accessible={true} accessibilityLabel="not active, water badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(4) ? <SvgIcon3 accessible={true} accessibilityLabel="active, sheltering badge, image" style={styles.badge}/> : <Module3Locked accessible={true} accessibilityLabel="not active, sheltering badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(5) ? <SvgIcon4 accessible={true} accessibilityLabel="active, food badge, image" style={styles.badge}/> : <Module4Locked accessible={true} accessibilityLabel="not active, food badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(6) ? <SvgIcon5 accessible={true} accessibilityLabel="active, work, school, and communities badge, image" style={styles.badge}/> : <Module5Locked accessible={true} accessibilityLabel="not active, work, school, and communities badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(7) ? <SvgIcon6 accessible={true} accessibilityLabel="active, unique needs badge, image" style={styles.badge}/> : <Module6Locked accessible={true} accessibilityLabel="not active, unique needs, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(8) ? <SvgIcon7 accessible={true} accessibilityLabel="active, family communication plan badge, image" style={styles.badge}/> : <Module7Locked accessible={true} accessibilityLabel="not active, family communication plan badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(9) ? <SvgIcon8 accessible={true} accessibilityLabel="active, involved badge, image" style={styles.badge}/> : <Module8Locked accessible={true} accessibilityLabel="not active, involved badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(10) ? <SvgIcon9 accessible={true} accessibilityLabel="active, informed badge, image" style={styles.badge}/> : <Module9Locked accessible={true} accessibilityLabel="not active, informed badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(10) ? <SvgIcon10 accessible={true} accessibilityLabel="active, power badge, image" style={styles.badge}/> : <Module10Locked accessible={true} accessibilityLabel="not active, power badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(11) ? <SvgIcon11 accessible={true} accessibilityLabel="active, emergency supplies badge, image" style={styles.badge}/> : <Module11Locked accessible={true} accessibilityLabel="not active, emergency supplies badge, image" style={styles.badge}/> }
+      {currentUser.badges.includes(12) ? <SvgIcon12 accessible={true} accessibilityLabel="active, first aid badge, image" style={styles.badge}/> : <Module12Locked accessible={true} accessibilityLabel="not active, first aid badge, image" style={styles.badge}/>  }
 
-<Image source={require("../assets/badge_icons/Sign_Up_Icon.png")} style={styles.signUpIcon}/>
-{currentUser.badges.includes(2) ? <SvgIcon1 style={styles.badge}/> : <Module1Locked style={styles.badge}/> }
-{currentUser.badges.includes(3) ? <SvgIcon2 style={styles.badge}/> : <Module2Locked style={styles.badge}/>  }
-{currentUser.badges.includes(4) ? <SvgIcon3 style={styles.badge}/> : <Module3Locked style={styles.badge}/>  }
-{currentUser.badges.includes(5) ? <SvgIcon4 style={styles.badge}/> : <Module4Locked style={styles.badge}/>  }
-{currentUser.badges.includes(6) ? <SvgIcon5 style={styles.badge}/> : <Module5Locked style={styles.badge}/>  }
-{currentUser.badges.includes(7) ? <SvgIcon6 style={styles.badge}/> : <Module6Locked style={styles.badge}/>  }
-{currentUser.badges.includes(8) ? <SvgIcon7 style={styles.badge}/> : <Module7Locked style={styles.badge}/>  }
-{currentUser.badges.includes(9) ? <SvgIcon8 style={styles.badge}/> : <Module8Locked style={styles.badge}/>  }
-{currentUser.badges.includes(10) ? <SvgIcon9 style={styles.badge}/> : <Module9Locked style={styles.badge}/>  }
-{currentUser.badges.includes(10) ? <SvgIcon10 style={styles.badge}/> : <Module10Locked style={styles.badge}/>  }
-{currentUser.badges.includes(11) ? <SvgIcon11 style={styles.badge}/> : <Module11Locked style={styles.badge}/> }
-{currentUser.badges.includes(12) ? <SvgIcon12 style={styles.badge}/> : <Module12Locked style={styles.badge}/>  }
-
-
+  
           </View>
 
 
         <View style={styles.profileOption}>
 
         <TouchableOpacity style={styles.optionGroup}
+        accessibilityRole="button"
+        accessibilityLabel="help, links to external do one thing contact web page"
         onPress={() => Linking.openURL('https://www.do1thing.com/contact/')}>
         <Image source={require("../assets/general/Help_Icon.png")}
           style={styles.optionImage}></Image>
@@ -111,6 +115,8 @@ const SvgIcon12 = findModuleIcon(12);
         </TouchableOpacity>
 
         <TouchableOpacity 
+        accessibilityRole="button"
+        accessibilityLabel="log out"
         style={styles.optionGroup}
         onPress={async () => {
           signOutFB();
@@ -128,16 +134,16 @@ const SvgIcon12 = findModuleIcon(12);
   
   else {
     return (
-      <View style={styles.container}>
-        <View style={styles.profile}>
-          <Text> Guest mode </Text>
-          <TouchableOpacity onPress={() => {
+      <View style={styles.guestModeContainer}>
+          <Text style={styles.guestModeText}> You are currently in guest mode </Text>
+          <TouchableOpacity 
+          style={styles.logInButton}
+          onPress={() => {
                               navigation.navigate('Login',{screen: 'LoginScreen'})
                             }} 
           >
-            <Text>Log In</Text>
+            <Text  style={styles.logInText}>Log In</Text>
             </TouchableOpacity>
-        </View>
       </View>
     );
   }
@@ -175,6 +181,7 @@ const styles = StyleSheet.create({
     marginLeft: '10%',
     marginRight: '10%',
     padding: '2%',
+    marginTop: '15%'
   },
   logo : {
     width: 80,
@@ -201,6 +208,7 @@ const styles = StyleSheet.create({
 display: 'flex',
 flexDirection: 'column',
 flex: 1,
+marginTop: '35%'
   },
   optionText: {
     fontFamily: 'RobotoBold',
@@ -223,7 +231,33 @@ flex: 1,
     height: 80,
   },
   signUpIcon: {
-    width: 51,
-    height: 51,
+    width: 45,
+    height: 45,
+    margin: 20
+  },
+  logInButton: {
+    backgroundColor: '#1D7DAB',
+    padding: '3%',
+    borderRadius: '50%',
+    width: '50%',
+    margin: '5%'
+  },
+  logInText: {
+    fontFamily: 'RobotoBold',
+    color: 'white',
+    fontSize: '20pt',
+    textAlign: 'center'
+  },
+  guestModeText: {
+    fontFamily: 'Roboto',
+    fontSize: '20pt',
+    textAlign: 'center',
+  },
+  guestModeContainer: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white'
   }
 });
