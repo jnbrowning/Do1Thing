@@ -238,19 +238,18 @@ marginTop: '35%'
   logInButton: {
     backgroundColor: '#1D7DAB',
     padding: '3%',
-    borderRadius: '50%',
     width: '50%',
     margin: '5%'
   },
   logInText: {
     fontFamily: 'RobotoBold',
     color: 'white',
-    fontSize: '20pt',
+    fontSize: 20,
     textAlign: 'center'
   },
   guestModeText: {
     fontFamily: 'Roboto',
-    fontSize: '20pt',
+    fontSize: 20,
     textAlign: 'center',
   },
   guestModeContainer: {

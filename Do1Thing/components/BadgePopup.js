@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "white",
         fontWeight: "bold",
-        fontSize: "18pt",
+        fontSize: 18,
         padding: '5%'
       },
       overlayView: {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
       },
       title: {
-        fontSize: '24pt',
+        fontSize: 24,
         textAlign: 'center',
         fontFamily: 'RobotoBold'
       },
@@ -73,18 +73,17 @@ const styles = StyleSheet.create({
         width: "50%",
         height: "10%",
         backgroundColor: "#1d7dab",
-        borderRadius: "70%",
         margin: '10%'
       },
       badgeTitle: {
         fontFamily: 'RobotoBold',
-        fontSize: '18pt',
+        fontSize:18,
         textAlign: 'center',
         margin: '5%'
       },
       badgeDescription: {
         fontFamily: 'Roboto',
-        fontSize: '16pt',
+        fontSize: 16,
         margin: '2%',
       }
   })

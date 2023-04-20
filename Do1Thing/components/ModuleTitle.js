@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
       padding: '1%',
       backgroundColor: '#1D7DAB',
       alignContent: 'center',
-      borderRadius: '10%',
       overflow: 'hidden',
     },
     backButton: {
