@@ -82,6 +82,8 @@ function ModuleCongrats({ navigation, route }) {
 
   const dispatch = useDispatch();
 
+  console.log("Module number: " + moduleNumber)
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -122,7 +124,7 @@ function ModuleCongrats({ navigation, route }) {
           title={<Text accessibilityLabel="done, button" variant="button" style={{ color: 'white', fontFamily: "Roboto", fontSize: 18 }}>Done</Text>}
           onPress={() => navigation.push('ModulesScreen')}
         />
-        {!hasBadge.current && <BadgePopup badgeID={moduleNumber + 1}> </BadgePopup>}
+        {!hasBadge.current && <BadgePopup badgeID={moduleNumber}> </BadgePopup>}
       </View>
       
       <Progress.Bar 

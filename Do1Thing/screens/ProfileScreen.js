@@ -86,15 +86,15 @@ const SvgIcon12 = findModuleIcon(12);
           <View style={styles.badgesSection}>
 
       <Image accessible={true} accessibilityLabel="active, sign up badge, image" source={require("../assets/badge_icons/Sign_Up_Icon.png")} style={styles.signUpIcon}/>
-      {currentUser.badges.includes(2) ? <SvgIcon1 accessible={true} accessibilityLabel="active, make a plan badge, image" style={styles.badge}/> : <Module1Locked accessible={true} accessibilityLabel="not active, make a plan badge, image" style={styles.badge}/> }
-      {currentUser.badges.includes(3) ? <SvgIcon2 accessible={true} accessibilityLabel="active, water badge, image" style={styles.badge}/> : <Module2Locked accessible={true} accessibilityLabel="not active, water badge, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(4) ? <SvgIcon3 accessible={true} accessibilityLabel="active, sheltering badge, image" style={styles.badge}/> : <Module3Locked accessible={true} accessibilityLabel="not active, sheltering badge, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(5) ? <SvgIcon4 accessible={true} accessibilityLabel="active, food badge, image" style={styles.badge}/> : <Module4Locked accessible={true} accessibilityLabel="not active, food badge, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(6) ? <SvgIcon5 accessible={true} accessibilityLabel="active, work, school, and communities badge, image" style={styles.badge}/> : <Module5Locked accessible={true} accessibilityLabel="not active, work, school, and communities badge, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(7) ? <SvgIcon6 accessible={true} accessibilityLabel="active, unique needs badge, image" style={styles.badge}/> : <Module6Locked accessible={true} accessibilityLabel="not active, unique needs, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(8) ? <SvgIcon7 accessible={true} accessibilityLabel="active, family communication plan badge, image" style={styles.badge}/> : <Module7Locked accessible={true} accessibilityLabel="not active, family communication plan badge, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(9) ? <SvgIcon8 accessible={true} accessibilityLabel="active, involved badge, image" style={styles.badge}/> : <Module8Locked accessible={true} accessibilityLabel="not active, involved badge, image" style={styles.badge}/>  }
-      {currentUser.badges.includes(10) ? <SvgIcon9 accessible={true} accessibilityLabel="active, informed badge, image" style={styles.badge}/> : <Module9Locked accessible={true} accessibilityLabel="not active, informed badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(1) ? <SvgIcon1 accessible={true} accessibilityLabel="active, make a plan badge, image" style={styles.badge}/> : <Module1Locked accessible={true} accessibilityLabel="not active, make a plan badge, image" style={styles.badge}/> }
+      {currentUser.badges.includes(2) ? <SvgIcon2 accessible={true} accessibilityLabel="active, water badge, image" style={styles.badge}/> : <Module2Locked accessible={true} accessibilityLabel="not active, water badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(3) ? <SvgIcon3 accessible={true} accessibilityLabel="active, sheltering badge, image" style={styles.badge}/> : <Module3Locked accessible={true} accessibilityLabel="not active, sheltering badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(4) ? <SvgIcon4 accessible={true} accessibilityLabel="active, food badge, image" style={styles.badge}/> : <Module4Locked accessible={true} accessibilityLabel="not active, food badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(5) ? <SvgIcon5 accessible={true} accessibilityLabel="active, work, school, and communities badge, image" style={styles.badge}/> : <Module5Locked accessible={true} accessibilityLabel="not active, work, school, and communities badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(6) ? <SvgIcon6 accessible={true} accessibilityLabel="active, unique needs badge, image" style={styles.badge}/> : <Module6Locked accessible={true} accessibilityLabel="not active, unique needs, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(7) ? <SvgIcon7 accessible={true} accessibilityLabel="active, family communication plan badge, image" style={styles.badge}/> : <Module7Locked accessible={true} accessibilityLabel="not active, family communication plan badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(8) ? <SvgIcon8 accessible={true} accessibilityLabel="active, involved badge, image" style={styles.badge}/> : <Module8Locked accessible={true} accessibilityLabel="not active, involved badge, image" style={styles.badge}/>  }
+      {currentUser.badges.includes(9) ? <SvgIcon9 accessible={true} accessibilityLabel="active, informed badge, image" style={styles.badge}/> : <Module9Locked accessible={true} accessibilityLabel="not active, informed badge, image" style={styles.badge}/>  }
       {currentUser.badges.includes(10) ? <SvgIcon10 accessible={true} accessibilityLabel="active, power badge, image" style={styles.badge}/> : <Module10Locked accessible={true} accessibilityLabel="not active, power badge, image" style={styles.badge}/>  }
       {currentUser.badges.includes(11) ? <SvgIcon11 accessible={true} accessibilityLabel="active, emergency supplies badge, image" style={styles.badge}/> : <Module11Locked accessible={true} accessibilityLabel="not active, emergency supplies badge, image" style={styles.badge}/> }
       {currentUser.badges.includes(12) ? <SvgIcon12 accessible={true} accessibilityLabel="active, first aid badge, image" style={styles.badge}/> : <Module12Locked accessible={true} accessibilityLabel="not active, first aid badge, image" style={styles.badge}/>  }
@@ -238,19 +238,18 @@ marginTop: '35%'
   logInButton: {
     backgroundColor: '#1D7DAB',
     padding: '3%',
-    borderRadius: '50%',
     width: '50%',
     margin: '5%'
   },
   logInText: {
     fontFamily: 'RobotoBold',
     color: 'white',
-    fontSize: '20pt',
+    fontSize: 20,
     textAlign: 'center'
   },
   guestModeText: {
     fontFamily: 'Roboto',
-    fontSize: '20pt',
+    fontSize: 20,
     textAlign: 'center',
   },
   guestModeContainer: {

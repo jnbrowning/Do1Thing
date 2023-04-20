@@ -137,7 +137,7 @@ const _createUser = async (action, dispatch) => {
   try {
     await setDoc(doc(collection(getDB(), userCollection), user.uid), {
       email: user.email,
-      badges: [],
+      badges: [0],
     })
   } catch (error) {
     console.log('Error creating user: ', error)
