@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'center',
         marginTop: 275,
-        borderRadius: '25%',
         padding: 20,
     },
     overlayHeader: {
@@ -202,7 +201,6 @@ const styles = StyleSheet.create({
       padding: '1%',
       backgroundColor: '#1D7DAB',
       alignContent: 'center',
-      borderRadius: '10%',
       overflow: 'hidden',
     },
     backButton: {
