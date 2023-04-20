@@ -59,6 +59,12 @@ function ModuleChecklist({ navigation, route }) {
     const disableButton = () => { return items.filter((item) => item.checked === true).length !== 3 ? true : false }
     const dispatch = useDispatch();
 
+    const loggedIn = useSelector((state) => {
+        if (state !== undefined){
+            return state.loggedIn;
+        }
+    })
+
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
@@ -100,7 +106,12 @@ function ModuleChecklist({ navigation, route }) {
                                 containerStyle={styles.checkboxContainer}
                                 checked={item.checked}
                                 onPress={async () => {
-                                    await saveAndDispatch({ type: actionTypes.TOGGLE_CHECKBOX, payload: { items: allItems, id: item.id, module: moduleNumber } }, dispatch);
+                                    if (loggedIn) {
+                                        await saveAndDispatch({ type: actionTypes.TOGGLE_CHECKBOX, payload: { items: allItems, id: item.id, module: moduleNumber } }, dispatch);
+                                    }
+                                    else {
+                                        console.log('Checkbox change rejected -- user is not loggedin')
+                                    }
                                 }}
                             />
                             <Text style={styles.itemText}>{item.text}</Text>

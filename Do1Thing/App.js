@@ -73,7 +73,7 @@ export default function App() {
                       }
                   />
                   <Tabs.Screen 
-                      name='ProfileScreen' 
+                      name='ProfileTab' 
                       component={UserTabStack}
                       options={{
                         title: 'Profile',

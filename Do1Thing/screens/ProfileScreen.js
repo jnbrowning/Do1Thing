@@ -9,10 +9,11 @@ import {
   Linking
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useFonts } from "expo-font";
 import { getFBAuth, saveAndDispatch, signOutFB } from "../data/DB";
+import { setLogin } from "../data/Actions";
 import { findModuleIcon } from '../data/ModuleInfo';
 import Module1Locked from '../assets/badge_icons/Make_a_Plan_Icon_Locked.svg'
 import Module2Locked from '../assets/badge_icons/Water_Icon_Locked.svg'
@@ -30,6 +31,8 @@ import Module12Locked from '../assets/badge_icons/First_Aid_Icon_Locked.svg'
 const auth = getFBAuth();
 
 export default function ProfileScreen({navigation}) {
+
+const dispatch = useDispatch();
 
 let customFonts = {
   Roboto: require("../assets/fonts/RobotoRegular.ttf"),

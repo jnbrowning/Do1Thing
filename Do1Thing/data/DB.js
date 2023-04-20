@@ -56,7 +56,6 @@ const subscribeToUsersCollection = (dispatch) => {
     const auth = getFBAuth();
 
     let newUser = findActiveUser(qSnap, auth);
-    console.log('\n\nusers coll updated:\n\n', newUser);
     if ((newUser.badges === undefined) && (auth.currentUser)) {
       console.log('This user has no badges field defined! Fixing... ')
       saveAndDispatch(editUser({ ...newUser, badges: [] }));
