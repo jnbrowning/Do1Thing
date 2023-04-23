@@ -25,8 +25,8 @@ const moduleButtonTextList = [
     'Work, School & Communities',
     'Unique Needs',
     'Family Communication Plan',
-    'Involved',
-    'Informed',
+    'Get Involved',
+    'Be Informed',
     'Power',
     'Emergency Supplies',
     'First Aid'
