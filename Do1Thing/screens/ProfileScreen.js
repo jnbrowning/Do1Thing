@@ -137,6 +137,8 @@ const SvgIcon12 = findModuleIcon(12);
       <View style={styles.guestModeContainer}>
           <Text style={styles.guestModeText}> You are currently in guest mode </Text>
           <TouchableOpacity 
+          accessibilityRole="button"
+          accessibilityLabel="log in"
           style={styles.logInButton}
           onPress={() => {
                               navigation.navigate('Login',{screen: 'LoginScreen'})

@@ -133,7 +133,7 @@ function ModuleChecklist({ navigation, route }) {
             :
             <View/>
         }
-        </View>
+        </View> 
     )
 }
 
@@ -192,7 +192,7 @@ const imageStyles = StyleSheet.create({
     },
     textContainer: {
         flex: 1,
-        height: 100, // Set the height of the text container to match the image height
+        // height: 100, // Set the height of the text container to match the image height
         marginLeft: 10,
     },
     text: {

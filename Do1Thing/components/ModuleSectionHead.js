@@ -153,10 +153,10 @@ const styles = StyleSheet.create({
       fontFamily: 'RobotoBold'
     },
     goalText: {
-      paddingLeft: '15%',
-      paddingRight: '15%',
-      paddingTop: '5%',
-      fontSize: 24,
+      paddingLeft: '10%',
+      paddingRight: '10%',
+      paddingTop: '3%',
+      fontSize: 22,
       fontFamily: 'RobotoBold',
       color: '#0E5681',
     },

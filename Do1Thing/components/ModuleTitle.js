@@ -6,6 +6,7 @@ import * as Progress from 'react-native-progress';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { findModuleIcon } from '../data/ModuleInfo';
 import { createRef } from "react";
+import { useSelector } from "react-redux";
 import { useFocusEffect } from '@react-navigation/native';
 import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
@@ -50,6 +51,12 @@ const ModuleTitle = ({navigation, route}) => {
 
   const SvgIcon = findModuleIcon(pageContent.content.moduleNum);
 
+  const loggedIn = useSelector((state) => {
+    if (state !== undefined){
+        return state.loggedIn;
+    }
+})
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -61,6 +68,7 @@ const ModuleTitle = ({navigation, route}) => {
           accessibilityLabel="back">
           <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
         </TouchableOpacity>
+        {loggedIn ? 
         <TouchableOpacity 
           accessible={headerLoad}
           style={styles.backButton} 
@@ -70,6 +78,9 @@ const ModuleTitle = ({navigation, route}) => {
           <MaterialCommunityIcons  accessible={false} name="format-list-checks" size={30} color="white" style={styles.checkButton}/>
           <Text accessible={false} style={{paddingLeft: '3%', alignSelf: 'center', fontSize: 14, fontFamily: 'RobotoBold'}}>{"Access\nChecklist"}</Text>
         </TouchableOpacity>
+        :
+        <View/>
+        }
       </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading} accessibilityRole='header' ref={inputRef}>Module {pageContent.content.moduleNum}</Text>

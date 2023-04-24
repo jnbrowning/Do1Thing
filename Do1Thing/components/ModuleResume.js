@@ -10,6 +10,7 @@ import { createRef } from "react";
 import { useFocusEffect } from '@react-navigation/native';
 import { AccessibilityInfo, findNodeHandle } from "react-native";
 import React from "react";
+import { useSelector } from "react-redux";
 
 function ModuleResume({navigation, route}) {
 
@@ -56,6 +57,12 @@ function ModuleResume({navigation, route}) {
     );
     // *********End Header Focus*********
 
+    const loggedIn = useSelector((state) => {
+      if (state !== undefined){
+          return state.loggedIn;
+      }
+  })
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -66,6 +73,7 @@ function ModuleResume({navigation, route}) {
       onPress={()=>navigation.navigate('ModulesScreen')}>
       <Ionicons accessible={false} name="chevron-back-circle-sharp" size={35} color='#1D7DAB'/>
         </TouchableOpacity>
+        {loggedIn ? 
         <TouchableOpacity 
         accessible={headerLoad} 
         style={styles.backButton} 
@@ -75,6 +83,9 @@ function ModuleResume({navigation, route}) {
           <MaterialCommunityIcons accessible={false} name="format-list-checks" size={30} color="white" style={styles.checkButton}/>
           <Text accessible={false} style={{paddingLeft: '3%', fontFamily: "RobotoBold", alignSelf: 'center', fontSize: 14}}>{"Access\nChecklist"}</Text>
         </TouchableOpacity>
+        :
+        <View/>
+}
       </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.moduleHeading} ref={inputRef} accessibilityRole="header">Module {pageContent.content.moduleNum}</Text>
