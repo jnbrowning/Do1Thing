@@ -1059,7 +1059,7 @@ const modules = [
                 buttonText: 'Start',
                 content: {
                     moduleNum: '8',
-                    moduleName: 'Involved',
+                    moduleName: 'Get Involved',
                     logo: require('../assets/module8/Get_Involved_Icon.svg'),
                     goal: 'Make your community stronger by getting trained and getting involved.',
                 }
@@ -1068,7 +1068,7 @@ const modules = [
                 pageType: 'ModuleSectionHead',
                 buttonText: "Let's Go",
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     sectionNum: '1',
                     sectionTitle: 'Connect with an isolated individual in your neighborhood or start a neighborhood organization',
                     image: require('../assets/module8/Involved_Sec1_Img1.png'),
@@ -1079,7 +1079,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: 'Isolated individuals are more vulnerable',
                     info: 'Isolated individuals are more vulnerable during and after a disaster. They are less likely to ask for help or follow emergency instructions.',
                     image: require('../assets/module8/Involved_Sec1_Img2.png'),
@@ -1090,7 +1090,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: 'Take time to meet them in your neighborhood',
                     info: 'Take time to meet them. Help them make a plan for emergencies, and include checking on them in your plan.',
                     image: require('../assets/module8/Involved_Sec1_Img3.png'),
@@ -1101,7 +1101,7 @@ const modules = [
                 pageType: 'ModuleSectionHead',
                 buttonText: "Let's Go",
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     sectionNum: '2',
                     sectionTitle: 'Promote emergency preparedness in your community',
                     image: require('../assets/module8/Involved_Sec2_Img1.png'),
@@ -1112,7 +1112,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: "MPost preparedness information",
                     info: 'Include a Do1Thing preparedness topic in newsletters or on bulletin boards each month.',
                     image: require('../assets/module8/Involved_Sec2_Img2.png'),
@@ -1123,7 +1123,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: "Make emergency kits for seniors and children",
                     info: 'Get a group together to make emergency kits for seniors or kids who stay home alone.',
                     image: require('../assets/module8/Involved_Sec2_Img3.png'),
@@ -1134,7 +1134,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: "Learn how others are promoting preparedness",
                     info: 'Find the materials that will work best for your organization and become a partner in preparing your community!',
                     image: require('../assets/module8/Involved_Sec2_Img4.png'),
@@ -1145,7 +1145,7 @@ const modules = [
                 pageType: 'ModuleSectionHead',
                 buttonText: "Let's Go",
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     sectionNum: '3',
                     sectionTitle: 'Become a volunteer in your community',
                     image: require('../assets/module8/Involved_Sec3_Img1.png'),
@@ -1156,7 +1156,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: "Sign up to volunteer",
                     info: 'If you are interested in helping in your community or other communities during a disaster, become a volunteer for your local Red Cross or Salvation Army chapter.',
                     image: require('../assets/module8/Involved_Sec3_Img2.png'),
@@ -1167,7 +1167,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: "Volunteer now",
                     info: 'Don’t wait for disaster to strike—volunteer now. These organizations won’t send untrained volunteers into disaster areas.',
                     image: require('../assets/module8/Involved_Sec3_Img3.png'),
@@ -1177,9 +1177,9 @@ const modules = [
             {
                 pageType: 'ModuleChecklist',
                 module: 8,
-                moduleName: 'Involved',
+                moduleName: 'Get Involved',
                 content: {
-                    mod: 'Module 8 - Involved',
+                    mod: 'Module 8 - Get Involved',
                     headText: '',
                     info: '',
                 }
@@ -1204,7 +1204,7 @@ const modules = [
                 buttonText: 'Start',
                 content: {
                     moduleNum: '9',
-                    moduleName: 'Informed',
+                    moduleName: 'Be Informed',
                     logo: require('../assets/module9/Information_Icon.svg'),
                     goal: 'Make sure everyone in your household can receive, understand, and act on information received in an emergency.',
                 }
@@ -1213,7 +1213,7 @@ const modules = [
                 pageType: 'ModuleSectionHead',
                 buttonText: "Let's Go",
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     sectionNum: '1',
                     sectionTitle: 'Make sure everyone in your family knows what to do when they hear emergency warnings',
                     image: require('../assets/module9/Informed_Sec1_Img1.png'),
@@ -1224,7 +1224,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: 'Warning Sirens',
                     info: 'Call your local fire department to find out if your area is covered by warning sires, when they are tested, and when they would be activated.',
                     image: require('../assets/module9/Informed_Sec1_Img2.png'),
@@ -1235,7 +1235,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: 'Other ways to get the message',
                     info: 'Some communities have other ways of warning residents. Call your police or fire department to find out how emergency warning messages will be sent. ',
                     image: require('../assets/module9/Informed_Sec1_Img3.png'),
@@ -1246,7 +1246,7 @@ const modules = [
                 pageType: 'ModuleSectionHead',
                 buttonText: "Let's Go",
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     sectionNum: '2',
                     sectionTitle: 'Get a NOAA Emergency Alert Radio',
                     image: require('../assets/module9/Informed_Sec2_Img1.png'),
@@ -1257,7 +1257,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: "Weather can change quickly",
                     info: 'Severe weather may strike when people are sleeping or unaware of the forecast. This can be deadly if people do not seek a safe shelter',
                     image: require('../assets/module9/Informed_Sec2_Img2.png'),
@@ -1268,7 +1268,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: "Get a weather radio",
                     info: 'A weather radio will wake you up in an emergency warning is issued.\n\nThey can be purchased at stores that sell electronics. Prices start at about $20.00',
                     image: require('../assets/module9/Informed_Sec2_Img3.png'),
@@ -1279,7 +1279,7 @@ const modules = [
                 pageType: 'ModuleSectionHead',
                 buttonText: "Let's Go",
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     sectionNum: '3',
                     sectionTitle: 'Make sure everyone in your household can communicate in a disaster',
                     image: require('../assets/module9/Informed_Sec3_Img1.png'),
@@ -1290,7 +1290,7 @@ const modules = [
                 pageType: 'ModuleImageOnly',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: "Make sure everyone in your household can communicate in a disaster",
                     image: require('../assets/module9/Informed_Sec3_Img2.png'),
                     altText: "infographic, image: man speaking, closed caption icon, alert icon with question mark, text: spoken word, there may be words or pictures on the tv screen that aren't said out loud. if you are blind or have low vision it might be hard to understand. close captioning, there might not be close captioning, words on the tv screen might be hard to read or might move too fast, clear alerts, messages might come from a computer or over a loud speaker. They might be hard to understand if you are hard of hearing or if you don't speak English well"
@@ -1300,7 +1300,7 @@ const modules = [
                 pageType: 'ModuleContent',
                 buttonText: 'Next',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: "Have someone to help with communication",
                     info: 'If you think you may not be able to understand emergency information, identify someone (or more than one person) that you can contact for help in an emergency.',
                     image: require('../assets/module9/Informed_Sec3_Img3.png'),
@@ -1312,7 +1312,7 @@ const modules = [
                 module: 9,
                 moduleName: 'Involved',
                 content: {
-                    mod: 'Module 9 - Informed',
+                    mod: 'Module 9 - Be Informed',
                     headText: '',
                     info: '',
                 }
